@@ -35,8 +35,10 @@ export default function Home() {
           <button onClick={renewData}>
              Renew Data
           </button>
-        </div>{
-          nationalData.length > 0 ? (
+        </div>
+        {console.log(nationalData)}
+        {
+          nationalData && (
             nationalData.map(d => (
               <div className="flag-area">
                 <p className="p">
@@ -96,8 +98,6 @@ export default function Home() {
                 </p>
               </div>
             ))
-          ) : (
-            <div/>
           )
         }
         <p className={styles.description}>
