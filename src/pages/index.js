@@ -38,66 +38,70 @@ export default function Home() {
         </div>
         {console.log(nationalData)}
         {
-          nationalData && (
+          nationalData.length > 0 ? (
             nationalData.map(d => (
               <div className="flag-area">
                 <p className="p">
-                  {d.id}
+                  {d.data.id}
                 </p>
                 <p className="p">
-                  {d.group.id}
+                  {d.data.group.id}
                 </p>
                 <p className="p">
-                  {d.group.name}
+                  {d.data.group.name}
                 </p>
                 <p className="p">
-                  {d.favorite ? "☆" : "×"}
+                  {d.data.favorite ? "☆" : "×"}
                 </p>
                 <p className="p">
-                  {d.name.katakana}
+                  {d.data.name.katakana}
                 </p>
                 <p className="p">
-                  {d.name.kanji}
+                  {d.data.name.kanji}
                 </p>
                 <p className="p">
                   {
-                    d.language.map(l => (
+                    d.data.language.map(l => (
                       `${l} / `
                     ))
                   }
                 </p>
                 <p className="p">
-                  {d.currency}
+                  {d.data.currency}
                 </p>
                 <p className="p">
-                  {d.capital}
+                  {d.data.capital}
                 </p>
                 <p className="p">
-                  {d.area}k㎡
+                  {d.data.area}k㎡
                 </p>
                 <p className="p">
-                  {d.population}人
+                  {d.data.population}人
                 </p>
                 <p className="p">
-                  {d.timeLag}
+                  {d.data.timeLag}
                 </p>
                 <p className="p">
-                  {d.sinse}
+                  {d.data.sinse}
                 </p>
                 <p className="p">
-                  {d.origin.name}
+                  {d.data.origin.name}
                 </p>
                 <p className="p">
-                  {d.origin.flag}
+                  {d.data.origin.flag}
                 </p>
                 <p className="p">
-                  {d.knowledge.title}
+                  {d.data.knowledge.title}
                 </p>
                 <p className="p">
-                  {d.knowledge.contents}
+                  {d.data.knowledge.contents}
                 </p>
               </div>
             ))
+          ) : (
+            <div>
+              Fetch Missed
+            </div>
           )
         }
         <p className={styles.description}>
