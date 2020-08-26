@@ -11,14 +11,13 @@ export default function Home() {
       const allData = await res.json()
       setNationalData(allData)
     }
-    console.log(nationalData)
     getData()
+    console.log(nationalData)
   }, [])
 
   async function renewData () {
     const response = await fetch('/api/addData')
     const data = await response.json()
-    setNationalData(data)
   }
 
   return (
