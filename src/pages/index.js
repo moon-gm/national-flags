@@ -8,7 +8,7 @@ export default function Home() {
   useEffect(() => {
     async function getData () {
       const res = await fetch('/api/allData')
-      const allData = res.json()
+      const allData = await res.json()
       setNationalData(allData)
     }
     console.log(nationalData)
@@ -17,7 +17,7 @@ export default function Home() {
 
   async function renewData () {
     const response = await fetch('/api/addData')
-    const data = response.json()
+    const data = await response.json()
     setNationalData(data)
   }
 
