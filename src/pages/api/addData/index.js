@@ -3,7 +3,7 @@ import faunadb from 'faunadb'
 // DBアクセス設定
 const secret = process.env.FAUNADB_SECRET_KEY_NATIONAL_FLAGS
 const q = faunadb.query
-const client = new faunadb. Client({secret})
+const client = new faunadb.Client({secret})
 
 // 追加データの設定
 import nationalDataAll from '../../../data/nationalData'
