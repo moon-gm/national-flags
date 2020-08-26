@@ -11,6 +11,7 @@ export default function Home() {
       const allData = res.json()
       setNationalData(allData)
     }
+    console.log(nationalData)
     getData()
   }, [])
 
@@ -36,7 +37,6 @@ export default function Home() {
              Renew Data
           </button>
         </div>
-        {console.log(nationalData)}
         {
           nationalData.length > 0 ? (
             nationalData.map(d => (

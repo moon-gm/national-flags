@@ -18,9 +18,7 @@ export default async (req, res) => {
         )
         // OK時のレスポンス
         res.status(200).json(addData.data)
-    }
-
-    catch (e) {
+    } catch (e) {
         // エラー時のレスポンス
         res.status(500).json({error: e.message})
     }
