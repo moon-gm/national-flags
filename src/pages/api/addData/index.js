@@ -10,6 +10,17 @@ import nationalDataAll from '../../../data/nationalData'
 
 export default async (req, res) => {
     try {
+        const init = await client.query(
+            q.Map(
+                q.Paginate(
+                    q.Match(
+                        q.Index('all_national_data')
+                    )
+                ),
+                ref => q.Delete(ref)
+            )
+        )
+
         const addData = await client.query(
             q.Map(
                 nationalDataAll,
