@@ -1,7 +1,7 @@
 import faunadb from 'faunadb'
 
 // DBアクセス設定
-const secret = process.env.FAUZNABD_SECRET_KEY_NATIONAL_FLAGS
+const secret = process.env.FAUNADB_SECRET_KEY_NATIONAL_FLAGS
 const q = faunadb.query
 const client = new faunadb. Client({secret})
 
