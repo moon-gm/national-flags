@@ -12,12 +12,14 @@ export default function Home() {
       setNationalData(allData)
     }
     getData()
-    console.log(nationalData)
+    console.log({useEffect: nationalData})
   }, [])
 
   async function renewData () {
     const response = await fetch('/api/addData')
     const data = await response.json()
+    setNationalData(data)
+    console.log({reNewBtn: nationalData})
   }
 
   return (
@@ -99,7 +101,7 @@ export default function Home() {
             ))
           ) : (
             <div>
-              Fetch Missed
+              Loading...
             </div>
           )
         }
