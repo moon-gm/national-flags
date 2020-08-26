@@ -10,13 +10,12 @@ export default async (req, res) => {
     try {
         const searchRef = await client.query(
             q.Update(
-                q.Paginate(q.Match(q.Index('all_national_data'), favorite),
+                q.Paginate(q.Match(q.Index('all_national_data'), favorite)),
                 {
                     "data": {
                         "favorite": true
                     }
                 }
-                )
             )
         )
         // OK時のレスポンス
