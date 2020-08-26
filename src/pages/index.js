@@ -12,7 +12,7 @@ export default function Home() {
       setNationalData(allData)
     }
     getData()
-  })
+  }, [])
 
   async function renewData () {
     const response = await fetch('/api/addData')
