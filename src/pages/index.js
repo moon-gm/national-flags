@@ -16,8 +16,8 @@ export default function Home() {
 
   async function renewData () {
     const response = await fetch('/api/addData')
-    const allData = response.json()
-    setNationalData(allData)
+    const data = response.json()
+    setNationalData(data)
   }
 
   return (
@@ -36,7 +36,7 @@ export default function Home() {
              Renew Data
           </button>
         </div>{
-          nationalData.length ? (
+          nationalData.length > 0 ? (
             nationalData.map(d => (
               <div className="flag-area">
                 <p className="p">
