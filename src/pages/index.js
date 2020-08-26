@@ -7,7 +7,7 @@ export default function Home() {
 
   useEffect(() => {
     async function getData () {
-      const res = await fetch('/api/allData')
+      const res = await fetch('/api/getAll')
       const allData = await res.json()
       setNationalData(allData)
     }
@@ -20,6 +20,14 @@ export default function Home() {
     const data = await response.json()
     setNationalData(data)
     console.log({reNewBtn: nationalData})
+  }
+
+  async function addFavorite (favoId) {
+    const searchRef = document.getElementById(favoId).innerText
+    const response = await fetch(`/api/addFavo/${searchRef}`)
+    const favoData = await response.json()
+    setNationalData(favoData)
+    console.log({addFavorite: nationalData})
   }
 
   return (
@@ -42,7 +50,7 @@ export default function Home() {
           nationalData.length > 0 ? (
             nationalData.map(d => (
               <div className="flag-area">
-                <p className="p">
+                <p className="p" id={d.data.id} onClick={addFavorite.bind(this, d.data.id)}>
                   {d.data.id}
                 </p>
                 <p className="p">
