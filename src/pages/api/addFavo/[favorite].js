@@ -12,8 +12,8 @@ export default async (req, res) => {
             q.Update(
                 q.Match(q.Index('all_national_data'), favorite),
                 {
-                    data: {
-                        favorite: true
+                    "data": {
+                        "favorite": true
                     }
                 }
             )
