@@ -15,19 +15,51 @@ export default function Home() {
     console.log({useEffect: nationalData})
   }, [])
 
-  async function renewData () {
+  async function update () {
     const response = await fetch('/api/addData')
     const data = await response.json()
     setNationalData(data)
     console.log({reNewBtn: nationalData})
   }
 
-  async function addFavorite (favoId) {
-    const searchRef = document.getElementById(favoId).innerText
-    const response = await fetch(`/api/addFavo/${searchRef}`)
-    const favoData = await response.json()
-    setNationalData(favoData)
-    console.log({addFavorite: nationalData})
+  async function searchTerm () {
+    // formのinputでname属性が[serchWord]の要素を取得
+    const elements = document.formOfSearch.searchWord
+
+    // 選択されたラジオボタンのvalueをselectValueに代入
+    for (var i = 0; i < elements.length; i++) {
+      if (elements[i].checked){
+        var selectValue = elements[i].value
+      }
+    }
+
+    // 入力値の取得
+    const searchTerm = document.getElementById('searchByName').value
+
+    // selectValueの値によって処理を分ける
+    if (selectValue === "nationalName") {
+
+      // 国名検索の場合
+      const res = await fetch(`/api/searchByName/${searchTerm}`)
+      const searchData = await res.json()
+      setNationalData(searchData)
+
+    } else if (selectValue === "capital") {
+
+      // 首都名検索の場合
+      const res = await fetch(`/api/searchByCapital/${searchTerm}`)
+      const searchData = await res.json()
+      setNationalData(searchData)
+
+    } else if (selectValue === "currency") {
+
+      // 通貨名検索の場合
+      const res = await fetch(`/api/searchByCurrency/${searchTerm}`)
+      const searchData = await res.json()
+      setNationalData(searchData)
+      
+    }
+    console.log({searchData: nationalData})
   }
 
   return (
@@ -42,15 +74,21 @@ export default function Home() {
           Welcome to <a href="https://nextjs.org">Next.js!</a>
         </h1>
         <div className="flag-area">
-          <button onClick={renewData}>
-             Renew Data
-          </button>
+            <p>DBのデータを更新<button onClick={update}>Update</button></p>
+          <form name="formOfSearch">
+            <lavel><input type="radio" name="searchWord" id="nationalName" value="nationalName"/>国名（カタカナ or 漢字）</lavel>
+            <lavel><input type="radio" name="searchWord" id="capital" value="capital"/>首都名（カタカナ or 漢字）</lavel>
+            <lavel><input type="radio" name="searchWord" id="currency" value="currency"/>通貨名（カタカナ or 漢字）</lavel>
+            <input type="text" name="searchByName" id="searchByName" placeholder="検索種別にチェックを入れて入力"/>
+            <input type="button" onClick={searchTerm} value="Search"/>
+          </form>
+
         </div>
         {
           nationalData.length > 0 ? (
             nationalData.map(d => (
               <div className="flag-area">
-                <p className="p" id={d.data.id} onClick={addFavorite.bind(this, d.data.id)}>
+                <p className="p" id={d.data.id}>
                   {d.data.id}
                 </p>
                 <p className="p">
@@ -88,10 +126,10 @@ export default function Home() {
                   {d.data.population}人
                 </p>
                 <p className="p">
-                  {d.data.timeLag}
+                  {d.data.timeLag}時間
                 </p>
                 <p className="p">
-                  {d.data.sinse}
+                  {d.data.sinse}年
                 </p>
                 <p className="p">
                   {d.data.origin.name}

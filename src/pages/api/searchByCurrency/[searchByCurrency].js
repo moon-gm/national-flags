@@ -6,21 +6,24 @@ const q = faunadb.query
 const client = new faunadb.Client({secret})
 
 export default async (req, res) => {
-    const {query: {searchTerms}} = req
+
+    // URLクエリ文字を取得
+    const {query: {searchByCurrency}} = req
+
     try {
         const search = await client.query(
             q.Map(
                 q.Paginate(
                     q.Match(
-                        q.Index('all_national_data'),
-                        searchTerms
+                        q.Index('national_data_search_by_currency'),
+                        searchByCurrency
                     )
                 ),
                 ref => q.Get(ref)
             )
         )
         // OK時のレスポンス
-        res.status(200).json(allData.data)
+        res.status(200).json(search.data)
     }
 
     catch (e) {
