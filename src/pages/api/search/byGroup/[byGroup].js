@@ -8,15 +8,15 @@ const client = new faunadb.Client({secret})
 export default async (req, res) => {
 
     // URLクエリ文字を取得
-    const {query: {searchByName}} = req
+    const {query: {byGroup}} = req
 
     try {
         const search = await client.query(
             q.Map(
                 q.Paginate(
                     q.Match(
-                        q.Index('national_data_search_by_name_katakana'),
-                        searchByName
+                        q.Index('national_data_search_by_group'),
+                        byGroup
                     )
                 ),
                 ref => q.Get(ref)

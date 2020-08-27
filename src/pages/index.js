@@ -40,21 +40,21 @@ export default function Home() {
     if (selectValue === "nationalName") {
 
       // 国名検索の場合
-      const res = await fetch(`/api/searchByName/${searchTerm}`)
+      const res = await fetch(`/api/search/byName/${searchTerm}`)
       const searchData = await res.json()
       setNationalData(searchData)
 
     } else if (selectValue === "capital") {
 
       // 首都名検索の場合
-      const res = await fetch(`/api/searchByCapital/${searchTerm}`)
+      const res = await fetch(`/api/search/byCapital/${searchTerm}`)
       const searchData = await res.json()
       setNationalData(searchData)
 
     } else if (selectValue === "currency") {
 
       // 通貨名検索の場合
-      const res = await fetch(`/api/searchByCurrency/${searchTerm}`)
+      const res = await fetch(`/api/search/byCurrency/${searchTerm}`)
       const searchData = await res.json()
       setNationalData(searchData)
       
@@ -96,9 +96,6 @@ export default function Home() {
                 </p>
                 <p className="p">
                   {d.data.group.name}
-                </p>
-                <p className="p">
-                  {d.data.favorite ? "☆" : "×"}
                 </p>
                 <p className="p">
                   {d.data.name.katakana}
