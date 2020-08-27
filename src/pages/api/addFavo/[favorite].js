@@ -9,17 +9,13 @@ export default async (req, res) => {
     const {query: {favorite}} = req
     try {
         const searchRef = await client.query(
-            q.Update(
+            q.Map(
                 q.Paginate(q.Match(q.Index('all_national_data'), favorite)),
-                {
-                    "data": {
-                        "favorite": true
-                    }
-                }
+                q.Lambda('data', q.Update(q.Var('data'), {data: {favorite: true}}))
             )
         )
         // OK時のレスポンス
-        res.status(200).json(addfavo.data)
+        res.status(200).json(searchRef.data)
     }
 
     catch (e) {
