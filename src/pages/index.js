@@ -5,11 +5,6 @@ export default function Home() {
   // 国データをnationalDataに入れて一時管理
   const [nationalData, setNationalData] = useState([])
 
-  // レンダー後の処理
-  useEffect(() => {
-    getAll()
-  }, [])
-
   // DBデータを全て取得する処理
   async function getAll () {
     const res = await fetch('/api/getAll')
@@ -127,11 +122,6 @@ export default function Home() {
                 <img src={`/${d.data.id}.png`} alt={d.data.name.katakana}/>
               </p>
 
-              {/* エリア名 */}
-              <p className="p" id={d.data.group.id}>
-                {d.data.group.name}
-              </p>
-
               {/* 国名（略式） */}
               <p className="p">
                 {d.data.name.katakana}
@@ -149,11 +139,17 @@ export default function Home() {
 
               {/* 言語 */}
               <p className="p">
-                {
-                  d.data.language.map(l => (
-                    `${l} / `
-                  ))
-                }
+                {d.data.language.map(l => {
+                  if (l === d.data.language.slice(-1)[0]) {
+                    return (
+                      l
+                    )
+                  } else {
+                    return(
+                      `${l} / `
+                    )
+                  }
+                })}
               </p>
 
               {/* 通貨 */}
@@ -183,7 +179,7 @@ export default function Home() {
 
               {/* 建国年 */}
               <p className="p">
-                {d.data.sinse}年
+                {d.data.since}年
               </p>
 
               {/* 国名由来 */}
