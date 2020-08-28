@@ -11,13 +11,13 @@ const Layout = ({children}) => {
       </Head>
 
       {/* ヘッダーエリア */}
-      <header>National Flags</header>
+      <header className="headerArea">National Flags</header>
 
       {/* メインエリア */}
-      <main>{children}</main>
+      <main className="mainArea">{children}</main>
 
       {/* フッターエリア */}
-      <footer>Powered by National Flags</footer>
+      <footer classNmae="footerArea">Powered by National Flags</footer>
     </>
   )
 }
