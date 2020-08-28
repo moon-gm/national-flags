@@ -2,25 +2,22 @@ import {useEffect, useState} from 'react'
 import styles from '../styles/Home.module.scss'
 
 export default function Home() {
+  // 国データをnationalDataに入れて一時管理
   const [nationalData, setNationalData] = useState([])
 
+  // レンダー後の処理
   useEffect(() => {
-    async function getData () {
-      const res = await fetch('/api/getAll')
-      const allData = await res.json()
-      setNationalData(allData)
-    }
-    getData()
-    console.log({useEffect: nationalData})
+    getAll()
   }, [])
 
-  async function update () {
-    const response = await fetch('/api/addData')
-    const data = await response.json()
-    setNationalData(data)
-    console.log({reNewBtn: nationalData})
+  // DBデータを全て取得する処理
+  async function getAll () {
+    const res = await fetch('/api/getAll')
+    const allData = await res.json()
+    setNationalData(allData)
   }
 
+  // DBデータをワード検索して取得する処理
   async function searchTerm () {
     // formのinputでname属性が[serchWord]の要素を取得
     const elements = document.formOfSearch.searchWord
@@ -58,14 +55,12 @@ export default function Home() {
       setNationalData(searchData)
       
     }
-    console.log({searchData: nationalData})
   }
 
   return (
-    <main className={styles.main}>
+    <>
 
-      <div className="flag-area">
-          <p>DBのデータを更新<button onClick={update}>Update</button></p>
+      <div className="searchArea">
           <form name="formOfSearch">
             <lavel><input type="radio" name="searchWord" id="nationalName" value="nationalName"/>国名（カタカナ or 漢字）</lavel>
             <lavel><input type="radio" name="searchWord" id="capital" value="capital"/>首都名（カタカナ or 漢字）</lavel>
@@ -77,26 +72,34 @@ export default function Home() {
 
       {nationalData.length > 0 ? (
           nationalData.map(d => (
-            <div className="flag-area">
+            <div className="dataArea">
+
+              {/* 画像 */}
               <p className="p" id={d.data.id}>
-                {d.data.id}
                 <img src={`/${d.data.id}.png`} alt={d.data.name.katakana}/>
               </p>
-              <p className="p">
-                {d.data.group.id}
-              </p>
-              <p className="p">
+
+              {/* エリア名 */}
+              <p className="p" id={d.data.group.id}>
                 {d.data.group.name}
               </p>
+
+              {/* 国名（略式） */}
               <p className="p">
                 {d.data.name.katakana}
               </p>
+
+              {/* 国名（正式） */}
               <p className="p">
                 {d.data.name.official}
               </p>
+
+              {/* 国名（漢字） */}
               <p className="p">
                 {d.data.name.kanji}
               </p>
+
+              {/* 言語 */}
               <p className="p">
                 {
                   d.data.language.map(l => (
@@ -104,36 +107,56 @@ export default function Home() {
                   ))
                 }
               </p>
+
+              {/* 通貨 */}
               <p className="p">
                 {d.data.currency}
               </p>
+
+              {/* 首都 */}
               <p className="p">
                 {d.data.capital}
               </p>
+
+              {/* 面積 */}
               <p className="p">
                 {d.data.area}k㎡
               </p>
+
+              {/* 人口 */}
               <p className="p">
                 {d.data.population}人
               </p>
+
+              {/* 時差 */}
               <p className="p">
                 {d.data.timeLag}時間
               </p>
+
+              {/* 建国年 */}
               <p className="p">
                 {d.data.sinse}年
               </p>
+
+              {/* 国名由来 */}
               <p className="p">
                 {d.data.origin.name}
               </p>
+
+              {/* 国旗の由来 */}
               <p className="p">
                 {d.data.origin.flag}
               </p>
+
+              {/* 豆知識（タイトル） */}
               <p className="p">
                 {d.data.knowledge.title}
               </p>
+              {/* 豆知識（コンテンツ」） */}
               <p className="p">
                 {d.data.knowledge.contents}
               </p>
+              
             </div>
           ))
         ) : (
@@ -145,12 +168,10 @@ export default function Home() {
       <div className={styles.grid}>
         <a href="https://nextjs.org/docs" className={styles.card}>
           <h3>アジア &rarr;</h3>
-          <p>Find in-depth information about Next.js features and API.</p>
         </a>
 
         <a href="https://nextjs.org/learn" className={styles.card}>
           <h3>ヨーロッパ &rarr;</h3>
-          <p>Learn about Next.js in an interactive course with quizzes!</p>
         </a>
 
         <a
@@ -158,7 +179,6 @@ export default function Home() {
           className={styles.card}
         >
           <h3>中東 &rarr;</h3>
-          <p>Discover and deploy boilerplate example Next.js projects.</p>
         </a>
 
         <a
@@ -166,47 +186,32 @@ export default function Home() {
           className={styles.card}
         >
           <h3>アフリカ &rarr;</h3>
-          <p>
-            Instantly deploy your Next.js site to a public URL with Vercel.
-          </p>
         </a>
         <a
           href="https://vercel.com/import?filter=next.js&utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app"
           className={styles.card}
         >
           <h3>オセアニア &rarr;</h3>
-          <p>
-            Instantly deploy your Next.js site to a public URL with Vercel.
-          </p>
         </a>
         <a
           href="https://vercel.com/import?filter=next.js&utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app"
           className={styles.card}
         >
           <h3>北アメリカ &rarr;</h3>
-          <p>
-            Instantly deploy your Next.js site to a public URL with Vercel.
-          </p>
         </a>
         <a
           href="https://vercel.com/import?filter=next.js&utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app"
           className={styles.card}
         >
           <h3>中央アメリカ &rarr;</h3>
-          <p>
-            Instantly deploy your Next.js site to a public URL with Vercel.
-          </p>
         </a>
         <a
           href="https://vercel.com/import?filter=next.js&utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app"
           className={styles.card}
         >
           <h3>南アメリカ &rarr;</h3>
-          <p>
-            Instantly deploy your Next.js site to a public URL with Vercel.
-          </p>
         </a>
       </div>
-    </main>
+    </>
   )
 }
