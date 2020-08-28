@@ -1,7 +1,11 @@
 import GroupPage from '../components/groupPage'
 
-export default function Africa() {
+export default function Africa({funcs, nationalData}) {
   return (
-    <GroupPage group="africa"/>
+    <GroupPage
+      group="africa"
+      funcs={funcs}
+      nationalData={nationalData}
+    />
   )
 }

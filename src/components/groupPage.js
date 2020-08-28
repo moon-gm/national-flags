@@ -1,11 +1,10 @@
 import { useEffect, useState} from 'react'
 import DataBox from './dataBox'
 import Navigation from './navigation'
-import Functions from '../functions/fetchAPI'
 
-export default function GroupPage({group}) {
+export default function GroupPage({group, funcs, nationalData}) {
   useEffect(()=> {
-    Functions.selectGroup(group)
+    funcs.selectGroup(group)
   ,[]})
 
   return (

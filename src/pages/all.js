@@ -1,11 +1,10 @@
 import { useEffect } from 'react'
 import DataBox from '../components/dataBox'
 import Navigation from '../components/navigation'
-import Functions from '../functions/fetchAPI'
 
-export default function AllArea() {
+export default function AllArea({funcs, nationalData}) {
   useEffect(()=> {
-    Functions.getAll
+    funcs.getAll
   ,[]})
 
   return (
