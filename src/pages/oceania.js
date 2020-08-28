@@ -1,5 +1,5 @@
 import { useEffect, useState} from 'react'
-import Link from 'nextg/link'
+import Link from 'next/link'
 import styles from '../styles/Home.module.scss'
 
 export default function Home() {
