@@ -1,4 +1,4 @@
-import GroupPage from '../components/groupPageBox'
+import GroupPage from '../components/groupPage'
 
 export default function Africa() {
   return (
