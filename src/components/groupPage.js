@@ -1,20 +1,12 @@
 import { useEffect, useState} from 'react'
 import DataBox from './dataBox'
 import Navigation from './navigation'
+import Functions from '../functions/fetchAPI'
 
 export default function GroupPage({group}) {
   useEffect(()=> {
-    selectGroup(group)
+    Functions.selectGroup(group)
   ,[]})
-
-  // 国データをnationalDataに入れて一時管理
-  const [nationalData, setNationalData] = useState([])
-
-  async function selectGroup (selectGroup) {
-    const res = await fetch(`/api/search/byGroup/${selectGroup}`)
-    const groupData = await res.json()
-    setNationalData(groupData)
-  }
 
   return (
     <>

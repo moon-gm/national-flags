@@ -1,20 +1,12 @@
-import { useEffect, useState} from 'react'
+import { useEffect } from 'react'
 import DataBox from '../components/dataBox'
 import Navigation from '../components/navigation'
+import Functions from '../functions/fetchAPI'
 
 export default function AllArea() {
-  // 国データをnationalDataに入れて一時管理
-  const [nationalData, setNationalData] = useState([])
   useEffect(()=> {
-    getAll()
+    Functions.getAll
   ,[]})
-
-  // DBデータを全て取得する処理
-  async function getAll () {
-    const res = await fetch('/api/getAll')
-    const allData = await res.json()
-    setNationalData(allData)
-  }
 
   return (
     <>
