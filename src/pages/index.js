@@ -18,15 +18,11 @@ export default function Home({funcs, nationalData}) {
 
       <Navigation/>
 
-      {nationalData.length > 0 ? (
-          nationalData.map(d => (
-           <DataBox d={d}/>
-          ))
-        ) : (
-          <div>
-            Loading...
-          </div>
-        )}
+      {nationalData && (
+        nationalData.map(d => (
+          <DataBox d={d}/>
+        ))
+      )}
     </>
   )
 }
