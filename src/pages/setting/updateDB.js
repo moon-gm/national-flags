@@ -1,5 +1,5 @@
-import {useEffect, useState} from 'react'
-import styles from '../styles/Home.module.scss'
+// import {useEffect, useState} from 'react'
+// import styles from '../styles/Home.module.scss'
 
 export default function UpdataDB() {
   // const [nationalData, setNationalData] = useState([])
@@ -12,10 +12,8 @@ export default function UpdataDB() {
   }
 
   return (
-    <main className={styles.main}>
-      <div className="flag-area">
-          <p>DBのデータを更新<button onClick={update}>Update</button></p>
-      </div>
-    </main>
+    <div className="flag-area">
+        <p>DBのデータを更新<button onClick={update}>Update</button></p>
+    </div>
   )
 }
