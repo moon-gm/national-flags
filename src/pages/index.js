@@ -70,6 +70,54 @@ export default function Home() {
           </form>
       </div>
 
+      <div className={styles.grid}>
+        <a href="https://nextjs.org/docs" className={styles.card}>
+          <h3>アジア &rarr;</h3>
+        </a>
+
+        <a href="https://nextjs.org/learn" className={styles.card}>
+          <h3>ヨーロッパ &rarr;</h3>
+        </a>
+
+        <a
+          href="https://github.com/vercel/next.js/tree/master/examples"
+          className={styles.card}
+        >
+          <h3>中東 &rarr;</h3>
+        </a>
+
+        <a
+          href="https://vercel.com/import?filter=next.js&utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app"
+          className={styles.card}
+        >
+          <h3>アフリカ &rarr;</h3>
+        </a>
+        <a
+          href="https://vercel.com/import?filter=next.js&utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app"
+          className={styles.card}
+        >
+          <h3>オセアニア &rarr;</h3>
+        </a>
+        <a
+          href="https://vercel.com/import?filter=next.js&utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app"
+          className={styles.card}
+        >
+          <h3>北アメリカ &rarr;</h3>
+        </a>
+        <a
+          href="https://vercel.com/import?filter=next.js&utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app"
+          className={styles.card}
+        >
+          <h3>中央アメリカ &rarr;</h3>
+        </a>
+        <a
+          href="https://vercel.com/import?filter=next.js&utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app"
+          className={styles.card}
+        >
+          <h3>南アメリカ &rarr;</h3>
+        </a>
+      </div>
+
       {nationalData.length > 0 ? (
           nationalData.map(d => (
             <div className="dataArea">
@@ -156,7 +204,7 @@ export default function Home() {
               <p className="p">
                 {d.data.knowledge.contents}
               </p>
-              
+
             </div>
           ))
         ) : (
@@ -164,54 +212,6 @@ export default function Home() {
             Loading...
           </div>
         )}
-
-      <div className={styles.grid}>
-        <a href="https://nextjs.org/docs" className={styles.card}>
-          <h3>アジア &rarr;</h3>
-        </a>
-
-        <a href="https://nextjs.org/learn" className={styles.card}>
-          <h3>ヨーロッパ &rarr;</h3>
-        </a>
-
-        <a
-          href="https://github.com/vercel/next.js/tree/master/examples"
-          className={styles.card}
-        >
-          <h3>中東 &rarr;</h3>
-        </a>
-
-        <a
-          href="https://vercel.com/import?filter=next.js&utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app"
-          className={styles.card}
-        >
-          <h3>アフリカ &rarr;</h3>
-        </a>
-        <a
-          href="https://vercel.com/import?filter=next.js&utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app"
-          className={styles.card}
-        >
-          <h3>オセアニア &rarr;</h3>
-        </a>
-        <a
-          href="https://vercel.com/import?filter=next.js&utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app"
-          className={styles.card}
-        >
-          <h3>北アメリカ &rarr;</h3>
-        </a>
-        <a
-          href="https://vercel.com/import?filter=next.js&utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app"
-          className={styles.card}
-        >
-          <h3>中央アメリカ &rarr;</h3>
-        </a>
-        <a
-          href="https://vercel.com/import?filter=next.js&utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app"
-          className={styles.card}
-        >
-          <h3>南アメリカ &rarr;</h3>
-        </a>
-      </div>
     </>
   )
 }
