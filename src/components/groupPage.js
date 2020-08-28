@@ -11,15 +11,11 @@ export default function GroupPage({group, funcs, nationalData}) {
     <>
       <Navigation/>
 
-      {nationalData.length > 0 ? (
+      {nationalData && (
           nationalData.map(d => (
             <DataBox d={d}/>
           ))
-        ) : (
-          <div>
-            Loading...
-          </div>
-        )}
+      )}
     </>
   )
 }
