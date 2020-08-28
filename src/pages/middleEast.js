@@ -18,7 +18,7 @@ export default function MiddleEast() {
 
   return (
     <>
-     <Naviation/>
+     <Navigation/>
 
       {nationalData.length > 0 ? (
           nationalData.map(d => (
