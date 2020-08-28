@@ -1,17 +1,14 @@
-import {useState} from 'react'
-import Link from 'next/link'
+import { useEffect, useState} from 'react'
+import Link from 'nextg/link'
 import styles from '../styles/Home.module.scss'
 
 export default function Home() {
+  useEffect(()=> {
+    selectGroup('northAmerica')
+  ,[]})
+
   // 国データをnationalDataに入れて一時管理
   const [nationalData, setNationalData] = useState([])
-
-  // DBデータを全て取得する処理
-  async function getAll () {
-    const res = await fetch('/api/getAll')
-    const allData = await res.json()
-    setNationalData(allData)
-  }
 
   // DBデータをワード検索して取得する処理
   async function searchTerm () {
