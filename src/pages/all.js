@@ -4,7 +4,7 @@ import Navigation from '../components/navigation'
 
 export default function AllArea({funcs, nationalData}) {
   useEffect(()=> {
-    funcs.getAll
+    funcs.getAll()
   ,[]})
 
   return (
