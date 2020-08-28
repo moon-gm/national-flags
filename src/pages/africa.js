@@ -1,15 +1,15 @@
 import { useEffect, useState} from 'react'
-import Link from 'next/link'
-import styles from '../styles/Home.module.scss'
+import DataBox from '../components/dataBox'
+import Navigation from '../components/navigation'
 
 export default function Africa() {
   useEffect(()=> {
     selectGroup('africa')
   ,[]})
 
-    // 国データをnationalDataに入れて一時管理
-    const [nationalData, setNationalData] = useState([])
-    
+  // 国データをnationalDataに入れて一時管理
+  const [nationalData, setNationalData] = useState([])
+
   async function selectGroup (selectGroup) {
     const res = await fetch(`/api/search/byGroup/${selectGroup}`)
     const groupData = await res.json()
@@ -18,149 +18,11 @@ export default function Africa() {
 
   return (
     <>
-      <div className={styles.grid}>
-        <Link href="/asia" className={styles.card}>
-          <h3>アジア &rarr;</h3>
-        </Link>
-
-        <Link href="/europe" className={styles.card}>
-          <h3>ヨーロッパ &rarr;</h3>
-        </Link>
-
-        <Link
-          href="/middleEast"
-          className={styles.card}
-        >
-          <h3>中東 &rarr;</h3>
-        </Link>
-
-        <Link
-          href="/africa"
-          className={styles.card}
-        >
-          <h3>アフリカ &rarr;</h3>
-        </Link>
-        <Link
-          href="/oceania"
-          className={styles.card}
-        >
-          <h3>オセアニア &rarr;</h3>
-        </Link>
-        <Link
-          href="/northAmerica"
-          className={styles.card}
-        >
-          <h3>北アメリカ &rarr;</h3>
-        </Link>
-        <Link
-          href="/centralAmerica"
-          className={styles.card}
-        >
-          <h3>中央アメリカ &rarr;</h3>
-        </Link>
-        <Link
-          href="/southAmerica"
-          className={styles.card}
-        >
-          <h3>南アメリカ &rarr;</h3>
-        </Link>
-        <Link
-          href="/all"
-          className={styles.card}
-        >
-          <h3>全て &rarr;</h3>
-        </Link>
-      </div>
+      <Navigation/>
 
       {nationalData.length > 0 ? (
           nationalData.map(d => (
-            <div className="dataArea">
-
-              {/* 画像 */}
-              <p className="p" id={d.data.id}>
-                <img src={`/${d.data.id}.png`} alt={d.data.name.katakana}/>
-              </p>
-
-              {/* 国名（略式） */}
-              <p className="p">
-                {d.data.name.katakana}
-              </p>
-
-              {/* 国名（正式） */}
-              <p className="p">
-                {d.data.name.official}
-              </p>
-
-              {/* 国名（漢字） */}
-              <p className="p">
-                {d.data.name.kanji}
-              </p>
-
-              {/* 言語 */}
-              <p className="p">
-                {d.data.language.map(l => {
-                  if (l === d.data.language.slice(-1)[0]) {
-                    return (
-                      l
-                    )
-                  } else {
-                    return(
-                      `${l} / `
-                    )
-                  }
-                })}
-              </p>
-
-              {/* 通貨 */}
-              <p className="p">
-                {d.data.currency}
-              </p>
-
-              {/* 首都 */}
-              <p className="p">
-                {d.data.capital}
-              </p>
-
-              {/* 面積 */}
-              <p className="p">
-                {d.data.area}k㎡
-              </p>
-
-              {/* 人口 */}
-              <p className="p">
-                {d.data.population}人
-              </p>
-
-              {/* 時差 */}
-              <p className="p">
-                {d.data.timeLag}時間
-              </p>
-
-              {/* 建国年 */}
-              <p className="p">
-                {d.data.since}年
-              </p>
-
-              {/* 国名由来 */}
-              <p className="p">
-                {d.data.origin.name}
-              </p>
-
-              {/* 国旗の由来 */}
-              <p className="p">
-                {d.data.origin.flag}
-              </p>
-
-              {/* 豆知識（タイトル） */}
-              <p className="p">
-                {d.data.knowledge.title}
-              </p>
-              {/* 豆知識（コンテンツ」） */}
-              <p className="p">
-                {d.data.knowledge.contents}
-              </p>
-
-            </div>
+            <DataBox d={d}/>
           ))
         ) : (
           <div>
