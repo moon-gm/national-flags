@@ -1,3 +1,5 @@
+import { useState } from 'react'
+
 // ----- 国データをnationalDataに入れて一時管理 -----
 const [nationalData, setNationalData] = useState([])
 
