@@ -492,7 +492,7 @@ export default [
         data: {
             id: "argentine", // 国家識別ID（画像名でも使用）
             group: {
-                id: " southAmerica", // 所在エリア識別ID
+                id: "southAmerica", // 所在エリア識別ID
                 name: "南アメリカ" // 所在エリア名
             },
             name: {
@@ -522,7 +522,7 @@ export default [
         data: {
             id: "uruguay", // 国家識別ID（画像名でも使用）
             group: {
-                id: " southAmerica", // 所在エリア識別ID
+                id: "southAmerica", // 所在エリア識別ID
                 name: "南アメリカ" // 所在エリア名
             },
             name: {
