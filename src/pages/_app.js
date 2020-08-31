@@ -39,7 +39,7 @@ class Layout extends React.Component {
         <main className="mainArea">{newChildren}</main>
   
         {/* フッターエリア */}
-        <footer classNmae="footerArea">Powered by National Flags</footer>
+        <footer className="footerArea">Presented by National Flags</footer>
       </>
     )
   }

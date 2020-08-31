@@ -13,7 +13,10 @@ export default function GroupPage({group, funcs, nationalData}) {
 
       {nationalData && (
           nationalData.map(d => (
-            <DataBox d={d}/>
+            <DataBox
+              d={d}
+              key={d.data.id}
+            />
           ))
       )}
     </>

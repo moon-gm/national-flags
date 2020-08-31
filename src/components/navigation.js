@@ -5,63 +5,41 @@ export default function Navigation() {
     return (
         <div className={styles.grid}>
 
-            <Link href="/asia" className={styles.card}>
-                <h3>アジア &rarr;</h3>
+            <Link href="/asia">
+                <h3 className={styles.card}>アジア &rarr;</h3>
             </Link>
 
-            <Link href="/europe" className={styles.card}>
-                <h3>ヨーロッパ &rarr;</h3>
+            <Link href="/europe">
+                <h3 className={styles.card}>ヨーロッパ &rarr;</h3>
             </Link>
 
-            <Link
-                href="/middleEast"
-                className={styles.card}
-            >
-                <h3>中東 &rarr;</h3>
+            <Link href="/middleEast">
+                <h3 className={styles.card}>中東 &rarr;</h3>
             </Link>
 
-            <Link
-                href="/africa"
-                className={styles.card}
-            >
-                <h3>アフリカ &rarr;</h3>
+            <Link href="/africa">
+                <h3 className={styles.card}>アフリカ &rarr;</h3>
             </Link>
 
-            <Link
-                href="/oceania"
-                className={styles.card}
-            >
-                <h3>オセアニア &rarr;</h3>
+            <Link href="/oceania">
+                <h3 className={styles.card}>オセアニア &rarr;</h3>
             </Link>
 
-            <Link
-                href="/northAmerica"
-                className={styles.card}
-            >
-             <h3>北アメリカ &rarr;</h3>
+            <Link href="/northAmerica">
+                <h3 className={styles.card}>北アメリカ &rarr;</h3>
             </Link>
 
-            <Link
-                href="/centralAmerica"
-                className={styles.card}
-            >
-                <h3>中央アメリカ &rarr;</h3>
+            <Link href="/centralAmerica">
+                <h3 className={styles.card}>中央アメリカ &rarr;</h3>
             </Link>
 
-            <Link
-                href="/southAmerica"
-                className={styles.card}
-            >
-                <h3>南アメリカ &rarr;</h3>
+            <Link href="/southAmerica">
+                <h3 className={styles.card}>南アメリカ &rarr;</h3>
             </Link>
 
-            <Link
-                href="/all"
-                className={styles.card}
-            >
-                <h3>全て &rarr;</h3>
+            <Link href="/all">
+                <h3 className={styles.card}>全ての国々 &rarr;</h3>
             </Link>
-            
-      </div>
+        </div>
     )
 }
