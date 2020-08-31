@@ -6,8 +6,18 @@ export default function Home() {
 	// ----- 取得したデータを管理する「state(data)」を作成 -----
 	const [data, setData] = useState([])
 
+	// ----- 検索項目のデータを設定-----
+	const searchList = [
+		{id: "nationalName", name: "国名", apiPath: "byName"},
+		{id: "capital", name: "首都名", apiPath: "byCapital"},
+		{id: "currency", name: "通貨名", apiPath: "byCurrency"},
+		{id: "language", name: "言語名", apiPath: "byLanguage"},
+		{id: "timeLag", name: "時差（時間）", apiPath: "byTimeLag"},
+		{id: "since", name: "建国年", apiPath: "bySince"},
+	]
+
 	// ----- DBデータをワード検索して取得する処理 -----
-	async function searchTerm () {
+	async function searchTerm() {
 
 		// formのinputでname属性が[serchWord]の要素を取得
 		const elements = document.formOfSearch.searchWord
@@ -19,32 +29,21 @@ export default function Home() {
 			}
 		}
 
+		// 検索種別の設定
+		var searchType = undefined
+		searchList.map(item => {
+			if (item.id === selectValue) {
+				searchType = item.apiPath
+			}
+		})
+
 		// 入力値の取得
-		const searchTerm = document.getElementById('searchByName').value
+		const searchTerm = document.getElementById('searchInput').value
 
 		// selectValueの値によって処理を分ける
-		if (selectValue === "nationalName") {
-
-			// 国名検索の場合
-			const res = await fetch(`/api/search/byName/${searchTerm}`)
-			const searchData = await res.json()
-			setData(searchData)
-
-		} else if (selectValue === "capital") {
-
-			// 首都名検索の場合
-			const res = await fetch(`/api/search/byCapital/${searchTerm}`)
-			const searchData = await res.json()
-			setData(searchData)
-
-		} else if (selectValue === "currency") {
-
-			// 通貨名検索の場合
-			const res = await fetch(`/api/search/byCurrency/${searchTerm}`)
-			const searchData = await res.json()
-			setData(searchData)
-
-		}
+		const res = await fetch(`/api/search/${searchType}/${searchTerm}`)
+		const searchData = await res.json()
+		setData(searchData)
 	}
 
 	return (
@@ -52,10 +51,22 @@ export default function Home() {
 			{/* 検索エリア */}
 			<div className="searchArea">
 				<form name="formOfSearch">
-					<label><input type="radio" name="searchWord" id="nationalName" value="nationalName"/>国名（カタカナ or 漢字）</label>
-					<label><input type="radio" name="searchWord" id="capital" value="capital"/>首都名（カタカナ or 漢字）</label>
-					<label><input type="radio" name="searchWord" id="currency" value="currency"/>通貨名（カタカナ or 漢字）</label>
-					<input type="text" name="searchByName" id="searchByName" placeholder="検索種別にチェックを入れて入力"/>
+					{
+						searchList.map(item => {
+							return (
+								<label>
+									<input
+										type="radio"
+										name="searchWord"
+										id={item.id}
+										value={item.id}
+									/>
+									{item.name}
+								</label>
+							)
+						})
+					}
+					<input type="text" name="searchInput" id="searchInput" placeholder="検索種別にチェックを入れて入力"/>
 					<input type="button" onClick={searchTerm} value="Search"/>
 				</form>
 			</div>

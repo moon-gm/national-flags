@@ -11,7 +11,8 @@ export default [
             name: {
                 katakana: "インド", // 国名
                 official: "インド", // 正式国名
-                kanji: "印" // 国名（漢字略字）
+                kanji: "印", // 国名（漢字略字）
+                search: ["インド", "いんど", "indo", "inndo", "印", "印国", "india"], // 検索用国名
             },
             language: ["ヒンディー語", "英語", "他"], // 使用言語（複数の場合のため、配列）
             currency: "ルピー", // 通貨
@@ -41,7 +42,8 @@ export default [
             name: {
                 katakana: "インドネシア", // 国名
                 official: "インドネシア共和国", // 正式国名
-                kanji: "尼" // 国名（漢字略字）
+				kanji: "尼", // 国名（漢字略字）
+				search: ["インドネシア", "いんどねしあ", "indonesia", "indoneshia", "尼", "尼国", "indianesia"], // 検索用国名
             },
             language: ["インドネシア語"], // 使用言語（複数の場合のため、配列）
             currency: "ルピア", // 通貨
@@ -71,7 +73,8 @@ export default [
             name: {
                 katakana: "韓国", // 国名
                 official: "大韓民国", // 正式国名
-                kanji: "韓" // 国名（漢字略字）
+				kanji: "韓", // 国名（漢字略字）
+				search: ["カンコク", "かんこく", "kannkoku", "kankoku", "韓", "韓国", "大韓民国", "korea"], // 検索用国名
             },
             language: ["韓国語"], // 使用言語（複数の場合のため、配列）
             currency: "ウォン", // 通貨
@@ -101,7 +104,8 @@ export default [
             name: {
                 katakana: "カンボジア", // 国名
                 official: "カンボジア王国", // 正式国名
-                kanji: "柬" // 国名（漢字略字）
+				kanji: "柬", // 国名（漢字略字）
+				search: ["カンボジア", "かんぼじあ", "kannbojia", "kanbojia", "柬", "柬国", "カンボジア王国", "cambodia"], // 検索用国名
             },
             language: ["カンボジア語"], // 使用言語（複数の場合のため、配列）
             currency: "リエル", // 通貨
@@ -132,7 +136,8 @@ export default [
             name: {
                 katakana: "アイスランド", // 国名
                 official: "アイスランド共和国", // 正式国名
-                kanji: "氷島" // 国名（漢字略字）
+				kanji: "氷島", // 国名（漢字略字）
+				search: ["アイスランド", "あいすらんど", "aisurando", "aisuranndo", "氷島", "アイスランド共和国", "iceland"], // 検索用国名
             },
             language: ["アイスランド語"], // 使用言語（複数の場合のため、配列）
             currency: "アイスランドクローナ", // 通貨
@@ -162,7 +167,8 @@ export default [
             name: {
                 katakana: "アイルランド", // 国名
                 official: "アイルランド", // 正式国名
-                kanji: "愛" // 国名（漢字略字）
+				kanji: "愛", // 国名（漢字略字）
+				search: ["アイルランド", "あいるらんど", "airuranndo", "airurando", "愛", "愛国", "ireland"], // 検索用国名
             },
             language: ["アイルランド語"], // 使用言語（複数の場合のため、配列）
             currency: "ユーロ", // 通貨
@@ -193,7 +199,8 @@ export default [
             name: {
                 katakana: "アフガニスタン", // 国名
                 official: "アフガニスタン・イスラム共和国", // 正式国名
-                kanji: "-" // 国名（漢字略字）
+				kanji: "-", // 国名（漢字略字）
+				search: ["アフガニスタン", "あふがにすたん", "アフガン", "イスラム共和国", "afghanistan", "アフガニスタン・イスラム共和国", "ahuganisutan"], // 検索用国名
             },
             language: ["ダリー語", "パシュトゥー語", "他"], // 使用言語（複数の場合のため、配列）
             currency: "アフガニー", // 通貨
@@ -223,7 +230,8 @@ export default [
             name: {
                 katakana: "アラブ首長国連邦", // 国名
                 official: "アラブ首長国連邦", // 正式国名
-                kanji: "-" // 国名（漢字略字）
+				kanji: "-", // 国名（漢字略字）
+				search: ["アラブ首長国連邦", "アラブ", "UAE", "arab", "united arab emirates", "emirates", "印国", "あらぶ"], // 検索用国名
             },
             language: ["アラビア語"], // 使用言語（複数の場合のため、配列）
             currency: "ディルハム", // 通貨
@@ -254,7 +262,8 @@ export default [
             name: {
                 katakana: "アルジェリア", // 国名
                 official: "アルジェリア民主人民共和国", // 正式国名
-                kanji: "-" // 国名（漢字略字）
+				kanji: "-", // 国名（漢字略字）
+				search: ["アルジェリア", "あるじぇりあ", "algeria", "arujeria", "アルジェリア民主人民共和国", "アルジェ", ], // 検索用国名
             },
             language: ["アラビア語", "ベルベル語", "フランス語"], // 使用言語（複数の場合のため、配列）
             currency: "アルジェリアン・ディナール", // 通貨
@@ -284,7 +293,8 @@ export default [
             name: {
                 katakana: "アンゴラ", // 国名
                 official: "アンゴラ共和国", // 正式国名
-                kanji: "-" // 国名（漢字略字）
+				kanji: "-", // 国名（漢字略字）
+				search: ["アンゴラ", "あんごら", "angora", "anngora", "アンゴラ共和国", "angola", ], // 検索用国名
             },
             language: ["ポルトガル語", "ウンブンドゥ語", "他"], // 使用言語（複数の場合のため、配列）
             currency: "クワンザ", // 通貨
@@ -315,7 +325,8 @@ export default [
             name: {
                 katakana: "オーストラリア", // 国名
                 official: "オーストラリア連邦", // 正式国名
-                kanji: "豪" // 国名（漢字略字）
+				kanji: "豪", // 国名（漢字略字）
+				search: ["オーストラリア", "おーすとらりあ", "o-sutoraria", "オースト", "豪", "豪国", "オーストラリア連邦", "australia"], // 検索用国名
             },
             language: ["英語"], // 使用言語（複数の場合のため、配列）
             currency: "オーストラリアドル", // 通貨
@@ -345,7 +356,8 @@ export default [
             name: {
                 katakana: "キリバス", // 国名
                 official: "キリバス共和国", // 正式国名
-                kanji: "-" // 国名（漢字略字）
+				kanji: "-", // 国名（漢字略字）
+				search: ["キリバス", "きりばす", "kiribasu", "kiribati", "キリバス共和国",], // 検索用国名
             },
             language: ["キリバス語", "英語"], // 使用言語（複数の場合のため、配列）
             currency: "オーストラリアドル", // 通貨
@@ -376,7 +388,8 @@ export default [
             name: {
                 katakana: "アメリカ", // 国名
                 official: "アメリカ合衆国", // 正式国名
-                kanji: "米" // 国名（漢字略字）
+				kanji: "米", // 国名（漢字略字）
+				search: ["アメリカ", "あめりか", "amerika", "america", "米", "米国", "アメリカ合衆国", "USA"], // 検索用国名
             },
             language: ["英語"], // 使用言語（複数の場合のため、配列）
             currency: "アメリカドル", // 通貨
@@ -406,7 +419,8 @@ export default [
             name: {
                 katakana: "カナダ", // 国名
                 official: "カナダ", // 正式国名
-                kanji: "加" // 国名（漢字略字）
+				kanji: "加", // 国名（漢字略字）
+				search: ["カナダ", "かなだ", "kanada", "canada", "加", "加国", ], // 検索用国名
             },
             language: ["英語", "フランス語"], // 使用言語（複数の場合のため、配列）
             currency: "カナダドル", // 通貨
@@ -437,7 +451,8 @@ export default [
             name: {
                 katakana: "アンティグア・バーブーダ", // 国名
                 official: "アンティグア・バーブーダ", // 正式国名
-                kanji: "-" // 国名（漢字略字）
+				kanji: "-", // 国名（漢字略字）
+				search: ["アンティグア・バーブーダ", "アンティグア", "バーブーダ", "antidua and barbuda", "antidua", "barbuda", ], // 検索用国名
             },
             language: ["英語"], // 使用言語（複数の場合のため、配列）
             currency: "東カリブドル", // 通貨
@@ -467,7 +482,8 @@ export default [
             name: {
                 katakana: "エルサルバドル", // 国名
                 official: "エルサルバドル共和国", // 正式国名
-                kanji: "救世主国" // 国名（漢字略字）
+				kanji: "救世主国", // 国名（漢字略字）
+				search: ["エルサルバドル", "えるさるばどる", "erusarubadoru", "el salvador", "salvador", "救世主国", "救世主", "サルバドール", "エルサルバドル共和国"], // 検索用国名
             },
             language: ["スペイン語"], // 使用言語（複数の場合のため、配列）
             currency: "アメリカドル / コロン", // 通貨
@@ -498,7 +514,8 @@ export default [
             name: {
                 katakana: "アルゼンチン", // 国名
                 official: "アルゼンチン共和国", // 正式国名
-                kanji: "爾" // 国名（漢字略字）
+				kanji: "爾", // 国名（漢字略字）
+				search: ["アルゼンチン", "あるぜんちん", "aruzenchin", "アルゼンチン共和国", "爾", "爾国", "argentine",], // 検索用国名
             },
             language: ["スペイン語"], // 使用言語（複数の場合のため、配列）
             currency: "ペソ", // 通貨
@@ -528,7 +545,8 @@ export default [
             name: {
                 katakana: "ウルグアイ", // 国名
                 official: "ウルグアイ共和国", // 正式国名
-                kanji: "-" // 国名（漢字略字）
+				kanji: "-", // 国名（漢字略字）
+				search: ["ウルグアイ", "うるぐあい", "uruguai", "uruguay", "ウルグアイ共和国"], // 検索用国名
             },
             language: ["スペイン語"], // 使用言語（複数の場合のため、配列）
             currency: "ペソ", // 通貨
