@@ -1,21 +1,6 @@
-import { useEffect } from 'react'
-import DataBox from '../components/dataBox'
-import Navigation from '../components/navigation'
+import GroupPage from '../components/groupPage'
 
-export default function AllArea({funcs, nationalData}) {
-  useEffect(()=> {
-    funcs.getAll()
-  ,[]})
-
-  return (
-    <>
-      <Navigation/>
-
-      {nationalData &&  (
-        nationalData.map(d => (
-          <DataBox d={d}/>
-        ))
-      )}
-    </>
-  )
-}
+const All = () => (
+	<GroupPage group="all"/>
+)
+export default All

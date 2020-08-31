@@ -1,11 +1,6 @@
 import GroupPage from '../components/groupPage'
 
-export default function Oceania({funcs, nationalData}) {
-  return (
-    <GroupPage
-      group="oceania"
-      funcs={funcs}
-      nationalData={nationalData}
-    />
-  )
-}
+const Oceania = () => (
+	<GroupPage group="oceania"/>
+)
+export default Oceania

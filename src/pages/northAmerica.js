@@ -1,11 +1,6 @@
 import GroupPage from '../components/groupPage'
 
-export default function NorthAmerica({funcs, nationalData}) {
-  return (
-    <GroupPage
-      group="northAmerica"
-      funcs={funcs}
-      nationalData={nationalData}
-    />
-  )
-}
+const NorthAmerica = () => (
+	<GroupPage group="northAmerica"/>
+)
+export default NorthAmerica
