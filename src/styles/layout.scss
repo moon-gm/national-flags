@@ -1,0 +1,40 @@
+/** レイアウト設定 **/
+@import 'variable';
+
+:global {
+	.container {
+
+		// ヘッダーエリア
+		.headerArea {
+			width: 100%;
+			padding: 10px 20px;
+
+			font-family: 'Lobster', cursive;
+			font-size: 40px;
+			font-weight: bold;
+			font-style: italic;
+		}
+
+		// ナビゲーションエリア
+		.navigationArea {
+			width: 100%;
+			padding: 10px 20px;
+			margin: 0 auto;
+			overflow: scroll;
+		}
+
+		// メインエリア
+		.mainArea {
+			width: 100%;
+			padding: 10px 20px;
+		}
+
+		// フッターエリア
+		.footerArea {
+			width: 100%;
+			padding: 10px 20px;
+			text-align: center;
+		}
+
+	}
+}

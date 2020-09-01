@@ -1,7 +1,7 @@
 import Link from 'next/link'
-import styles from '../styles/navigation.module.scss'
+import styles from '../styles/components/navigation.module.scss'
 
-export default function Navigation() {
+export default function Navigation({className}) {
 
 	// ----- リストのデータを定義 -----
 	const list = [
@@ -13,24 +13,26 @@ export default function Navigation() {
 		{name: '北アメリカ', path: '/northAmerica'},
 		{name: '中央アメリカ', path: '/centralAmerica'},
 		{name: '南アメリカ', path: '/southAmerica'},
-		{name: '全ての国々', path: '/all'},
-		{name: '各種検索', path: '/'},
+		{name: '全世界', path: '/all'},
+		{name: '各種検索', path: '/search'},
 	]
 
     return (
-        <div className={styles.grid}>
-			{
-				list.map(item => {
-					return (
-						<Link
-							href={item.path}
-							key={`listOf${item.path}`}
-						>
-							<h3 className={styles.card}>{item.name} &rarr;</h3>
-						</Link>
-					)
-				})
-			}
-        </div>
+		<nav className={className}>
+			<div className={styles.grid}>
+				{
+					list.map(item => {
+						return (
+							<Link
+								href={item.path}
+								key={`listOf${item.path}`}
+							>
+								<h3 className={styles.card}>{item.name} &rarr;</h3>
+							</Link>
+						)
+					})
+				}
+			</div>
+		</nav>
     )
 }

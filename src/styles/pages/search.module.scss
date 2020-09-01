@@ -1,0 +1,77 @@
+/** 検索ページ設定 **/
+@import '../variable';
+
+.searchArea {
+	padding: 10px;
+	background: $white-skelton;
+	border-radius: 8px;
+	border: 1px solid $black-skelton;
+
+	.flex {
+		display: flex;
+		justify-content: space-around;
+		align-items: center;
+	}
+
+	.grid {
+		&Radio {
+			overflow: scroll;
+			width: 200px;
+			&Scroll {
+				width: 1200px;
+			}
+		}
+
+		&TextBox {
+			text-align: center;
+		}
+	}
+
+	.input {
+
+		&Radio {
+			display: none;
+			margin-right: 20px;
+			&:checked + .inputLabel{
+				background: $blue-skelton;
+				border: 1px solid $blue-skelton;
+				color: $white;
+				&:before {
+					content: "✔︎";
+					padding-right: 10px;
+				}
+			}
+		}
+
+		&Label {
+			text-align: center;
+			background: $white-skelton;
+			padding: 10px;
+			margin-right: 20px;
+			border-radius: 8px;
+			border: 1px solid $black-skelton;
+			display: inline-block;
+			width: 15%;
+		}
+
+		&TextBox {
+			padding: 10px;
+			width: 50%;
+			border-radius: 8px;
+			border: 1px solid $black-skelton;
+		}
+
+		&SearchBtn {
+			padding: 10px;
+			width: 100px;
+			border-radius: 8px;
+			border: 1px solid $black-skelton;
+			background: $white-skelton;
+			&:hover {
+				color: $white;
+				background: $blue-skelton;
+				border: 1px solid $blue-skelton;
+			}
+		}
+	}
+}

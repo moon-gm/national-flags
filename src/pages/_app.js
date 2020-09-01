@@ -1,27 +1,35 @@
 import '../styles/globals.scss'
 import Head from 'next/head'
+import Link from 'next/link'
 import Navigation from '../components/navigation'
 
 const Layout = ({children}) => {
+
 	return (
 		<>
-			{/* ヘッド情報 */}
+			{/* ヘッド設定 */}
 			<Head>
 				<title>National Flags</title>
-				<link rel="icon" href="/favicon.ico" />
 			</Head>
 
-			{/* ヘッダーエリア */}
-			<header className="headerArea">National Flags</header>
+			{/* コンテンツ設定 */}
+			<div className="container">
+				{/* ヘッダーエリア */}
+				<header className="headerArea">
+					<Link href="/">
+						National Flags
+					</Link>
+				</header>
 
-			{/* ナビゲーションエリア */}
-			<Navigation/>
+				{/* ナビゲーションエリア */}
+				<Navigation className="navigationArea"/>
 
-			{/* メインエリア */}
-			<main className="mainArea">{children}</main>
+				{/* メインエリア */}
+				<main className="mainArea">{children}</main>
 
-			{/* フッターエリア */}
-			<footer className="footerArea">Presented by National Flags</footer>
+				{/* フッターエリア */}
+				<footer className="footerArea">Presented by National Flags</footer>
+			</div>
 		</>
 	)
 }
