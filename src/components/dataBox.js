@@ -126,6 +126,6 @@ export default function DataBox({d}) {
 
 			</div>
 
-    	</div>
+		</div>
     )
 }

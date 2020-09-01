@@ -1,7 +1,6 @@
 import '../styles/globals.scss'
 import Head from 'next/head'
 import Link from 'next/link'
-import Navigation from '../components/navigation'
 
 const Layout = ({children}) => {
 
@@ -21,14 +20,11 @@ const Layout = ({children}) => {
 					</Link>
 				</header>
 
-				{/* ナビゲーションエリア */}
-				<Navigation className="navigationArea"/>
-
 				{/* メインエリア */}
 				<main className="mainArea">{children}</main>
 
 				{/* フッターエリア */}
-				<footer className="footerArea">Presented by National Flags</footer>
+				<footer className="footerArea">Powered by Next.js</footer>
 			</div>
 		</>
 	)

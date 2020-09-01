@@ -27,7 +27,7 @@ export default function Navigation({className}) {
 								href={item.path}
 								key={`listOf${item.path}`}
 							>
-								<h3 className={styles.card}>{item.name} &rarr;</h3>
+								<h3 className={styles.card}>{item.name}</h3>
 							</Link>
 						)
 					})

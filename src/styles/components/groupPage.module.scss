@@ -1,0 +1,61 @@
+/** グループページパーツ設定 **/
+@import '../variable';
+
+@keyframes fadeIn {
+	0% {
+		right: -100px;
+	}
+	100% {
+		right: 0;
+	}
+}
+
+.navListArea {
+	position: fixed;
+	top: 15%;
+	right: 0;
+	padding: 5px;
+	background: $black-skelton-thick;
+	height: 85%;
+	width: auto;
+	overflow: scroll;
+	animation: fadeIn 0.1s linear;
+}
+
+.card {
+	cursor: pointer;
+	color: $white;
+	// background: $white-skelton-thick;
+	// margin: 10px;
+	// flex-basis: 18%;
+	padding: 5px 10px;
+	text-align: left;
+	text-decoration: none;
+	border-bottom: 1px solid $white-skelton;
+	// border-radius: 10px;
+	transition: color 0.15s ease, border-color 0.15s linear;
+	&:hover,
+	&:focus,
+	&:active {
+		color: $white;
+		border-color: $blue;
+		background: $blue-skelton;
+	}
+
+}
+
+.listBtn {
+	position: fixed;
+	top: 0;
+	right: 0;
+	margin: 10px;
+	background: $white-skelton;
+	color: $black;
+	border-radius: 8px;
+	border: none;
+	@media (max-width: $sp-max-width) {
+		margin: 5px;
+	}
+}
+
+

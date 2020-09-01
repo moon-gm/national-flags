@@ -1,4 +1,6 @@
 import {useState, useEffect} from 'react'
+import Link from 'next/link'
+import styles from '../styles/components/groupPage.module.scss'
 import DataBox from './dataBox'
 
 export default function GroupPage({group}) {
@@ -29,8 +31,43 @@ export default function GroupPage({group}) {
 		}
 	}, [])
 
+	const [list, setList] = useState(false)
+
+	function showList() {
+		if (list) {
+			setList(false)
+		} else {
+			setList(true)
+		}
+	}
+
 	return (
 		<>
+			<span
+				className={`${styles.card} ${styles.listBtn}`}
+				onClick={showList}
+			>
+				{list ? "閉じる" : "国名一覧"}
+			</span>
+			{
+				list && (
+					<nav className={styles.navListArea}>
+						{
+							data.map(d => {
+								return (
+									<Link
+										href={`/${group}#${d.data.id}`}
+										key={`listOf${d.data.id}`}
+									>
+										<h3 className={styles.card}>{d.data.name.katakana}</h3>
+									</Link>
+								)
+							})
+						}
+					</nav>
+				)
+			}
+
 			{
 				data && (
 					data.map(d => (
@@ -41,6 +78,7 @@ export default function GroupPage({group}) {
 					))
 				)
 			}
+
 		</>
 	)
 }
