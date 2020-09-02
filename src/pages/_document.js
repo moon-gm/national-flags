@@ -8,7 +8,7 @@ export default class MyDocument extends Document {
 
   render() {
     return (
-      <html style={{backgroundImage: "url(/bg-sky.jpg)"}}>
+      <html style={{backgroundImage: "url(/bg-sky.jpg)", backgroundSize: "100% 100%"}}>
         <Head>
 			<meta charset="UTF-8"/>
 			<meta name="description" content="National Flags"/>

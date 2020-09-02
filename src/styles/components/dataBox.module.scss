@@ -1,11 +1,19 @@
 /** データボックスパーツ設定 **/
 @import '../variable';
 
+@keyframes fadeLetter {
+	0% {
+		color: $black-skelton;
+	}
+	100% {
+		color: $white;
+	}
+}
+
 .dataBox {
 	padding-top: 40px;
 	display: flex;
 	justify-content: space-around;
-	// align-items: center;
 	@media screen and (max-width: $sp-max-width) {
 		display: block;
 	}
@@ -19,6 +27,11 @@
 		}
 
 		&Image {
+			transform: matrix(1, 0, 0, 1, 0, 0);
+			&:hover {
+				transform: matrix(1, 0, 0.3, 1, 30, 0);
+				transition: transform 0.5s;
+			}
 			img {
 				padding-right: 10px;
 				width: 100%;
@@ -30,6 +43,7 @@
 		}
 
 		&Title {
+			animation: fadeLetter 1s linear;
 			font-size: 20px;
 			padding: 2px 10px;
 			background: $black-skelton;

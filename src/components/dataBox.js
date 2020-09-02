@@ -116,9 +116,12 @@ export default function DataBox({d}) {
 				<div className={styles.contentsBoxText}>
 					{/* 豆知識（タイトル） */}
 					<h1 className={styles.title}>
-						豆知識 〜{d.data.knowledge.title}〜
+						豆知識
 					</h1>
 					{/* 豆知識（コンテンツ」） */}
+					<p className={styles.textContents}>
+						〜 {d.data.knowledge.title} 〜
+					</p>
 					<p className={styles.textContents}>
 						{d.data.knowledge.contents}
 					</p>

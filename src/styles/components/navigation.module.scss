@@ -7,12 +7,7 @@
 	align-items: center;
 	justify-content: center;
 	flex-wrap: wrap;
-
 	margin: 0 auto;
-	@media (max-width: $sp-max-width) {
-		// flex-wrap: unset;
-		// flex-direction: column;
-	}
 }
 
 .card {
@@ -34,9 +29,6 @@
 		border-color: $blue;
 		background: $blue-skelton;
 	}
-	@media (max-width: $sp-max-width) {
-	}
-
 }
 
 

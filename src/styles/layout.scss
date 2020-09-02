@@ -35,6 +35,9 @@
 			height: 88vh;
 			padding: 10px 20px;
 			overflow: scroll;
+			@media (max-width: $sp-max-width) {
+				height: 93vh;
+			}
 		}
 
 		// フッターエリア
@@ -44,6 +47,9 @@
 			padding: 10px 20px;
 			text-align: center;
 			border-top: 1px solid $white-skelton;
+			@media (max-width: $sp-max-width) {
+				display: none;
+			}
 		}
 
 	}
