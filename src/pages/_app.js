@@ -16,7 +16,7 @@ const Layout = ({children}) => {
 				{/* ヘッダーエリア */}
 				<header className="headerArea">
 					<Link href="/">
-						National Flags
+						<a>National Flags</a>
 					</Link>
 				</header>
 

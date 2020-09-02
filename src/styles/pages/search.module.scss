@@ -3,14 +3,44 @@
 
 .searchArea {
 	padding: 10px;
-	background: $white-skelton;
-	border-radius: 8px;
-	border: 1px solid $black-skelton;
+	background: $blue-skelton;
+	border-bottom: 1px solid $white-skelton;
+	position: fixed;
+	top: 7vh;
+	right: 0;
+	left: 0;
+	margin: auto;
+
+	&Btn {
+		cursor: pointer;
+		position: fixed;
+		top: 0;
+		right: 0;
+		padding: 10px;
+		background: $black-skelton-thick;
+		border: 1px solid $white-skelton;
+		color: $white;
+		&:hover {
+			background: $blue-skelton;
+		}
+	}
+
+	.additionalText {
+		color:$white;
+	}
+
+	.attention {
+		color: $white;
+		padding-bottom: 10px;
+	}
 
 	.flex {
 		display: flex;
 		justify-content: space-around;
 		align-items: center;
+		@media (max-width: $sp-max-width) {
+			flex-direction: column;
+		}
 	}
 
 	.grid {
@@ -45,7 +75,7 @@
 
 		&Label {
 			text-align: center;
-			background: $white-skelton;
+			background: $white;
 			padding: 10px;
 			margin-right: 20px;
 			border-radius: 8px;
@@ -56,7 +86,7 @@
 
 		&TextBox {
 			padding: 10px;
-			width: 50%;
+			width: 100%;
 			border-radius: 8px;
 			border: 1px solid $black-skelton;
 		}
@@ -66,7 +96,8 @@
 			width: 100px;
 			border-radius: 8px;
 			border: 1px solid $black-skelton;
-			background: $white-skelton;
+			background: $white;
+
 			&:hover {
 				color: $white;
 				background: $blue-skelton;

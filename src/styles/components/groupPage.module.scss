@@ -10,29 +10,28 @@
 	}
 }
 
-.navListArea {
+.fixedBox {
 	position: fixed;
-	top: 15%;
+	top: 0;
 	right: 0;
-	padding: 5px;
-	background: $black-skelton-thick;
-	height: 85%;
-	width: auto;
+	height: 100%;
 	overflow: scroll;
 	animation: fadeIn 0.1s linear;
 }
 
+.navListArea {
+	background: $white-skelton-thick;
+	width: auto;
+
+}
+
 .card {
 	cursor: pointer;
-	color: $white;
-	// background: $white-skelton-thick;
-	// margin: 10px;
-	// flex-basis: 18%;
+	color: $black;
 	padding: 5px 10px;
 	text-align: left;
 	text-decoration: none;
-	border-bottom: 1px solid $white-skelton;
-	// border-radius: 10px;
+	border-bottom: 1px solid $black-skelton;
 	transition: color 0.15s ease, border-color 0.15s linear;
 	&:hover,
 	&:focus,
@@ -41,21 +40,16 @@
 		border-color: $blue;
 		background: $blue-skelton;
 	}
+	&:last-child {
+		border-bottom: none;
+	}
 
 }
 
 .listBtn {
-	position: fixed;
-	top: 0;
-	right: 0;
-	margin: 10px;
-	background: $white-skelton;
-	color: $black;
-	border-radius: 8px;
-	border: none;
-	@media (max-width: $sp-max-width) {
-		margin: 5px;
-	}
+	background: $black-skelton-thick;
+	display: block;
+	color: $white;
 }
 
 

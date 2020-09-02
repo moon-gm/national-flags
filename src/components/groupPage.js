@@ -43,30 +43,34 @@ export default function GroupPage({group}) {
 
 	return (
 		<>
-			<span
-				className={`${styles.card} ${styles.listBtn}`}
-				onClick={showList}
-			>
-				{list ? "閉じる" : "国名一覧"}
-			</span>
-			{
-				list && (
-					<nav className={styles.navListArea}>
-						{
-							data.map(d => {
-								return (
-									<Link
-										href={`/${group}#${d.data.id}`}
-										key={`listOf${d.data.id}`}
-									>
-										<h3 className={styles.card}>{d.data.name.katakana}</h3>
-									</Link>
-								)
-							})
-						}
-					</nav>
-				)
-			}
+
+			<div className={styles.fixedBox}>
+				<span
+					className={`${styles.card} ${styles.listBtn}`}
+					onClick={showList}
+				>
+					{list ? "閉じる →" : "← 国名一覧"}
+				</span>
+				{
+					list && (
+						<ul className={styles.navListArea}>
+							{
+								data.map(d => {
+									return (
+										<Link
+											href={`/${group}#${d.data.id}`}
+											key={`listOf${d.data.id}`}
+										>
+											<li className={styles.card}>{d.data.name.katakana}</li>
+										</Link>
+									)
+								})
+							}
+						</ul>
+					)
+				}
+			</div>
+
 
 			{
 				data && (
