@@ -4,22 +4,25 @@
 .searchArea {
 	padding: 10px;
 	background: $blue-skelton;
+	backdrop-filter: blur(30px);
 	border-bottom: 1px solid $white-skelton;
 	position: fixed;
 	top: 7vh;
 	right: 0;
 	left: 0;
 	margin: auto;
+	max-width: $screen-max-width;
 
 	&Btn {
 		cursor: pointer;
 		position: fixed;
 		top: 0;
 		right: 0;
-		padding: 10px;
+		padding: 5px;
 		background: $black-skelton-thick;
 		border: 1px solid $white-skelton;
 		color: $white;
+		animation: fadeIn 0.1s linear;
 		&:hover {
 			background: $blue-skelton;
 		}
@@ -46,9 +49,16 @@
 	.grid {
 		&Radio {
 			overflow: scroll;
-			width: 200px;
+			width: 240px;
+			padding: 10px;
+			background: $white-skelton;
+			border-top: 1px solid $black-skelton;
+			border-bottom: 1px solid $black-skelton;
+			@media (max-width: $sp-max-width) {
+				width: 100%;
+			}
 			&Scroll {
-				width: 1200px;
+				width: 670px;
 			}
 		}
 
@@ -63,8 +73,8 @@
 			display: none;
 			margin-right: 20px;
 			&:checked + .inputLabel{
-				background: $blue-skelton;
-				border: 1px solid $blue-skelton;
+				background: $blue;
+				border: 2px solid $white-skelton;
 				color: $white;
 				&:before {
 					content: "✔︎";
@@ -74,14 +84,15 @@
 		}
 
 		&Label {
+			cursor: pointer;
 			text-align: center;
 			background: $white;
 			padding: 10px;
-			margin-right: 20px;
+			margin-right: 10px;
 			border-radius: 8px;
 			border: 1px solid $black-skelton;
 			display: inline-block;
-			width: 15%;
+			width: 100px;
 		}
 
 		&TextBox {
@@ -92,6 +103,7 @@
 		}
 
 		&SearchBtn {
+			cursor: pointer;
 			padding: 10px;
 			width: 100px;
 			border-radius: 8px;
@@ -104,5 +116,19 @@
 				border: 1px solid $blue-skelton;
 			}
 		}
+	}
+}
+
+.alert {
+	text-align: center;
+	padding: 5px;
+	border: 1px solid $white;
+	border-radius: 8px;
+	background: $white-skelton;
+	width: 50%;
+	margin: 0 auto;
+	margin-top: 10px;
+	@media (max-width: $sp-max-width) {
+		width: 100%;
 	}
 }

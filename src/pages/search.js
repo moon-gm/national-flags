@@ -10,13 +10,26 @@ export default function Home() {
 	// ----- 検索ボックスを表示する「state(searchBox)」を作成 -----
 	const [searchBox, setSearchBox] = useState(true)
 
+	// ----- エラーメッセージを表示する「state(alert)」を作成 -----
+	const [alert, setAlert] = useState(false)
+
+	// ----- 検索ボックスの表示を管理する処理 -----
+	function showBox() {
+		// 検索ボックスの表示処理
+		if (searchBox) {
+			setSearchBox(false)
+		} else {
+			setSearchBox(true)
+		}
+	}
+
 	// ----- 検索項目のデータを設定-----
 	const searchList = [
 		{id: "nationalName", name: "国名", apiPath: "byName"},
 		{id: "capital", name: "首都名", apiPath: "byCapital"},
 		{id: "currency", name: "通貨名", apiPath: "byCurrency"},
 		{id: "language", name: "言語名", apiPath: "byLanguage"},
-		{id: "timeLag", name: "時差（時間）", apiPath: "byTimeLag"},
+		{id: "timeLag", name: "時差", apiPath: "byTimeLag"},
 		{id: "since", name: "建国年", apiPath: "bySince"},
 	]
 
@@ -27,9 +40,10 @@ export default function Home() {
 		const elements = document.formOfSearch.searchWord
 
 		// 選択されたラジオボタンのvalueをselectValueに代入
+		var selectValue = undefined
 		for (var i = 0; i < elements.length; i++) {
 			if (elements[i].checked){
-				var selectValue = elements[i].value
+				selectValue = elements[i].value
 			}
 		}
 
@@ -45,25 +59,17 @@ export default function Home() {
 		const searchTerm = document.getElementById('searchInput').value
 
 		// selectValueの値によって処理を分ける
-		const res = await fetch(`/api/search/${searchType}/${searchTerm}`)
-		const searchData = await res.json()
-		setData(searchData)
-
-		// 検索ボックスの表示処理
-		if (searchBox) {
-			setSearchBox(false)
+		if (searchType !== undefined && searchTerm !== "") {
+			const res = await fetch(`/api/search/${searchType}/${searchTerm}`)
+			const searchData = await res.json()
+			setData(searchData)
+			setAlert(false)
+			// 検索ボックスの表示処理
+			showBox()
 		} else {
-			setSearchBox(true)
+			setAlert(true)
 		}
-	}
 
-	function showBox() {
-		// 検索ボックスの表示処理
-		if (searchBox) {
-			setSearchBox(false)
-		} else {
-			setSearchBox(true)
-		}
 	}
 
 	return (
@@ -126,10 +132,10 @@ export default function Home() {
 								/>
 							</div>
 						</form>
+						{alert && <p className={styles.alert}>項目の選択または入力がされていません。</p>}
 					</div>
 				)
 			}
-
 			{/* 表示エリア */
 				data && (
 					data.map(d => (
@@ -140,6 +146,7 @@ export default function Home() {
 					))
 				)
 			}
+			{!data[0] && <p className={styles.alert}>データが存在しません。</p>}
 		</>
 	)
 }

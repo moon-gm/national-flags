@@ -1,15 +1,6 @@
 /** グループページパーツ設定 **/
 @import '../variable';
 
-@keyframes fadeIn {
-	0% {
-		right: -100px;
-	}
-	100% {
-		right: 0;
-	}
-}
-
 .fixedBox {
 	position: fixed;
 	top: 0;
