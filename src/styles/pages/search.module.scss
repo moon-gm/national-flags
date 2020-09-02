@@ -5,6 +5,7 @@
 	padding: 10px;
 	background: $blue-skelton;
 	backdrop-filter: blur(30px);
+	-webkit-backdrop-filter: blur(30px);
 	border-bottom: 1px solid $white-skelton;
 	position: fixed;
 	top: 7vh;
