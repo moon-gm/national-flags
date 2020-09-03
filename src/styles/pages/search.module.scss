@@ -1,6 +1,7 @@
 /** 検索ページ設定 **/
 @import '../variable';
 
+// アニメーション設定
 @keyframes slideIn {
 	0% {
 		right: -1280px;
@@ -19,88 +20,121 @@
 	}
 }
 
+// 検索ボックスを非表示にした時の設定
 .hide {
 	animation: slideOut 0.3s linear;
 }
 
-.searchArea {
-	z-index: 10;
-	animation: slideIn 0.3s linear;
-	padding: 10px;
-	background: $blue-skelton;
-	backdrop-filter: blur(30px);
-	-webkit-backdrop-filter: blur(30px);
-	border-bottom: 1px solid $white-skelton;
+// 検索ボックス
+.searchBox {
+	max-width: $screen-max-width;
 	position: fixed;
 	top: 7vh;
 	right: 0;
 	left: 0;
-	margin: auto;
-	max-width: $screen-max-width;
 
+	padding: 10px;
+	margin: auto;
+	border-bottom: 1px solid $white-skelton;
+
+	background: $blue-skelton;
+	backdrop-filter: blur(30px);
+	-webkit-backdrop-filter: blur(30px);
+
+	z-index: 10;
+	animation: slideIn 0.3s linear;
+
+	// 検索ボックス表示ボタン
 	&Btn {
-		cursor: pointer;
 		position: fixed;
 		top: 0;
 		right: 0;
+
 		padding: 5px;
-		background: $black-skelton-thick;
 		border: 1px solid $white-skelton;
+
+		background: $black-skelton-thick;
 		color: $white;
+
+		cursor: pointer;
 		animation: fadeIn 0.1s linear;
+
 		&:hover {
 			background: $blue-skelton;
 		}
 	}
 
-	.additionalText {
-		color:$white;
-	}
-
+	// 検索ボックスのガイド文設定
 	.attention {
-		color: $white;
 		padding-bottom: 10px;
+
+		color: $white;
 	}
 
+	// inputアイテムを繋ぐ文字列設定
+	.additionalText {
+		color: $white;
+	}
+
+	// inputアイテムのフレックス設定
 	.flex {
 		display: flex;
 		justify-content: space-around;
 		align-items: center;
+
 		@media (max-width: $sp-max-width) {
 			flex-direction: column;
 		}
 	}
 
+	// inputアイテム用グリッドボックス
 	.grid {
+
+		// ラジオボタン用
 		&Radio {
-			overflow: scroll;
 			width: 240px;
+
 			padding: 10px;
-			background: $white-skelton;
 			border-top: 1px solid $black-skelton;
 			border-bottom: 1px solid $black-skelton;
+
+			background: $white-skelton;
+
+			overflow: scroll;
+
 			@media (max-width: $sp-max-width) {
 				width: 100%;
 			}
+
+			// スクロール設定
 			&Scroll {
 				width: 670px;
 			}
 		}
 
+		// テキストボックス用
 		&TextBox {
 			text-align: center;
 		}
 	}
 
+	// inputアイテム
 	.input {
 
+		// input：ラジオボタン
 		&Radio {
 			display: none;
+
 			margin-right: 20px;
+
+			// ラジオボタンチェック時の設定
 			&:checked + .inputLabel{
-				background: $blue;
 				border: 2px solid $white-skelton;
+
+				background: $blue;
 				color: $white;
+
+				// チェックマーク設定
 				&:before {
 					content: "✔︎";
 					padding-right: 10px;
@@ -108,51 +142,68 @@
 			}
 		}
 
+		// inputアイテムに対応するラベル設定
 		&Label {
-			cursor: pointer;
-			text-align: center;
-			background: $white;
+			display: inline-block;
+			width: 100px;
+
 			padding: 10px;
 			margin-right: 10px;
 			border-radius: 8px;
 			border: 1px solid $black-skelton;
-			display: inline-block;
-			width: 100px;
-		}
 
-		&TextBox {
-			padding: 10px;
-			width: 100%;
-			border-radius: 8px;
-			border: 1px solid $black-skelton;
-		}
-
-		&SearchBtn {
-			cursor: pointer;
-			padding: 10px;
-			width: 100px;
-			border-radius: 8px;
-			border: 1px solid $black-skelton;
 			background: $white;
 
+			text-align: center;
+
+			cursor: pointer;
+		}
+
+		// input：テキストボックス
+		&TextBox {
+			width: 100%;
+
+			padding: 10px;
+			border-radius: 8px;
+			border: 1px solid $black-skelton;
+		}
+
+		// 検索ボタン
+		&SearchBtn {
+			width: 100px;
+
+			padding: 10px;
+			border-radius: 8px;
+			border: 1px solid $black-skelton;
+
+			background: $white;
+
+			cursor: pointer;
+
 			&:hover {
-				color: $white;
-				background: $blue-skelton;
 				border: 1px solid $blue-skelton;
+
+				background: $blue-skelton;
+				color: $white;
 			}
 		}
 	}
 }
 
+// エラーメッセージ設定
 .alert {
-	text-align: center;
-	padding: 5px;
-	border: 1px solid $white;
-	border-radius: 8px;
-	background: $white-skelton;
 	width: 50%;
+
+	padding: 5px;
 	margin: 0 auto;
 	margin-top: 10px;
+	border: 1px solid $white;
+	border-radius: 8px;
+
+	background: $white-skelton;
+
+	text-align: center;
+
 	@media (max-width: $sp-max-width) {
 		width: 100%;
 	}

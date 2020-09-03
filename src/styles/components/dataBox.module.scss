@@ -1,6 +1,7 @@
 /** データボックスパーツ設定 **/
 @import '../variable';
 
+// アニメーション設定
 @keyframes fadeLetter {
 	0% {
 		color: $black-skelton;
@@ -10,85 +11,116 @@
 	}
 }
 
+// データ表示ボックス
 .dataBox {
-	padding-top: 40px;
 	display: flex;
 	justify-content: space-around;
+
+	padding-top: 40px;
+
 	@media screen and (max-width: $sp-max-width) {
 		display: block;
 	}
 
+	// タイトルボックス
 	.titleBox {
 		width: 30%;
+
 		@media screen and (max-width: $sp-max-width) {
 			width: 100%;
 			display: block;
+
 			text-align: center;
 		}
 
+		// 画像ボックス
 		&Image {
 			transform: matrix(1, 0, 0, 1, 0, 0);
+
 			&:hover {
 				transform: matrix(1, 0, 0.3, 1, 30, 0);
 				transition: transform 0.5s;
 			}
+
+			// 画像自体の設定
 			img {
-				padding-right: 10px;
 				width: 100%;
+
+				padding-right: 10px;
 				max-width: 300px;
+
 				@media screen and (max-width: $sp-max-width) {
 					padding: 10px;
 				}
 			}
 		}
 
+		// タイトルテキスト
 		&Title {
-			animation: fadeLetter 1s linear;
-			font-size: 20px;
 			padding: 2px 10px;
-			background: $black-skelton;
 			border-bottom: 1px solid $black-skelton;
+
+			background: $black-skelton;
 			color: $white;
+
+			font-size: 20px;
+
+			animation: fadeLetter 1s linear;
 		}
 
 	}
+
+	// コンテンツボックス
 	.contentsBox {
 		width: 70%;
+
 		padding: 10px;
 		border-radius: 0 8px 8px 8px;
 		border: 1px solid $black-skelton;
+
 		background: $white-skelton;
+
 		@media screen and (max-width: $sp-max-width) {
 			width: 100%;
+
 			border-radius: 8px;
 		}
 
+		// 見出しエリア設定
 		.title {
-			color: $white;
-			background: $black-skelton;
+			padding: 0 5px;
 			margin-bottom: 5px;
 			border-bottom: 1px solid $black-skelton;
-			padding: 0 5px;
+
+			background: $black-skelton;
+			color: $white;
 		}
 
+		// リストエリア設定
 		&List {
 
+			// リストブロックのフレックス設定
 			&Flex {
 				display: flex;
 				justify-content: flex-start;
+
 				padding: 7px;
+
 				@media screen and (max-width: $sp-max-width) {
 					display: block;
 				}
 
 			}
 
+			// リストブロック
 			&Block {
 				margin-right: 40px;
+
 				@media screen and (max-width: $sp-max-width) {
 					margin-right: 0;
 				}
 
+				// リスト単体の設定
 				.listItem {
 
 				}
@@ -96,14 +128,18 @@
 		}
 
 
+		// テキストエリア設定
 		&Text {
 			margin-bottom: 20px;
 
+			// テキスト単体の設定
 			.textContents {
 				padding: 7px;
+
+				// 改行時のインデント設定
 				&Indent {
-					text-indent: -3em;
 					padding-left: 3em + 0.5em;
+					text-indent: -3em;
 				}
 			}
 		}

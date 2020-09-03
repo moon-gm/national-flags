@@ -83,7 +83,7 @@ export default function Home() {
 		<>
 			{/***** 1.検索エリア表示ボタン -- start -- *****/}
 				<div
-					className={styles.searchAreaBtn}
+					className={styles.searchBoxBtn}
 					onClick={showBox}
 				>
 					{searchBox ? "検索BOX非表示" : "検索BOX表示"}
@@ -92,7 +92,7 @@ export default function Home() {
 
 			{/***** 2.検索エリア -- start -- *****/}
 				{searchBox && (
-					<div className={styles.searchArea}>
+					<div className={styles.searchBox}>
 
 						{/**** 2-1.ガイドメッセージ ****/}
 						<div className={styles.attention}>

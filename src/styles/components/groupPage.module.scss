@@ -1,34 +1,50 @@
 /** グループページパーツ設定 **/
 @import '../variable';
 
+// 国名一覧の固定配置設定
 .fixedBox {
-	z-index: 10;
 	position: fixed;
 	top: 0;
 	right: 0;
 	height: 100%;
+
 	overflow: scroll;
+	z-index: 10;
 	animation: fadeIn 0.1s linear;
 }
 
+// 国名一覧設定
 .navListArea {
 	position: relative;
 	top: 0;
 	right:0;
 	height: 100%;
-	background: $white-skelton-thick;
 	width: auto;
+
+	background: $white-skelton-thick;
+
 	animation: fadeIn 0.1s linear;
 }
 
+// リストアイテム設定
 .card {
-	cursor: pointer;
-	color: $black;
 	padding: 5px 10px;
+
+	border-bottom: 1px solid $black-skelton;
+
+	color: $black;
+
 	text-align: left;
 	text-decoration: none;
-	border-bottom: 1px solid $black-skelton;
+
+	cursor: pointer;
 	transition: color 0.15s ease, border-color 0.15s linear;
+
+	// 最後のリストアイテムの設定
+	&:last-child {
+		border-bottom: none;
+	}
+
 	&:hover,
 	&:focus,
 	&:active {
@@ -36,15 +52,14 @@
 		border-color: $blue;
 		background: $blue-skelton;
 	}
-	&:last-child {
-		border-bottom: none;
-	}
 
 }
 
+// 国名一覧の表示ボタン
 .listBtn {
-	background: $black-skelton-thick;
 	display: block;
+
+	background: $black-skelton-thick;
 	color: $white;
 }
 
