@@ -26,12 +26,12 @@ export default function Home() {
 
 	// ----- 検索項目のデータを設定 -----
 	const searchList = [
-		{id: "nationalName", name: "国名", apiPath: "byName"},
-		{id: "capital", name: "首都名", apiPath: "byCapital"},
-		{id: "currency", name: "通貨名", apiPath: "byCurrency"},
-		{id: "language", name: "言語名", apiPath: "byLanguage"},
-		{id: "timeLag", name: "時差", apiPath: "byTimeLag"},
-		{id: "since", name: "建国年", apiPath: "bySince"},
+		{id: "nationalName", name: "国名", indexName: "national_data_search_by_name"},
+		{id: "capital", name: "首都名", indexName: "national_data_search_by_capital"},
+		{id: "currency", name: "通貨名", indexName: "national_data_search_by_currency"},
+		{id: "language", name: "言語名", indexName: "national_data_search_by_language"},
+		{id: "timeLag", name: "時差", indexName: "national_data_search_by_time_lag"},
+		{id: "since", name: "建国年", indexName: "national_data_search_by_since"},
 	]
 
 	// ----- DBデータをワード検索して取得する処理 -----
@@ -52,7 +52,7 @@ export default function Home() {
 		var searchType = undefined
 		searchList.map(item => {
 			if (item.id === selectValue) {
-				searchType = item.apiPath
+				searchType = item.indexName
 			}
 		})
 
@@ -61,7 +61,7 @@ export default function Home() {
 
 		// selectValueの値によって処理を分ける
 		if (searchType !== undefined && searchTerm !== "") {
-			const res = await fetch(`/api/search/${searchType}/${searchTerm}`)
+			const res = await fetch(`/api/search/${searchType}&${searchTerm}`)
 			const searchData = await res.json()
 
 			// 取得したデータを「state(data)」にセット

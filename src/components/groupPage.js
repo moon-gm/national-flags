@@ -23,7 +23,7 @@ export default function GroupPage({group}) {
 
 	// ----- 2-2.DBデータ取得：「groupName」の値によるエリア別データ -----
 	async function selectGroup (groupName) {
-		const res = await fetch(`/api/search/byGroup/${groupName}`)
+		const res = await fetch(`/api/search/national_data_search_by_group&${groupName}`)
 		const groupData = await res.json()
 		setData(groupData)
 	}

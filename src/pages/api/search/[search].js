@@ -8,24 +8,32 @@ const client = new faunadb.Client({secret})
 export default async (req, res) => {
 
     // URLクエリ文字を取得
-    const {query: {byTimeLag}} = req
+	const {query: {search}} = req
 
+	// クエリ文字列を「&」で分ける(クエリ文字：インデックス名&検索文字列)
+	const terms = search.split('&')
+
+	// リクエストを実行
     try {
-        const search = await client.query(
+
+		// 首都名のキーワード検索でヒットしたデータを取得
+        const searchData = await client.query(
             q.Map(
                 q.Paginate(
                     q.Match(
-                        q.Index('national_data_search_by_time_lag'),
-                        byTimeLag
+                        q.Index(terms[0]),
+                        terms[1]
                     )
                 ),
                 ref => q.Get(ref)
             )
-        )
+		)
+
         // OK時のレスポンス
-        res.status(200).json(search.data)
+        res.status(200).json(searchData.data)
     }
 
+	// エラー時の処理
     catch (e) {
         // エラー時のレスポンス
         res.status(500).json({error: e.message})
