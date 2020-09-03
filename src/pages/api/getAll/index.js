@@ -6,7 +6,11 @@ const q = faunadb.query
 const client = new faunadb.Client({secret})
 
 export default async (req, res) => {
+
+	// リクエストを実行
     try {
+
+		// DBから全てのデータを取得
         const allData = await client.query(
             q.Map(
                 q.Paginate(
@@ -16,13 +20,16 @@ export default async (req, res) => {
                 ),
                 ref => q.Get(ref)
             )
-        )
+		)
+
         // OK時のレスポンス
         res.status(200).json(allData.data)
     }
 
+	// エラー時の処理
     catch (e) {
         // エラー時のレスポンス
         res.status(500).json({error: e.message})
-    }
+	}
+
 }

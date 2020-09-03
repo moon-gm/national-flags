@@ -13,6 +13,7 @@ const Layout = ({children}) => {
 
 			{/* コンテンツ設定 */}
 			<div className="container">
+
 				{/* ヘッダーエリア */}
 				<header className="headerArea">
 					<Link href="/">
@@ -25,6 +26,7 @@ const Layout = ({children}) => {
 
 				{/* フッターエリア */}
 				<footer className="footerArea">Powered by Next.js</footer>
+
 			</div>
 		</>
 	)

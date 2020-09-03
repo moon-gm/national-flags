@@ -1,10 +1,11 @@
-import Link from 'next/link'
 import styles from '../styles/components/navigation.module.scss'
+import Link from 'next/link'
 
-export default function Navigation({className}) {
+// エリア選択などのナビゲーションボタン一覧のパーツ
+export default function Navigation() {
 
-	// ----- リストのデータを定義 -----
-	const list = [
+	// ----- 1.リストのデータを定義 -----
+	const lists = [
 		{name: 'アジア', path: '/asia'},
 		{name: 'ヨーロッパ', path: '/europe'},
 		{name: '中東', path: '/middleEast'},
@@ -18,20 +19,20 @@ export default function Navigation({className}) {
 	]
 
     return (
-		<nav className={className}>
+		<nav className="navigationArea">
 			<div className={styles.grid}>
-				{
-					list.map(item => {
-						return (
-							<Link
-								href={item.path}
-								key={`listOf${item.path}`}
-							>
-								<h3 className={styles.card}>{item.name}</h3>
-							</Link>
-						)
-					})
-				}
+				{lists.map(list => {
+					return (
+						<Link
+							href={list.path}
+							key={`listOf${list.path}`}
+						>
+							<h3 className={styles.card}>
+								{list.name}
+							</h3>
+						</Link>
+					)
+				})}
 			</div>
 		</nav>
     )

@@ -1,7 +1,7 @@
 export default function UpdataDB() {
 
   async function update () {
-    await fetch('/api/addData')
+	await fetch('/api/addData')
   }
 
   // DBのデータをUpdateするのみのセッティングページ
