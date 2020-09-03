@@ -61,7 +61,7 @@ export default function Home() {
 
 		// selectValueの値によって処理を分ける
 		if (searchType !== undefined && searchTerm !== "") {
-			const res = await fetch(`/api/search/${searchType}&${searchTerm}`)
+			const res = await fetch(`/api/search/${searchType}-${searchTerm}`)
 			const searchData = await res.json()
 
 			// 取得したデータを「state(data)」にセット

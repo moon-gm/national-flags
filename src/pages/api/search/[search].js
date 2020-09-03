@@ -11,12 +11,12 @@ export default async (req, res) => {
 	const {query: {search}} = req
 
 	// クエリ文字列を「&」で分ける(クエリ文字：インデックス名&検索文字列)
-	const terms = search.split('&')
+	const terms = search.split('-')
 
 	// リクエストを実行
     try {
 
-		// 首都名のキーワード検索でヒットしたデータを取得
+		// キーワード検索でヒットしたデータを取得
         const searchData = await client.query(
             q.Map(
                 q.Paginate(
