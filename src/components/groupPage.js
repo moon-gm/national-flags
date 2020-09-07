@@ -25,14 +25,46 @@ export default function GroupPage({group}) {
 	async function selectGroup (groupName) {
 		const res = await fetch(`/api/search/national_data_search_by_group-${groupName}`)
 		const groupData = await res.json()
-		setData(groupData)
+
+		// groupDataを五十音順に並び替え
+		const sortData = groupData.sort(function(a, b) {
+			var nameA = a.data.name.katakana.toUpperCase(); // 大文字と小文字を無視する
+			var nameB = b.data.name.katakana.toUpperCase(); // 大文字と小文字を無視する
+			if (nameA < nameB) {
+			  return -1;
+			}
+			if (nameA > nameB) {
+			  return 1;
+			}
+
+			// names must be equal
+			return 0;
+		})
+
+		setData(sortData)
 	}
 
 	// ----- 2-3.DBデータ取得：全てのデータ -----
 	async function getAll () {
 		const res = await fetch('/api/getAll')
 		const allData = await res.json()
-		setData(allData)
+
+		// groupDataを五十音順に並び替え
+		const sortData = allData.sort(function(a, b) {
+			var nameA = a.data.name.katakana.toUpperCase(); // 大文字と小文字を無視する
+			var nameB = b.data.name.katakana.toUpperCase(); // 大文字と小文字を無視する
+			if (nameA < nameB) {
+			  return -1;
+			}
+			if (nameA > nameB) {
+			  return 1;
+			}
+
+			// names must be equal
+			return 0;
+		})
+
+		setData(sortData)
 	}
 
 	// ----- 2-4.DBデータ取得API実行 -----
