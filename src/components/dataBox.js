@@ -11,9 +11,9 @@ export default function DataBox({d}) {
 			{/***** 1.見出しエリア -- start -- *****/}
 				<div className={styles.titleBox}>
 
-					{/**** 1-1.国名（略式/略漢字） ****/}
+					{/**** 1-1.国名（略式） ****/}
 					<h1 className={styles.titleBoxTitle}>
-						{d.data.name.katakana}（{d.data.name.kanji}）
+						{d.data.name.katakana}
 					</h1>
 
 					{/**** 1-2.画像 ****/}
@@ -49,25 +49,30 @@ export default function DataBox({d}) {
 												正式：{d.data.name.official}
 											</li>
 
+											{/* 項目：国名（漢字） */}
+											<li className={`${styles.listItem} ${styles.listItemNameOfficial}`}>
+												漢字：{d.data.name.kanji[0]}{d.data.name.kanji[1] && `（${d.data.name.kanji[1]}）`}
+											</li>
+
 											{/* 項目：言語 */}
 											<li className={`${styles.listItem} ${styles.listItemLanguage}`}>
 												言語：
 												{d.data.language.map(l => {
 													if (l === d.data.language.slice(-1)[0]) {
-													return (
-														l
-													)
+														return (
+															l
+														)
 													} else {
-													return(
-														`${l} / `
-													)
+														return(
+															`${l} / `
+														)
 													}
 												})}
 											</li>
 
 											{/* 項目：通貨 */}
 											<li className={`${styles.listItem} ${styles.listItemCurrency}`}>
-												通貨：{d.data.currency}
+												通貨：{d.data.currency[0]}
 											</li>
 
 											{/* 項目：首都 */}
@@ -80,6 +85,22 @@ export default function DataBox({d}) {
 
 									{/** 2-1-2-2.項目リスト2 -- start -- **/}
 										<ul className={styles.contentsBoxListBlock}>
+
+											{/* 項目：民族 */}
+											<li className={`${styles.listItem} ${styles.listItemTribe}`}>
+												民族：
+												{d.data.tribe.map(t => {
+													if (t === d.data.tribe.slice(-1)[0]) {
+														return (
+															t
+														)
+													} else {
+														return(
+															`${t} / `
+														)
+													}
+												})}
+											</li>
 
 											{/* 項目：面積 */}
 											<li className={`${styles.listItem} ${styles.listItemArea}`}>
