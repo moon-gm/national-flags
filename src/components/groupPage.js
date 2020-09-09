@@ -124,7 +124,7 @@ export default function GroupPage({group}) {
 				}
 
 				// 「万」を数値に置き換える処理
-				function replaceWord(length, replace) {
+				function replaceMan(length, replace) {
 					if (length === 0) {
 						return replace.replace("万", "0000")
 					}
@@ -142,9 +142,61 @@ export default function GroupPage({group}) {
 					}
 				}
 
+				// 「万」で分けた文字列の整形値
+				var correctManA = replaceMan(lengthA, correctWordA)
+				var correctManB = replaceMan(lengthB, correctWordB)
+
+				// 「億」で文字列を分ける
+				var splitOkuA = correctManA.split("億");
+				var splitOkuB = correctManB.split("億");
+
+				// 「億」以降の文字数を取得
+				if (!splitOkuA[1]) {
+					var lengthA = 0
+				} else {
+					var lengthA = splitWordA[1].length;
+				}
+
+				if (!splitOkuB[1]) {
+					var lengthB = 0
+				} else {
+					var lengthB = splitWordB[1].length;
+				}
+
+				// 「億」を数値に置き換える処理
+				function replaceOku(length, replace) {
+					if (length === 0) {
+						return replace.replace("億", "00000000")
+					}
+					else if (length === 1) {
+						return replace.replace("億", "00000000")
+					}
+					else if (length === 2) {
+						return replace.replace("億", "000000")
+					}
+					else if (length === 3) {
+						return replace.replace("億", "00000")
+					}
+					else if (length === 4) {
+						return replace.replace("億", "0000")
+					}
+					else if (length === 5) {
+						return replace.replace("億", "000")
+					}
+					else if (length === 6) {
+						return replace.replace("億", "00")
+					}
+					else if (length === 7) {
+						return replace.replace("億", "0")
+					}
+					else if (length === 8) {
+						return replace.replace("億", "")
+					}
+				}
+
 				// 比較値：数値化
-				var nameA = Number(replaceWord(lengthA, correctWordA))
-				var nameB = Number(replaceWord(lengthB, correctWordB))
+				var nameA = replaceOku(lengthA, correctManA)
+				var nameB = replaceOku(lengthB, correctManB)
 			}
 
 			// 建国年でソートの場合
