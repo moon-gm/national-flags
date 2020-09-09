@@ -115,7 +115,7 @@ export default [
             currency:  ["リエル"], // 通貨
             capital: "プノンペン", // 首都
             area: "18万1,000", // 面積(k㎡)
-            population: "1,513万5000", // 人口（人）
+            population: "1,513万5,000", // 人口（人）
             timeLag: "-2", // 時差（時間）
             since: "1953", // 建国年（年）
             origin: {
@@ -148,7 +148,7 @@ export default [
             currency:  ["アイスランドクローナ"], // 通貨
             capital: "レイキャビク", // 首都
             area: "11万3,000", // 面積(k㎡)
-            population: "35万5620", // 人口（人）
+            population: "35万5,620", // 人口（人）
             timeLag: "-9", // 時差（時間）
             since: "1918", // 建国年（年）
             origin: {
@@ -180,7 +180,7 @@ export default [
             currency:  ["ユーロ"], // 通貨
             capital: "ダブリン", // 首都
             area: "7万300", // 面積(k㎡)
-            population: "492万1500", // 人口（人）
+            population: "492万1,500", // 人口（人）
             timeLag: "-9", // 時差（時間）
             since: "1921", // 建国年（年）
             origin: {
@@ -245,7 +245,7 @@ export default [
             currency:  ["ディルハム"], // 通貨
             capital: "アブダビ", // 首都
             area: "8万3,600", // 面積(k㎡)
-            population: "915万7000", // 人口（人）
+            population: "915万7,000", // 人口（人）
             timeLag: "-5", // 時差（時間）
             since: "1971", // 建国年（年）
             origin: {
@@ -791,7 +791,7 @@ export default [
             currency:  ["オーストラリアドル", "ドル"], // 通貨
             capital: "タラワ", // 首都
             area: "730", // 面積(k㎡)
-            population: "11万5800", // 人口（人）
+            population: "11万5,800", // 人口（人）
             timeLag: "+3", // 時差（時間）
             since: "1979", // 建国年（年）
             origin: {
@@ -824,7 +824,7 @@ export default [
             currency:  ["アメリカドル" ,"ドル"], // 通貨
             capital: "ワシントンD.C", // 首都
             area: "962万8,000", // 面積(k㎡)
-            population: "3億2783万", // 人口（人）
+            population: "3億2,783万", // 人口（人）
             timeLag: "-14", // 時差（時間）
             since: "1776", // 建国年（年）
             origin: {
@@ -856,7 +856,7 @@ export default [
             currency:  ["カナダドル", "ドル"], // 通貨
             capital: "オタワ", // 首都
             area: "998万5,000", // 面積(k㎡)
-            population: "3759万", // 人口（人）
+            population: "3,759万", // 人口（人）
             timeLag: "-14", // 時差（時間）
             since: "1867", // 建国年（年）
             origin: {
@@ -889,7 +889,7 @@ export default [
             currency:  ["東カリブドル", "ドル"], // 通貨
             capital: "セントジョンズ", // 首都
             area: "442", // 面積(k㎡)
-            population: "8万9000", // 人口（人）
+            population: "8万9,000", // 人口（人）
             timeLag: "-13", // 時差（時間）
             since: "1981", // 建国年（年）
             origin: {
