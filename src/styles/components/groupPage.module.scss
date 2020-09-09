@@ -28,8 +28,6 @@
 
 // リストアイテム設定
 .card {
-	padding: 5px 10px;
-
 	border-bottom: 1px solid $black-skelton;
 
 	color: $black;
@@ -40,11 +38,6 @@
 	cursor: pointer;
 	transition: color 0.15s ease, border-color 0.15s linear;
 
-	// 最後のリストアイテムの設定
-	&:last-child {
-		border-bottom: none;
-	}
-
 	&:hover,
 	&:focus,
 	&:active {
@@ -53,14 +46,62 @@
 		background: $blue-skelton;
 	}
 
+	&Wrap {
+		padding: 5px 10px;
+	}
+
+	&Title {
+		cursor: unset;
+		background: $black-skelton;
+		color: $white;
+		&:hover,
+		&:focus,
+		&:active {
+			border-color: $black;
+			background: $black-skelton;
+		}
+	}
+
+	input[type="radio"] {
+		// ラジオボタンチェック時の設定
+		&:checked + label {
+			border: 2px solid $white-skelton;
+
+			background: $blue;
+			color: $white;
+
+			// チェックマーク設定
+			&:before {
+				content: "✔︎";
+				padding-right: 10px;
+			}
+		}
+	}
+
+	label {
+		display: block;
+
+		padding: 5px 10px;
+	}
+
 }
 
 // 国名一覧の表示ボタン
 .listBtn {
 	display: block;
 
+	padding: 5px 10px;
+
 	background: $black-skelton-thick;
 	color: $white;
 }
 
-
+// ランキングタイトル
+.rankingTitle {
+	font-size: 30px;
+	border-bottom: 2px solid $black-skelton;
+	padding: 0px 10px;
+	@media (max-width: $sp-max-width) {
+		font-size:  20px;
+	}
+}

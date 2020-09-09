@@ -1,7 +1,7 @@
 import styles from '../styles/components/dataBox.module.scss'
 
 // 国のデータをまとめて表示するボックス
-export default function DataBox({d}) {
+export default function DataBox({d, data}) {
     return (
 		<div
 			id={d.data.id}
@@ -13,7 +13,7 @@ export default function DataBox({d}) {
 
 					{/**** 1-1.国名（略式） ****/}
 					<h1 className={styles.titleBoxTitle}>
-						{d.data.name.katakana}
+						{data.indexOf(d) + 1}. {d.data.name.katakana}
 					</h1>
 
 					{/**** 1-2.画像 ****/}
