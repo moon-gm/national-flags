@@ -65,8 +65,6 @@
 	input[type="radio"] {
 		// ラジオボタンチェック時の設定
 		&:checked + label {
-			border: 2px solid $white-skelton;
-
 			background: $blue;
 			color: $white;
 
