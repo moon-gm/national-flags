@@ -1350,6 +1350,614 @@ export default [
             }
         }
     },
+    // キューバ 未
+    {
+        data: {
+            id: "cuba", // 国家識別ID（画像名でも使用）
+            group: {
+                id: "centralAmerica", // 所在エリア識別ID
+                name: "中央アメリカ" // 所在エリア名
+            },
+            name: {
+                katakana: "キューバ", // 国名
+                official: "キューバ共和国", // 正式国名
+				kanji: ["玖馬", "玖"], // 国名（漢字略字）
+				search: ["キューバ", "キューバ共和国", "cuba", "kyuba", "きゅーば", "玖馬", "玖"], // 検索用国名
+            },
+            language: ["スペイン語"], // 使用言語（複数の場合のため、配列）
+            tribe: ["ヨーロッパ系", "混血", "他"], // 民族
+            currency:  ["キューバペソ", "ペソ"], // 通貨
+            capital: "ハバナ", // 首都
+            area: "1万9232", // 面積(k㎡)
+            population: "1124万", // 人口（人）
+            timeLag: "-14", // 時差（時間）
+            since: "1902", // 建国年（年）
+            origin: {
+                name: "", // 国名の由来
+                flag: "" // 国旗の由来
+            },
+            knowledge: {
+                title: "", // 豆知識タイトル
+                contents: "" // 豆知識コンテンツ
+            }
+        }
+    },
+    // グアテマラ 未
+    {
+        data: {
+            id: "guatemala", // 国家識別ID（画像名でも使用）
+            group: {
+                id: "centralAmerica", // 所在エリア識別ID
+                name: "中央アメリカ" // 所在エリア名
+            },
+            name: {
+                katakana: "グアテマラ", // 国名
+                official: "グアテマラ共和国", // 正式国名
+				kanji: ["危地馬拉"], // 国名（漢字略字）
+				search: ["グアテマラ", "グアテマラ共和国", "guatemala", "guatemara", "ぐあてまら", "危地馬拉"], // 検索用国名
+            },
+            language: ["スペイン語", "マヤ系言語" ,"他"], // 使用言語（複数の場合のため、配列）
+            tribe: ["先住民", "非先住民（混血・欧州系）"], // 民族
+            currency:  ["ケツァル"], // 通貨
+            capital: "グアテマラシティー", // 首都
+            area: "10万8889", // 面積(k㎡)
+            population: "1436万", // 人口（人）
+            timeLag: "-15", // 時差（時間）
+            since: "1838", // 建国年（年）
+            origin: {
+                name: "", // 国名の由来
+                flag: "" // 国旗の由来
+            },
+            knowledge: {
+                title: "", // 豆知識タイトル
+                contents: "" // 豆知識コンテンツ
+            }
+        }
+    },
+    // グレナダ 未
+    {
+        data: {
+            id: "grenada", // 国家識別ID（画像名でも使用）
+            group: {
+                id: "centralAmerica", // 所在エリア識別ID
+                name: "中央アメリカ" // 所在エリア名
+            },
+            name: {
+                katakana: "グレナダ", // 国名
+                official: "グレナダ", // 正式国名
+				kanji: ["格林納達"], // 国名（漢字略字）
+				search: ["グレナダ", "grenada", "ぐれなだ", "格林納達"], // 検索用国名
+            },
+            language: ["英語", "フランス語系パトワ語"], // 使用言語（複数の場合のため、配列）
+            tribe: ["アフリカ系", "インド系", "他"], // 民族
+            currency:  ["東カリブドル", "ドル"], // 通貨
+            capital: "セントジョーンズ", // 首都
+            area: "345", // 面積(k㎡)
+            population: "10万4000", // 人口（人）
+            timeLag: "-13", // 時差（時間）
+            since: "1974", // 建国年（年）
+            origin: {
+                name: "", // 国名の由来
+                flag: "" // 国旗の由来
+            },
+            knowledge: {
+                title: "", // 豆知識タイトル
+                contents: "" // 豆知識コンテンツ
+            }
+        }
+    },
+    // コスタリカ 未
+    {
+        data: {
+            id: "costaRica", // 国家識別ID（画像名でも使用）
+            group: {
+                id: "centralAmerica", // 所在エリア識別ID
+                name: "中央アメリカ" // 所在エリア名
+            },
+            name: {
+                katakana: "コスタリカ", // 国名
+                official: "コスタリカ共和国", // 正式国名
+				kanji: ["哥斯達利加"], // 国名（漢字略字）
+				search: ["コスタリカ", "コスタリカ共和国", "costa rica", "kosutarika", "こすたりか", "哥斯達利加"], // 検索用国名
+            },
+            language: ["スペイン語"], // 使用言語（複数の場合のため、配列）
+            tribe: ["スペイン系及び先住民との混血", "アフリカ系", "他"], // 民族
+            currency:  ["コロン"], // 通貨
+            capital: "サンホセ", // 首都
+            area: "5万1100", // 面積(k㎡)
+            population: "463万", // 人口（人）
+            timeLag: "-15", // 時差（時間）
+            since: "1821", // 建国年（年）
+            origin: {
+                name: "", // 国名の由来
+                flag: "" // 国旗の由来
+            },
+            knowledge: {
+                title: "", // 豆知識タイトル
+                contents: "" // 豆知識コンテンツ
+            }
+        }
+    },
+    // ジャマイカ 未
+    {
+        data: {
+            id: "jamaica", // 国家識別ID（画像名でも使用）
+            group: {
+                id: "centralAmerica", // 所在エリア識別ID
+                name: "中央アメリカ" // 所在エリア名
+            },
+            name: {
+                katakana: "ジャマイカ", // 国名
+                official: "ジャマイカ", // 正式国名
+				kanji: ["牙買加"], // 国名（漢字略字）
+				search: ["ジャマイカ", "jamaica", "jamaika", "じゃまいか", "牙買加"], // 検索用国名
+            },
+            language: ["英語", "英語系パトゥア語"], // 使用言語（複数の場合のため、配列）
+            tribe: ["アフリカ系", "混血", "他"], // 民族
+            currency:  ["ジャマイカドル", "ドル"], // 通貨
+            capital: "キングストン", // 首都
+            area: "1万1424", // 面積(k㎡)
+            population: "2734万", // 人口（人）
+            timeLag: "-14", // 時差（時間）
+            since: "1962", // 建国年（年）
+            origin: {
+                name: "", // 国名の由来
+                flag: "" // 国旗の由来
+            },
+            knowledge: {
+                title: "", // 豆知識タイトル
+                contents: "" // 豆知識コンテンツ
+            }
+        }
+    },
+    // セントクリストファー・ネービス 未
+    {
+        data: {
+            id: "saintChristopherAndNevis", // 国家識別ID（画像名でも使用）
+            group: {
+                id: "centralAmerica", // 所在エリア識別ID
+                name: "中央アメリカ" // 所在エリア名
+            },
+            name: {
+                katakana: "セントクリストファー・ネービス", // 国名
+                official: "セントクリストファー・ネービス", // 正式国名
+				kanji: ["聖基茨和尼維斯"], // 国名（漢字略字）
+				search: ["セントクリストファー・ネービス", "saint christopher and nevis", "saint christopher", "nevis", "せんとくりすとふぁー・ねーびす", "聖基茨和尼維斯", "セントフリストファー", "ネービス"], // 検索用国名
+            },
+            language: ["英語"], // 使用言語（複数の場合のため、配列）
+            tribe: ["アフリカ系", "イギリス系", "他"], // 民族
+            currency:  ["東カリブドル", "ドル"], // 通貨
+            capital: "バセテール", // 首都
+            area: "262", // 面積(k㎡)
+            population: "5万2000", // 人口（人）
+            timeLag: "-13", // 時差（時間）
+            since: "1983", // 建国年（年）
+            origin: {
+                name: "", // 国名の由来
+                flag: "" // 国旗の由来
+            },
+            knowledge: {
+                title: "", // 豆知識タイトル
+                contents: "" // 豆知識コンテンツ
+            }
+        }
+    },
+    // セントビンセント及びグレナディーン諸島 未
+    {
+        data: {
+            id: "saintVincentAndTheGrenadines", // 国家識別ID（画像名でも使用）
+            group: {
+                id: "centralAmerica", // 所在エリア識別ID
+                name: "中央アメリカ" // 所在エリア名
+            },
+            name: {
+                katakana: "セントビンセント及びグレナディーン諸島", // 国名
+                official: "セントビンセント及びグレナディーン諸島", // 正式国名
+				kanji: ["聖文森特和格林納丁斯"], // 国名（漢字略字）
+				search: ["セントビンセント及びグレナディーン諸島", "saint vincent and the grenadines", "saint vincent", "grenadines", "聖文森特和格林納丁斯", "セントビンセント", "グレナディーン", "せんとびんせんと", "ぐれなでぃーん"], // 検索用国名
+            },
+            language: ["英語", "フランス語系パトワ語"], // 使用言語（複数の場合のため、配列）
+            tribe: ["アフリカ系", "東インド系", "他"], // 民族
+            currency:  ["東カリブドル", "ドル"], // 通貨
+            capital: "キングスタウン", // 首都
+            area: "389", // 面積(k㎡)
+            population: "10万9000", // 人口（人）
+            timeLag: "-13", // 時差（時間）
+            since: "1979", // 建国年（年）
+            origin: {
+                name: "", // 国名の由来
+                flag: "" // 国旗の由来
+            },
+            knowledge: {
+                title: "", // 豆知識タイトル
+                contents: "" // 豆知識コンテンツ
+            }
+        }
+    },
+    // セントルシア 未
+    {
+        data: {
+            id: "saintLucia", // 国家識別ID（画像名でも使用）
+            group: {
+                id: "centralAmerica", // 所在エリア識別ID
+                name: "中央アメリカ" // 所在エリア名
+            },
+            name: {
+                katakana: "セントルシア", // 国名
+                official: "セントルシア", // 正式国名
+				kanji: ["聖盧西亜"], // 国名（漢字略字）
+				search: ["セントルシア", "saint lucia", "sentorushia", "聖盧西亜", "せんとるしあ", "lucia"], // 検索用国名
+            },
+            language: ["英語", "フランス語系パトワ語"], // 使用言語（複数の場合のため、配列）
+            tribe: ["アフリカ系", "混血", "他"], // 民族
+            currency:  ["東カリブドル", "ドル"], // 通貨
+            capital: "カストリーズ", // 首都
+            area: "616", // 面積(k㎡)
+            population: "17万45000", // 人口（人）
+            timeLag: "-13", // 時差（時間）
+            since: "1979", // 建国年（年）
+            origin: {
+                name: "", // 国名の由来
+                flag: "" // 国旗の由来
+            },
+            knowledge: {
+                title: "", // 豆知識タイトル
+                contents: "" // 豆知識コンテンツ
+            }
+        }
+    },
+    // ドミニカ共和国 未
+    {
+        data: {
+            id: "dominicanRepublic", // 国家識別ID（画像名でも使用）
+            group: {
+                id: "centralAmerica", // 所在エリア識別ID
+                name: "中央アメリカ" // 所在エリア名
+            },
+            name: {
+                katakana: "ドミニカ共和国", // 国名
+                official: "ドミニカ共和国", // 正式国名
+				kanji: ["土弥尼加共和国"], // 国名（漢字略字）
+				search: ["ドミニカ共和国", "ドミニカ", "dominican republic", "dominika", "土弥尼加共和国", "どみにか", "dominican"], // 検索用国名
+            },
+            language: ["スペイン語"], // 使用言語（複数の場合のため、配列）
+            tribe: ["混血", "ヨーロッパ系", "他"], // 民族
+            currency:  ["ペソ"], // 通貨
+            capital: "サント・ドミンゴ", // 首都
+            area: "4万8442", // 面積(k㎡)
+            population: "1001万", // 人口（人）
+            timeLag: "-13", // 時差（時間）
+            since: "1844", // 建国年（年）
+            origin: {
+                name: "", // 国名の由来
+                flag: "" // 国旗の由来
+            },
+            knowledge: {
+                title: "", // 豆知識タイトル
+                contents: "" // 豆知識コンテンツ
+            }
+        }
+    },
+    // ドミニカ国 未
+    {
+        data: {
+            id: "commonwealthOfDominica", // 国家識別ID（画像名でも使用）
+            group: {
+                id: "centralAmerica", // 所在エリア識別ID
+                name: "中央アメリカ" // 所在エリア名
+            },
+            name: {
+                katakana: "ドミニカ国", // 国名
+                official: "ドミニカ国", // 正式国名
+				kanji: ["土弥尼加国"], // 国名（漢字略字）
+				search: ["ドミニカ国", "ドミニカ", "commonwealth of dominica", "dominika", "土弥尼加国", "どみにか", "dominica", "commonwealth"], // 検索用国名
+            },
+            language: ["英語", "フランス語系パトワ語"], // 使用言語（複数の場合のため、配列）
+            tribe: ["アフリカ系", "ヨーロッパ系", "他"], // 民族
+            currency:  ["東カリブドル", "ドル"], // 通貨
+            capital: "ロゾー", // 首都
+            area: "790", // 面積(k㎡)
+            population: "6万7000", // 人口（人）
+            timeLag: "-13", // 時差（時間）
+            since: "1978", // 建国年（年）
+            origin: {
+                name: "", // 国名の由来
+                flag: "" // 国旗の由来
+            },
+            knowledge: {
+                title: "", // 豆知識タイトル
+                contents: "" // 豆知識コンテンツ
+            }
+        }
+    },
+    // トリニダード・トバゴ 未
+    {
+        data: {
+            id: "trinidadAndTobago", // 国家識別ID（画像名でも使用）
+            group: {
+                id: "centralAmerica", // 所在エリア識別ID
+                name: "中央アメリカ" // 所在エリア名
+            },
+            name: {
+                katakana: "トリニダード・トバゴ", // 国名
+                official: "トリニダード・トバゴ共和国", // 正式国名
+				kanji: ["特立尼達和多巴哥"], // 国名（漢字略字）
+				search: ["トリニダード・トバゴ", "トリニダード・トバゴ共和国", "trinidad and tobago", "trinidad", "tobago", "特立尼達和多巴哥", "とりにだーど・とばご", "トリニダード", "トバゴ"], // 検索用国名
+            },
+            language: ["英語", "ヒンディー語"], // 使用言語（複数の場合のため、配列）
+            tribe: ["インド系", "アフリカ系", "他"], // 民族
+            currency:  ["トリニダード・トバゴドル", "ドル"], // 通貨
+            capital: "ポート・オブ・スペイン", // 首都
+            area: "5128", // 面積(k㎡)
+            population: "133万9000", // 人口（人）
+            timeLag: "-13", // 時差（時間）
+            since: "1962", // 建国年（年）
+            origin: {
+                name: "", // 国名の由来
+                flag: "" // 国旗の由来
+            },
+            knowledge: {
+                title: "", // 豆知識タイトル
+                contents: "" // 豆知識コンテンツ
+            }
+        }
+    },
+    // ニカラグア 未
+    {
+        data: {
+            id: "nicaragua", // 国家識別ID（画像名でも使用）
+            group: {
+                id: "centralAmerica", // 所在エリア識別ID
+                name: "中央アメリカ" // 所在エリア名
+            },
+            name: {
+                katakana: "ニカラグア", // 国名
+                official: "ニカラグア共和国", // 正式国名
+				kanji: ["尼加拉瓜", "児"], // 国名（漢字略字）
+				search: ["ニカラグア", "ニカラグア共和国", "nicaragua", "nikaragua", "尼加拉瓜", "児", "にからぐあ"], // 検索用国名
+            },
+            language: ["スペイン語"], // 使用言語（複数の場合のため、配列）
+            tribe: ["混血", "ヨーロッパ系", "他"], // 民族
+            currency:  ["コルドバ"], // 通貨
+            capital: "マナグア", // 首都
+            area: "12万9541", // 面積(k㎡)
+            population: "574万", // 人口（人）
+            timeLag: "-15", // 時差（時間）
+            since: "1821", // 建国年（年）
+            origin: {
+                name: "", // 国名の由来
+                flag: "" // 国旗の由来
+            },
+            knowledge: {
+                title: "", // 豆知識タイトル
+                contents: "" // 豆知識コンテンツ
+            }
+        }
+    },
+    // ハイチ 未
+    {
+        data: {
+            id: "haiti", // 国家識別ID（画像名でも使用）
+            group: {
+                id: "centralAmerica", // 所在エリア識別ID
+                name: "中央アメリカ" // 所在エリア名
+            },
+            name: {
+                katakana: "ハイチ", // 国名
+                official: "ハイチ共和国", // 正式国名
+				kanji: ["海地"], // 国名（漢字略字）
+				search: ["ハイチ", "ハイチ共和国", "haiti", "haichi", "海地", "はいち"], // 検索用国名
+            },
+            language: ["フランス語", "クレオール語"], // 使用言語（複数の場合のため、配列）
+            tribe: ["アフリカ系", "他"], // 民族
+            currency:  ["グルド"], // 通貨
+            capital: "ポルトープランス", // 首都
+            area: "2万7750", // 面積(k㎡)
+            population: "1008万9000", // 人口（人）
+            timeLag: "-14", // 時差（時間）
+            since: "1804", // 建国年（年）
+            origin: {
+                name: "", // 国名の由来
+                flag: "" // 国旗の由来
+            },
+            knowledge: {
+                title: "", // 豆知識タイトル
+                contents: "" // 豆知識コンテンツ
+            }
+        }
+    },
+    // パナマ 未
+    {
+        data: {
+            id: "panama", // 国家識別ID（画像名でも使用）
+            group: {
+                id: "centralAmerica", // 所在エリア識別ID
+                name: "中央アメリカ" // 所在エリア名
+            },
+            name: {
+                katakana: "パナマ", // 国名
+                official: "パナマ共和国", // 正式国名
+				kanji: ["巴奈馬"], // 国名（漢字略字）
+				search: ["パナマ", "パナマ共和国", "panama", "巴奈馬", "ぱなま"], // 検索用国名
+            },
+            language: ["スペイン語"], // 使用言語（複数の場合のため、配列）
+            tribe: ["混血", "アフリカ系", "他"], // 民族
+            currency:  ["バルボア"], // 通貨
+            capital: "パナマシティー", // 首都
+            area: "7万5517", // 面積(k㎡)
+            population: "332万", // 人口（人）
+            timeLag: "-14", // 時差（時間）
+            since: "1903", // 建国年（年）
+            origin: {
+                name: "", // 国名の由来
+                flag: "" // 国旗の由来
+            },
+            knowledge: {
+                title: "", // 豆知識タイトル
+                contents: "" // 豆知識コンテンツ
+            }
+        }
+    },
+    // バハマ 未
+    {
+        data: {
+            id: "bahamas", // 国家識別ID（画像名でも使用）
+            group: {
+                id: "centralAmerica", // 所在エリア識別ID
+                name: "中央アメリカ" // 所在エリア名
+            },
+            name: {
+                katakana: "バハマ", // 国名
+                official: "バハマ国", // 正式国名
+				kanji: ["巴哈馬"], // 国名（漢字略字）
+				search: ["バハマ", "バハマ国", "bahamas", "bahama", "巴哈馬", "ばはま"], // 検索用国名
+            },
+            language: ["英語"], // 使用言語（複数の場合のため、配列）
+            tribe: ["欧州系白人", "アフリカ系", "他"], // 民族
+            currency:  ["バハマドル", "ドル"], // 通貨
+            capital: "ナッソー", // 首都
+            area: "1万3878", // 面積(k㎡)
+            population: "34万2000", // 人口（人）
+            timeLag: "-14", // 時差（時間）
+            since: "1973", // 建国年（年）
+            origin: {
+                name: "", // 国名の由来
+                flag: "" // 国旗の由来
+            },
+            knowledge: {
+                title: "", // 豆知識タイトル
+                contents: "" // 豆知識コンテンツ
+            }
+        }
+    },
+    // バルバドス 未
+    {
+        data: {
+            id: "barbados", // 国家識別ID（画像名でも使用）
+            group: {
+                id: "centralAmerica", // 所在エリア識別ID
+                name: "中央アメリカ" // 所在エリア名
+            },
+            name: {
+                katakana: "バルバドス", // 国名
+                official: "バルバドス", // 正式国名
+				kanji: ["巴巴多斯"], // 国名（漢字略字）
+				search: ["バルバドス", "barbados", "barubadosu", "巴巴多斯", "ばるばどす"], // 検索用国名
+            },
+            language: ["英語"], // 使用言語（複数の場合のため、配列）
+            tribe: ["欧州系白人", "アフリカ系", "他"], // 民族
+            currency:  ["バルバドスドル", "ドル"], // 通貨
+            capital: "ブリッジタウン", // 首都
+            area: "431", // 面積(k㎡)
+            population: "25万6000", // 人口（人）
+            timeLag: "-13", // 時差（時間）
+            since: "1966", // 建国年（年）
+            origin: {
+                name: "", // 国名の由来
+                flag: "" // 国旗の由来
+            },
+            knowledge: {
+                title: "", // 豆知識タイトル
+                contents: "" // 豆知識コンテンツ
+            }
+        }
+    },
+    // ベリーズ 未
+    {
+        data: {
+            id: "belize", // 国家識別ID（画像名でも使用）
+            group: {
+                id: "centralAmerica", // 所在エリア識別ID
+                name: "中央アメリカ" // 所在エリア名
+            },
+            name: {
+                katakana: "ベリーズ", // 国名
+                official: "ベリーズ", // 正式国名
+				kanji: ["伯利茲"], // 国名（漢字略字）
+				search: ["ベリーズ", "belize", "beri-zu", "伯利茲", "べりーず"], // 検索用国名
+            },
+            language: ["英語", "スペイン語", "他"], // 使用言語（複数の場合のため、配列）
+            tribe: ["メスティーソ", "クレオール"], // 民族
+            currency:  ["ベリーズドル", "ドル"], // 通貨
+            capital: "ベルモパン", // 首都
+            area: "2万2963", // 面積(k㎡)
+            population: "30万7000", // 人口（人）
+            timeLag: "-15", // 時差（時間）
+            since: "1981", // 建国年（年）
+            origin: {
+                name: "", // 国名の由来
+                flag: "" // 国旗の由来
+            },
+            knowledge: {
+                title: "", // 豆知識タイトル
+                contents: "" // 豆知識コンテンツ
+            }
+        }
+	},
+	// ホンジュラス 未
+    {
+        data: {
+            id: "honduras", // 国家識別ID（画像名でも使用）
+            group: {
+                id: "centralAmerica", // 所在エリア識別ID
+                name: "中央アメリカ" // 所在エリア名
+            },
+            name: {
+                katakana: "ホンジュラス", // 国名
+                official: "ホンジュラス共和国", // 正式国名
+				kanji: ["洪都拉斯"], // 国名（漢字略字）
+				search: ["ホンジュラス", "ホンジュラス共和国", "honduras", "honjurasu", "洪都拉斯", "ほんじゅらす"], // 検索用国名
+            },
+            language: ["スペイン語"], // 使用言語（複数の場合のため、配列）
+            tribe: ["ヨーロッパ系先住民混血", "他"], // 民族
+            currency:  ["レンピーラ"], // 通貨
+            capital: "テグシガルバ", // 首都
+            area: "11万2492", // 面積(k㎡)
+            population: "760万", // 人口（人）
+            timeLag: "-15", // 時差（時間）
+            since: "1821", // 建国年（年）
+            origin: {
+                name: "", // 国名の由来
+                flag: "" // 国旗の由来
+            },
+            knowledge: {
+                title: "", // 豆知識タイトル
+                contents: "" // 豆知識コンテンツ
+            }
+        }
+	},
+	// メキシコ
+    {
+        data: {
+            id: "mexico", // 国家識別ID（画像名でも使用）
+            group: {
+                id: "centralAmerica", // 所在エリア識別ID
+                name: "中央アメリカ" // 所在エリア名
+            },
+            name: {
+                katakana: "メキシコ", // 国名
+                official: "メキシコ合衆国", // 正式国名
+				kanji: ["墨西哥", "墨"], // 国名（漢字略字）
+				search: ["メキシコ", "メキシコ合衆国", "mexico", "mekishiko", "墨西哥", "墨", "めきしこ"], // 検索用国名
+            },
+            language: ["スペイン語"], // 使用言語（複数の場合のため、配列）
+            tribe: ["ヨーロッパ系と先住民の混血", "先住民", "他"], // 民族
+            currency:  ["メキシコペソ", "ペソ"], // 通貨
+            capital: "メキシコシティ", // 首都
+            area: "196万", // 面積(k㎡)
+            population: "1億863万", // 人口（人）
+            timeLag: "-15", // 時差（時間）
+            since: "1821", // 建国年（年）
+            origin: {
+                name: "アステカの守護神で太陽と戦いと狩猟の神である「ウィツィロボチドリ」の別名「メキシトリ（神に選ばれし者）」に由来。この名に場所を示す接尾語の「コ」が付いた。", // 国名の由来
+                flag: "地色の緑は独立と希望、白は信仰、赤は民族の統一を示す。中央の国章は、蛇を咥えた国鳥の鷲がとまった場所に帝都を作ったというアステカの建国伝説によるもの。" // 国旗の由来
+            },
+            knowledge: {
+                title: "性の祭典", // 豆知識タイトル
+                contents: "首都では「セックスアンドエンターテインメントエキスポ」が開催されている。このイベントでは世界中の「大人のおもちゃ」などが出品される他、ポルノ女優によるパフォーマンスも行われている。欧米でもこのようなイベントはあるようである。" // 豆知識コンテンツ
+            }
+        }
+    },
     // ----- 南アメリカ圏 -----
     // アルゼンチン
     {
