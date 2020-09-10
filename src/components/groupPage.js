@@ -98,12 +98,12 @@ export default function GroupPage({group}) {
 
 				// 「,」を削除
 				if (type === "area") {
-					var correctWordA = a.data.area.replace(",", "");
-					var correctWordB = b.data.area.replace(",", "");
+					var correctWordA = a.data.area;
+					var correctWordB = b.data.area;
 				}
 				else if (type === "population") {
-					var correctWordA = a.data.population.replace(",", "");
-					var correctWordB = b.data.population.replace(",", "");
+					var correctWordA = a.data.population;
+					var correctWordB = b.data.population;
 				}
 
 				// 「万」で文字列を分ける

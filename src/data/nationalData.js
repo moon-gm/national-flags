@@ -18,8 +18,8 @@ export default [
             tribe: ["インド・アーリヤ族", "ドラビダ族", "モンゴロイド族", "他"], // 民族
             currency:  ["ルピー"], // 通貨
             capital: "ニューデリー", // 首都
-            area: "328万7,263", // 面積(k㎡)
-            population: "13億5,300万", // 人口（人）
+            area: "328万7263", // 面積(k㎡)
+            population: "13億5300万", // 人口（人）
             timeLag: "-3.5", // 時差（時間）
             since: "1947", // 建国年（年）
             origin: {
@@ -51,7 +51,7 @@ export default [
             currency:  ["ルピア"], // 通貨
             capital: "ジャカルタ", // 首都
             area: "189万", // 面積(k㎡)
-            population: "2億6,770万", // 人口（人）
+            population: "2億6770万", // 人口（人）
             timeLag: "-2", // 時差（時間）
             since: "1945", // 建国年（年）
             origin: {
@@ -83,7 +83,7 @@ export default [
             currency:  ["ウォン"], // 通貨
             capital: "ソウル", // 首都
             area: "10万200", // 面積(k㎡)
-            population: "5,164万", // 人口（人）
+            population: "5164万", // 人口（人）
             timeLag: "0", // 時差（時間）
             since: "1948", // 建国年（年）
             origin: {
@@ -114,8 +114,8 @@ export default [
             tribe: ["カンボジア人（クメール人）", "他"], // 民族
             currency:  ["リエル"], // 通貨
             capital: "プノンペン", // 首都
-            area: "18万1,000", // 面積(k㎡)
-            population: "1,513万5,000", // 人口（人）
+            area: "18万1000", // 面積(k㎡)
+            population: "1513万5000", // 人口（人）
             timeLag: "-2", // 時差（時間）
             since: "1953", // 建国年（年）
             origin: {
@@ -147,8 +147,8 @@ export default [
             tribe: ["アイスランド人", "他"], // 民族
             currency:  ["アイスランドクローナ"], // 通貨
             capital: "レイキャビク", // 首都
-            area: "11万3,000", // 面積(k㎡)
-            population: "35万5,620", // 人口（人）
+            area: "11万3000", // 面積(k㎡)
+            population: "35万5620", // 人口（人）
             timeLag: "-9", // 時差（時間）
             since: "1918", // 建国年（年）
             origin: {
@@ -180,7 +180,7 @@ export default [
             currency:  ["ユーロ"], // 通貨
             capital: "ダブリン", // 首都
             area: "7万300", // 面積(k㎡)
-            population: "492万1,500", // 人口（人）
+            population: "492万1500", // 人口（人）
             timeLag: "-9", // 時差（時間）
             since: "1921", // 建国年（年）
             origin: {
@@ -212,8 +212,8 @@ export default [
             tribe: ["パシュトゥーン人", "タジク人", "他"], // 民族
             currency:  ["アフガニー"], // 通貨
             capital: "カブール", // 首都
-            area: "65万2,225", // 面積(k㎡)
-            population: "3,000万", // 人口（人）
+            area: "65万2225", // 面積(k㎡)
+            population: "3000万", // 人口（人）
             timeLag: "-4.5", // 時差（時間）
             since: "1919", // 建国年（年）
             origin: {
@@ -244,8 +244,8 @@ export default [
             tribe: ["アラブ人"], // 民族
             currency:  ["ディルハム"], // 通貨
             capital: "アブダビ", // 首都
-            area: "8万3,600", // 面積(k㎡)
-            population: "915万7,000", // 人口（人）
+            area: "8万3600", // 面積(k㎡)
+            population: "915万7000", // 人口（人）
             timeLag: "-5", // 時差（時間）
             since: "1971", // 建国年（年）
             origin: {
@@ -276,8 +276,8 @@ export default [
             tribe: ["アラブ人", "他"], // 民族
             currency:  ["イエメン・リアル", "リアル"], // 通貨
             capital: "サヌア", // 首都
-            area: "55万5,000", // 面積(k㎡)
-            population: "2,358万", // 人口（人）
+            area: "55万5000", // 面積(k㎡)
+            population: "2358万", // 人口（人）
             timeLag: "-6", // 時差（時間）
             since: "1990", // 建国年（年）
             origin: {
@@ -308,7 +308,7 @@ export default [
             tribe: ["ユダヤ人", "アラブ人", "他"], // 民族
             currency:  ["新シェケル"], // 通貨
             capital: "イェルサレム", // 首都
-            area: "2万2,000", // 面積(k㎡)
+            area: "2万2000", // 面積(k㎡)
             population: "770万", // 人口（人）
             timeLag: "-7", // 時差（時間）
             since: "1948", // 建国年（年）
@@ -340,8 +340,8 @@ export default [
             tribe: ["アラブ人", "クルド人", "他"], // 民族
             currency:  ["イラク・ディナール", "ディナール"], // 通貨
             capital: "バグダッド", // 首都
-            area: "43万7,400", // 面積(k㎡)
-            population: "3,200万", // 人口（人）
+            area: "43万7400", // 面積(k㎡)
+            population: "3200万", // 人口（人）
             timeLag: "-6", // 時差（時間）
             since: "1932", // 建国年（年）
             origin: {
@@ -372,8 +372,8 @@ export default [
             tribe: ["ペルシア人", "アゼリ系トルコ人" ,"他"], // 民族
             currency:  ["リアル"], // 通貨
             capital: "テヘラン", // 首都
-            area: "164万8,195", // 面積(k㎡)
-            population: "7,473万", // 人口（人）
+            area: "164万8195", // 面積(k㎡)
+            population: "7473万", // 人口（人）
             timeLag: "-5.5", // 時差（時間）
             since: "1979", // 建国年（年）
             origin: {
@@ -436,7 +436,7 @@ export default [
             tribe: ["アラブ人"], // 民族
             currency:  ["カタール・リヤル", "リヤル"], // 通貨
             capital: "ドーハ", // 首都
-            area: "1万1,427", // 面積(k㎡)
+            area: "1万1427", // 面積(k㎡)
             population: "170万", // 人口（人）
             timeLag: "-6", // 時差（時間）
             since: "1971", // 建国年（年）
@@ -468,7 +468,7 @@ export default [
             tribe: ["アラブ人"], // 民族
             currency:  ["クウェート・ディナール", "ディナール"], // 通貨
             capital: "クウェート", // 首都
-            area: "1万7,818", // 面積(k㎡)
+            area: "1万7818", // 面積(k㎡)
             population: "274万", // 人口（人）
             timeLag: "-6", // 時差（時間）
             since: "1961", // 建国年（年）
@@ -501,7 +501,7 @@ export default [
             currency:  ["サウジアラビア・リヤル", "リヤル"], // 通貨
             capital: "リヤド", // 首都
             area: "215万", // 面積(k㎡)
-            population: "2,714万", // 人口（人）
+            population: "2714万", // 人口（人）
             timeLag: "-6", // 時差（時間）
             since: "1932", // 建国年（年）
             origin: {
@@ -532,8 +532,8 @@ export default [
             tribe: ["アラビア人", "クルド人", "他"], // 民族
             currency:  ["シリア・ポンド", "ポンド"], // 通貨
             capital: "ダマスカス", // 首都
-            area: "18万5,000", // 面積(k㎡)
-            population: "2,044万", // 人口（人）
+            area: "18万5000", // 面積(k㎡)
+            population: "2044万", // 人口（人）
             timeLag: "-7", // 時差（時間）
             since: "1946", // 建国年（年）
             origin: {
@@ -565,7 +565,7 @@ export default [
             currency:  ["トルコ・リラ", "リラ"], // 通貨
             capital: "アンカラ", // 首都
             area: "78万576", // 面積(k㎡)
-            population: "7,472万", // 人口（人）
+            population: "7472万", // 人口（人）
             timeLag: "-7", // 時差（時間）
             since: "1923", // 建国年（年）
             origin: {
@@ -597,7 +597,7 @@ export default [
             currency:  ["バーレーン・ディナール", "ディナール"], // 通貨
             capital: "マナーマ", // 首都
             area: "758", // 面積(k㎡)
-            population: "123万5,000", // 人口（人）
+            population: "123万5000", // 人口（人）
             timeLag: "-6", // 時差（時間）
             since: "1971", // 建国年（年）
             origin: {
@@ -628,7 +628,7 @@ export default [
             tribe: ["アラブ人"], // 民族
             currency:  ["ヨルダン・ディナール", "ディナール"], // 通貨
             capital: "アンマン", // 首都
-            area: "8万9,000", // 面積(k㎡)
+            area: "8万9000", // 面積(k㎡)
             population: "604万", // 人口（人）
             timeLag: "-7", // 時差（時間）
             since: "1946", // 建国年（年）
@@ -693,8 +693,8 @@ export default [
             tribe: ["アラブ人", "ベルベル人", "他"], // 民族
             currency:  ["アルジェリアン・ディナール", "ディナール"], // 通貨
             capital: "アルジェ", // 首都
-            area: "238万1,740", // 面積(k㎡)
-            population: "4,040万", // 人口（人）
+            area: "238万1740", // 面積(k㎡)
+            population: "4040万", // 人口（人）
             timeLag: "-8", // 時差（時間）
             since: "1962", // 建国年（年）
             origin: {
@@ -725,8 +725,8 @@ export default [
             tribe: ["オヴィンブンドゥ族", "キンブンドゥ族", "バコンゴ族", "他"], // 民族
             currency:  ["クワンザ"], // 通貨
             capital: "ルアンダ", // 首都
-            area: "124万6,700", // 面積(k㎡)
-            population: "3,081万", // 人口（人）
+            area: "124万6700", // 面積(k㎡)
+            population: "3081万", // 人口（人）
             timeLag: "-8", // 時差（時間）
             since: "1975", // 建国年（年）
             origin: {
@@ -758,8 +758,8 @@ export default [
             tribe: ["アングロサクソン系などの欧州系人が中心"], // 民族
             currency:  ["オーストラリアドル", "ドル"], // 通貨
             capital: "キャンベラ", // 首都
-            area: "769万2,024", // 面積(k㎡)
-            population: "2,499万", // 人口（人）
+            area: "769万2024", // 面積(k㎡)
+            population: "2499万", // 人口（人）
             timeLag: "+1", // 時差（時間）
             since: "1901", // 建国年（年）
             origin: {
@@ -791,7 +791,7 @@ export default [
             currency:  ["オーストラリアドル", "ドル"], // 通貨
             capital: "タラワ", // 首都
             area: "730", // 面積(k㎡)
-            population: "11万5,800", // 人口（人）
+            population: "11万5800", // 人口（人）
             timeLag: "+3", // 時差（時間）
             since: "1979", // 建国年（年）
             origin: {
@@ -823,8 +823,8 @@ export default [
             tribe: ["ヨーロッパ系", "アフリカ系", "他"], // 民族
             currency:  ["アメリカドル" ,"ドル"], // 通貨
             capital: "ワシントンD.C", // 首都
-            area: "962万8,000", // 面積(k㎡)
-            population: "3億2,783万", // 人口（人）
+            area: "962万8000", // 面積(k㎡)
+            population: "3億2783万", // 人口（人）
             timeLag: "-14", // 時差（時間）
             since: "1776", // 建国年（年）
             origin: {
@@ -855,8 +855,8 @@ export default [
             tribe: ["イギリス系", "フランス系", "他"], // 民族
             currency:  ["カナダドル", "ドル"], // 通貨
             capital: "オタワ", // 首都
-            area: "998万5,000", // 面積(k㎡)
-            population: "3,759万", // 人口（人）
+            area: "998万5000", // 面積(k㎡)
+            population: "3759万", // 人口（人）
             timeLag: "-14", // 時差（時間）
             since: "1867", // 建国年（年）
             origin: {
@@ -889,7 +889,7 @@ export default [
             currency:  ["東カリブドル", "ドル"], // 通貨
             capital: "セントジョンズ", // 首都
             area: "442", // 面積(k㎡)
-            population: "8万9,000", // 人口（人）
+            population: "8万9000", // 人口（人）
             timeLag: "-13", // 時差（時間）
             since: "1981", // 建国年（年）
             origin: {
@@ -920,7 +920,7 @@ export default [
             tribe: ["スペイン系白人と先住民の混血", "先住民", "他"], // 民族
             currency:  ["アメリカドル / コロン", "ドル", "アメリカドル", "コロン"], // 通貨
             capital: "サンサルバドル", // 首都
-            area: "2万1,040", // 面積(k㎡)
+            area: "2万1040", // 面積(k㎡)
             population: "619万", // 人口（人）
             timeLag: "-15", // 時差（時間）
             since: "1821", // 建国年（年）
@@ -954,7 +954,7 @@ export default [
             currency:  ["ペソ"], // 通貨
             capital: "ブエノスアイレス", // 首都
             area: "278万", // 面積(k㎡)
-            population: "4,041万", // 人口（人）
+            population: "4041万", // 人口（人）
             timeLag: "-12", // 時差（時間）
             since: "1816", // 建国年（年）
             origin: {
@@ -985,7 +985,7 @@ export default [
             tribe: ["欧州系", "他"], // 民族
             currency:  ["ペソ"], // 通貨
             capital: "モンテビデオ", // 首都
-            area: "17万6,000", // 面積(k㎡)
+            area: "17万6000", // 面積(k㎡)
             population: "338万", // 人口（人）
             timeLag: "-12", // 時差（時間）
             since: "1825", // 建国年（年）
@@ -1017,8 +1017,8 @@ export default [
             tribe: ["欧州系", "欧州系・先住民混血", "他"], // 民族
             currency:  ["アメリカドル", "ドル"], // 通貨
             capital: "キト", // 首都
-            area: "25万6,000", // 面積(k㎡)
-            population: "1,446万", // 人口（人）
+            area: "25万6000", // 面積(k㎡)
+            population: "1446万", // 人口（人）
             timeLag: "-14", // 時差（時間）
             since: "1830", // 建国年（年）
             origin: {
@@ -1049,8 +1049,8 @@ export default [
             tribe: ["インド系", "アフリカ系", "混血", "他"], // 民族
             currency:  ["ガイアナ・ドル", "ドル"], // 通貨
             capital: "ジョージタウン", // 首都
-            area: "21万5,000", // 面積(k㎡)
-            population: "76万1,000", // 人口（人）
+            area: "21万5000", // 面積(k㎡)
+            population: "76万1000", // 人口（人）
             timeLag: "-12", // 時差（時間）
             since: "1966", // 建国年（年）
             origin: {
