@@ -154,13 +154,13 @@ export default function GroupPage({group}) {
 				if (!splitOkuA[1]) {
 					var lengthA = 0
 				} else {
-					var lengthA = splitWordA[1].length;
+					var lengthA = splitOkuA[1].length;
 				}
 
 				if (!splitOkuB[1]) {
 					var lengthB = 0
 				} else {
-					var lengthB = splitWordB[1].length;
+					var lengthB = splitOkuB[1].length;
 				}
 
 				// 「億」を数値に置き換える処理
