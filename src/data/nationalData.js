@@ -2233,7 +2233,7 @@ export default [
             currency:  ["東カリブドル", "ドル"], // 通貨
             capital: "カストリーズ", // 首都
             area: "616", // 面積(k㎡)
-            population: "17万45000", // 人口（人）
+            population: "17万4500", // 人口（人）
             timeLag: "-13", // 時差（時間）
             since: "1979", // 建国年（年）
             origin: {
