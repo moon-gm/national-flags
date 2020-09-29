@@ -1,53 +1,18 @@
 import { useEffect, useState } from 'react'
 import Link from 'next/link'
 import DataBox from '../../../components/dataBox'
-import inputData from '../../../data/inputData'
-import groupData from '../../../data/groupData'
 import styles from '../../../styles/pages/register.module.scss'
+
+// 各種データ
+import inputData from '../../../data/inputData' // インプット項目の設定値
+import groupData from '../../../data/groupData' // 地域データの設定値
+import sampleData from '../../../data/sampleData' // 国データのサンプル値
 
 export default function New(state) {
 
-	// -------------------- state定義 --------------------
+	// -------------------- 変数定義 --------------------
 
-	const [input, setInput] = useState() // inputの内容内容
-	const [inputAdd, setInputAdd] = useState(false) // 複数入力項目の表示設定
-
-	// -------------------- データ設定値取得 --------------------
-
-	let isAccess = true // ページへのアクセス設定
-	const inputLists = inputData // インプット項目の設定値
-	const groupLists = groupData // 地域データの定義値
-	const data = {
-		data: {
-			id: "india", // 国家識別ID（画像名でも使用）
-			group: {
-				id: "エリア識別ID", // 所在エリア識別ID
-				name: "エリア名" // 所在エリア名
-			},
-			name: {
-				katakana: "- 国名 -", // 国名
-				official: "- 国名（正式名称） -", // 正式国名
-				kanji: ["- 国名（漢字） -", "- 国名（漢字略） -"], // 国名（漢字略字）
-				search: ["- 検索ワード -"], // 検索用国名
-			},
-			language: ["- 言語 -", "- 言語/2個目... -"], // 使用言語（複数の場合のため、配列）
-			tribe: ["- 民族", "- 民族/2個目... -"], // 民族
-			currency: ["- 通貨 -", "- 通貨/2個目... -"], // 通貨
-			capital: '- 首都 -', // 首都
-			area: '- 面積(k㎡) -', // 面積(k㎡)
-			population: '- 人口（人） -', // 人口（人）
-			timeLag: '- 時差（時間） -', // 時差（時間）
-			since: '- 建国年（年） -', // 建国年（年）
-			origin: {
-				name: '- 国名の由来 -', // 国名の由来
-				flag: '- 国旗の由来 -' // 国旗の由来
-			},
-			knowledge: {
-				title: '- 豆知識タイトル -', // 豆知識タイトル
-				contents: '- 豆知識コンテンツ -' // 豆知識コンテンツ
-			}
-		}
-	}
+	let isAccess = true // ページへのアクセス設定(要素をレンダリングするため初期値「true」、useEffectで「false」に設定)
 
 
 	// -------------------- Function定義 --------------------
@@ -55,69 +20,64 @@ export default function New(state) {
 	// ***** ■ 入力項目をsessionStorageに保存する処理 ■ *****
 	function changeData() {
 
-		// 地域名を入力で地域IDを自動入力
+		// 1.地域名を選択で地域IDを自動入力
 		const inputValue = document.getElementById('group').value
-		groupLists.map(group => {
+		groupData.map(group => {
 			if (group.name === inputValue) {
 				document.getElementById('groupID').value = group.id
 			}
 		})
 
-		// 入力項目の値をsessionStorageに保存
-		var obj = {}
-		inputLists.map(list => {
+		// 2.入力項目の値をsessionStorageに保存
+		const obj = {}
+		function setValueToSession(id) {
+			let key = id
+			let value = document.getElementById(key).value
+			obj[key] = value
+			sessionStorage.setItem(key, value)
+		}
+		inputData.map(list => {
 
-			// 追加の入力項目がある場合
+			// 2-1.追加の入力項目がある場合
 			if (list.add) {
-				var key = list.id
-				var value = document.getElementById(key).value
-				obj[key] = value
-				sessionStorage.setItem(key, value)
-
+				// セッションにデータ保存の処理
+				setValueToSession(list.id)
 				// 追加した入力項目の値を保存
-				for (var i = 2; i < state.inputCount+1; i++) {
-					if (document.getElementById(`${list.id}${i}`)) {
-						var addKey = `${list.id}${i}`
-						var addValue = document.getElementById(addKey).value
-						obj[addKey] = addValue
-						sessionStorage.setItem(addKey, addValue)
+				for (let i = 2; i < state.inputCount+1; i++) {
+					let id = `${list.id}${i}`
+					if (document.getElementById(id)) {
+						// セッションにデータ保存の処理
+						setValueToSession(id)
 					}
 				}
-
 			}
 
-			// 追加の入力項目がない場合
+			// 2-2.追加の入力項目がない場合
 			else {
-				var key = list.id
-				var value = document.getElementById(key).value
-				obj[key] = value
-				sessionStorage.setItem(key, value)
+				// セッションにデータ保存の処理
+				setValueToSession(list.id)
 			}
 		})
 
-		// 一応state(input)にも入力内容をセット
-		setInput(obj)
-
-		// 追加項目の数も記憶
-		sessionStorage.setItem("count", state.inputCount)
-
-		// アクセス状況を記憶
-		sessionStorage.setItem("isAccess", true)
+		// 3.セッションに保存
+		sessionStorage.setItem("count", state.inputCount) // 追加項目の数
+		sessionStorage.setItem("isAccess", true) // アクセス許可
 	}
 
 
 	// ***** ■ 複数の入力項目を作成する処理 ■ *****
 	function createInput(id, name) {
-		var array = []
-		for (var i = 2; i < state.inputCount ; i++) {
+		let array = []
+		for (let i = 2; i < state.inputCount ; i++) {
+			let idPlusNum = `${id}${i}`
 			array[i] = (
 				<input
 					type="text"
-					id={`${id}${i}`}
-					name={`${id}${i}`}
+					id={idPlusNum}
+					name={idPlusNum}
 					className={styles.inputList}
 					placeholder={`${name}/${i}個目`}
-					key={`${id}${i}`}
+					key={idPlusNum}
 				/>
 			)
 		}
@@ -128,7 +88,8 @@ export default function New(state) {
 	// -------------------- レンダー後の処理 --------------------
 
 	useEffect(() => {
-		// ***** アクセス制限処理 *****
+
+		// ***** 1.アクセス制限処理 *****
 		isAccess = false
 		if (sessionStorage.getItem('isAccess') === 'true') {
 			isAccess = true
@@ -139,53 +100,46 @@ export default function New(state) {
 			}
 		}
 
+		// ***** 2.アクセス許可時処理 *****
 		if (isAccess) {
-			// ***** 先のページから戻った場合、前回のインプット内容を反映 *****
-			inputLists.map(list => {
+
+			// **** 2-1.インプット項目に入力内容を反映する処理 ****
+			function reflectValue(id) {
+				// sessionStorageの内容を取得
+				let inputId = id
+				let sessionData = sessionStorage.getItem(inputId)
+
+				// インプット項目にデータを挿入
+				if (sessionData === void 0 || sessionData === "" || sessionData === null ) {
+					document.getElementById(inputId).value = ""
+				} else {
+					document.getElementById(inputId).value = sessionData
+				}
+			}
+
+			// **** 2-2.先のページから戻った場合、前回のインプット内容を反映 ****
+			inputData.map(list => {
 
 				// 追加の入力項目がある場合
 				if (list.add) {
-					// sessionStorageの内容を取得
-					var sessionData = sessionStorage.getItem(list.id)
-
-					// インプット項目にデータを挿入
-					if (sessionData === void 0 || sessionData === "" || sessionData === null ) {
-						document.getElementById(list.id).value = ""
-					} else {
-						document.getElementById(list.id).value = sessionData
-					}
+					// データ反映処理
+					reflectValue(list.id)
 
 					// 追加項目のインプット項目にデータを挿入
-					for (var i = 2; i <state.inputCount; i++) {
-
-						// sessionStorageの内容を取得
-						var addKey = `${list.id}${i}`
-						var addSessionData = sessionStorage.getItem(addKey)
-
-						// インプット項目にデータを挿入
-						if (addSessionData === void 0 || addSessionData === "" || addSessionData === null ) {
-							document.getElementById(addKey).value = ""
-						} else {
-							document.getElementById(addKey).value = addSessionData
-						}
-
+					for (let i = 2; i <state.inputCount; i++) {
+						// データ反映処理
+						reflectValue(`${list.id}${i}`)
 					}
 				}
 
 				// 追加の入力項目がない場合
 				else {
-					// sessionStorageの内容を取得
-					var sessionData = sessionStorage.getItem(list.id)
-
-					// インプット項目にデータを挿入
-					if (sessionData === void 0 || sessionData === "" || sessionData === null ) {
-						document.getElementById(list.id).value = ""
-					} else {
-						document.getElementById(list.id).value = sessionData
-					}
+					// データ反映処理
+					reflectValue(list.id)
 				}
 
 			})
+
 		}
 
 	}, [])
@@ -202,7 +156,7 @@ export default function New(state) {
 						表示サンプル
 					</h1>
 				{/**** ヘッダー部分 -- end -- ****/}
-				<DataBox d={data}/>
+				<DataBox d={sampleData}/>
 
 
 				{/**** ヘッダー部分 -- start -- ****/}
@@ -216,7 +170,7 @@ export default function New(state) {
 
 						{/**** コンテンツ部分 -- start -- ****/}
 							<tbody>
-								{inputLists.map(list => {
+								{inputData.map(list => {
 
 									// *** テキストエリアの場合 ***
 									if (list.type === "textArea") {
@@ -224,7 +178,12 @@ export default function New(state) {
 											<tr key={list.id} style={{display: "block"}}>
 												<th className={styles.displayList}>{list.name}</th>
 												<td>
-													<textarea id={list.id} name={list.id} placeholder={list.name} className={styles.inputList}/>
+													<textarea
+														id={list.id}
+														name={list.id}
+														className={styles.inputList}
+														placeholder={list.name}
+													/>
 												</td>
 											</tr>
 										)
@@ -235,7 +194,12 @@ export default function New(state) {
 										return (
 											<tr key={list.id} style={{display: "none"}}>
 												<td>
-													<input type="hidden" id={list.id} name={list.id} placeholder={list.name}/>
+													<input
+														type="hidden"
+														id={list.id}
+														name={list.id}
+														placeholder={list.name}
+													/>
 												</td>
 											</tr>
 										)
@@ -247,8 +211,12 @@ export default function New(state) {
 											<tr key={list.id} style={{display: "block"}}>
 												<th className={styles.displayList}>{list.name}</th>
 												<td>
-													<select id={list.id} name={list.id} className={styles.inputList}>
-														{groupLists.map(group => {
+													<select
+														id={list.id}
+														name={list.id}
+														className={styles.inputList}
+													>
+														{groupData.map(group => {
 															return (
 																<option
 																	value={group.name}
@@ -273,11 +241,22 @@ export default function New(state) {
 												<th className={styles.displayList}>
 													{list.name}
 													{list.add && state.inputCount < 11 && (
-														<button onClick={state.addInput} className={`${styles.commonBtn} ${styles.plusBtn}`}>＋</button>
+														<button
+															onClick={state.addInput}
+															className={`${styles.commonBtn} ${styles.plusBtn}`}
+														>
+															＋
+														</button>
 													)}
 												</th>
 												<td>
-													<input type="text" id={list.id} name={list.id} placeholder={list.name} className={styles.inputList}/>
+													<input
+														type="text"
+														id={list.id}
+														name={list.id}
+														className={styles.inputList}
+														placeholder={list.name}
+													/>
 
 													{/** 入力項目追加の場合 **/}
 													{list.add && state.inputCount > 1 && createInput(list.id, list.name)}
@@ -295,7 +274,10 @@ export default function New(state) {
 
 				{/***** 入力内容確認ボタン -- start -- *****/}
 					<Link href="/setting/register/confirm">
-						<button onClick={changeData} className={styles.commonBtn}>
+						<button
+							onClick={changeData}
+							className={styles.commonBtn}
+						>
 							確認
 						</button>
 					</Link>
@@ -307,7 +289,7 @@ export default function New(state) {
 		return (
 			<div className={styles.grid}>
 				<h1 className={styles.title}>
-					※パスワードが間違っています。
+					パスワードが間違っています。
 				</h1>
 			</div>
 		)

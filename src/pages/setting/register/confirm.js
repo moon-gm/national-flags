@@ -1,24 +1,16 @@
 import { useRouter } from 'next/router'
 import { useEffect, useState } from 'react'
 import Link from 'next/link'
-import inputData from '../../../data/inputData'
 import styles from '../../../styles/pages/register.module.scss'
 
+// 各種データ
+import inputData from '../../../data/inputData' // インプット項目の設定値
 
 export default function Confirm(state) {
 
-	// -------------------- state定義 --------------------
-
-	const [inputCount, setInputCount] = useState(state.inputCount) // 複数入力項目の個数設定
-
-	// -------------------- ルーターの定義 --------------------
+	// -------------------- 変数定義 --------------------
 
 	const router = useRouter() // フォーム送信時のaction代わりに使用
-
-
-	// -------------------- 設定値定義 --------------------
-
-	const inputLists = inputData // インプット項目の設定値
 
 
 	// -------------------- Function定義 --------------------
@@ -26,34 +18,35 @@ export default function Confirm(state) {
 	// ***** ■ データ送信時の処理 ■ *****
 	async function handleSubmit() {
 
-		// form要素取得
+		// 1.form要素取得
 		const form = document.formOfRegister
 
-		// form内のvalue取得してdataに挿入
+		// 2.form内のvalue取得してdataに挿入
 		const data = {}
-		inputLists.map(item => {
+		inputData.map(item => {
 
-			// 追加入力項目がある場合
+			// 2-1.追加入力項目がある場合
 			if (item.add) {
 				data[item.id] = form[item.id].value
 				for (let i = 2; i < 11; i++) {
-					if (form[`${item.id}${i}`]) {
-						data[`${item.id}${i}`] = form[`${item.id}${i}`].value
+					let id = `${item.id}${i}`
+					if (form[id]) {
+						data[id] = form[id].value
 					}
 				}
 			}
 
-			// 追加入力項目がない場合
+			// 2-2.追加入力項目がない場合
 			else {
 				data[item.id] = form[item.id].value
 			}
 
 		})
 
-		// 追加入力項目の個数をsessionStorageに保存
-		data['count'] = sessionStorage.getItem('count')
+		// 3.セッションに保存
+		data['count'] = sessionStorage.getItem('count') // 追加項目の個数
 
-		// 新規データ追加の場合
+		// 4.API実行 > 4-1.新規データ追加の場合
 		if (sessionStorage.getItem('registerType') === 'new') {
 			// APIを叩いてdataをPOSTでサーバに送信
 			await fetch('/api/register/new', {
@@ -70,7 +63,7 @@ export default function Confirm(state) {
 			})
 		}
 
-		// データ変更の場合
+		// 4.API実行 > 4-2.データ変更の場合
 		else if (sessionStorage.getItem('registerType') === 'update') {
 			// APIを叩いてdataをPOSTでサーバに送信
 			await fetch('/api/register/update', {
@@ -87,7 +80,7 @@ export default function Confirm(state) {
 			})
 		}
 
-		// sessionStorageの内容削除
+		// 5.セッションの全内容削除
 		sessionStorage.clear()
 	}
 
@@ -96,12 +89,13 @@ export default function Confirm(state) {
 	function createInput(id) {
 		let plusInput = []
 		for (let i = 2; i < state.inputCount ; i++) {
+			let idPlusNum = `${id}${i}`
 			plusInput[i] = (
-				<React.Fragment key={`${id}${i}`}>
+				<React.Fragment key={idPlusNum}>
 					<input
 						type="hidden"
-						id={`${id}${i}`}
-						name={`${id}${i}`}
+						id={idPlusNum}
+						name={idPlusNum}
 					/>
 				</React.Fragment>
 			)
@@ -114,12 +108,16 @@ export default function Confirm(state) {
 	function createDisplay(id, name) {
 		let plusDisplay = []
 		for (let i = 2; i < state.inputCount ; i++) {
+			let idPlusNum = `open_${id}${i}`
 			plusDisplay[i] = (
-				<tr key={`open_${id}${i}`}>
+				<tr key={idPlusNum}>
 					<th className={styles.displayList}>
 						{name}/{i}個目
 					</th>
-					<td id={`open_${id}${i}`} className={styles.displayList}/>
+					<td
+						id={idPlusNum}
+						className={styles.displayList}
+					/>
 				</tr>
 			)
 		}
@@ -131,48 +129,39 @@ export default function Confirm(state) {
 
 	useEffect(() => {
 
-		// ***** 前ページのインプット内容を反映 *****
-		inputLists.map(list => {
+		// ***** 1.インプット項目に入力内容を反映する処理 *****
+		function reflectValue(id) {
+			// sessionStorageの内容を取得
+			let inputId = id
+			let sessionData = sessionStorage.getItem(inputId)
+
+			// formにデータを挿入
+			document.getElementById(inputId).value = sessionData
+
+			// 表示用に反映
+			let openId = `open_${inputId}`
+			document.getElementById(openId).textContent = sessionData
+		}
+
+		// ***** 2.前ページのインプット内容を反映 *****
+		inputData.map(list => {
 
 			// 追加項目がある場合
 			if (list.add) {
-				// sessionStorageの内容を取得
-				var sessionData = sessionStorage.getItem(list.id)
-
-				// formにデータを挿入
-				document.getElementById(list.id).value = sessionData
-
-				// 表示用に反映
-				var openId = `open_${list.id}`
-				document.getElementById(openId).textContent = sessionData
+				// データ反映処理
+				reflectValue(list.id)
 
 				// 追加項目の処理
 				for (let i = 2; i < state.inputCount; i++) {
-
-					// sessionStorageの内容を取得
-					var addKey = `${list.id}${i}`
-					var addSessionData = sessionStorage.getItem(addKey)
-
-					// formにデータを挿入
-					document.getElementById(addKey).value = addSessionData
-
-					// 表示用に反映
-					var openId = `open_${list.id}${i}`
-					document.getElementById(openId).textContent = addSessionData
+					// データ反映処理
+					reflectValue(`${list.id}${i}`)
 				}
 			}
 
 			// 追加項目がない場合
 			else {
-				// sessionStorageの内容を取得
-				var sessionData = sessionStorage.getItem(list.id)
-
-				// formにデータを挿入
-				document.getElementById(list.id).value = sessionData
-
-				// 表示用に反映
-				var openId = `open_${list.id}`
-				document.getElementById(openId).textContent = sessionData
+				// データ反映処理
+				reflectValue(list.id)
 			}
 
 		})
@@ -191,7 +180,7 @@ export default function Confirm(state) {
 			{/* インプット項目の確認表示 */}
 			<table className={styles.grid}>
 				<tbody>
-					{inputLists.map(list => {
+					{inputData.map(list => {
 						// 追加項目がある場合
 						if (list.add) {
 							return (
@@ -200,7 +189,10 @@ export default function Confirm(state) {
 										<th className={styles.displayList}>
 											{list.name}/1個目
 										</th>
-										<td id={`open_${list.id}`} className={styles.displayList}/>
+										<td
+											id={`open_${list.id}`}
+											className={styles.displayList}
+										/>
 									</tr>
 									{createDisplay(list.id, list.name)}
 								</React.Fragment>
@@ -214,7 +206,10 @@ export default function Confirm(state) {
 									<th className={styles.displayList}>
 										{list.name}
 									</th>
-									<td id={`open_${list.id}`} className={styles.displayList}/>
+									<td
+										id={`open_${list.id}`}
+										className={styles.displayList}
+									/>
 								</tr>
 							)
 						}
@@ -224,7 +219,7 @@ export default function Confirm(state) {
 
 			{/* フォームに値をセット（非表示） */}
 			<form name="formOfRegister" id="formOfRegister">
-				{inputLists.map(list => {
+				{inputData.map(list => {
 
 					// 追加項目がある場合
 					if (list.add) {
@@ -259,7 +254,12 @@ export default function Confirm(state) {
 				<Link href="/setting/register/new">
 					<button className={styles.commonBtn}>修正する</button>
 				</Link>
-				<input type="button"  value="データ登録" onClick={handleSubmit} className={styles.commonBtn}/>
+				<input
+					className={styles.commonBtn}
+					type="button"
+					value="データ登録"
+					onClick={handleSubmit}
+				/>
 			</form>
 
 		</div>
