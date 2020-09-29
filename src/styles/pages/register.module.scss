@@ -1,0 +1,42 @@
+/** データ編集ページ設定 **/
+@import '../variable';
+
+// 共通
+.grid {
+	text-align: center;
+	margin: 0 auto;
+}
+
+.title {
+	font-size: 20px;
+	margin-bottom: 10px;
+	&:before {
+		content: "○";
+		padding-right: 0.25em;
+	}
+}
+
+.commonBtn {
+	@include commonBtn;
+}
+
+// データ登録ページ共通
+.displayList {
+	font-size: 18px;
+	padding: 5px 10px;
+}
+
+.inputList {
+	display: block;
+	width: 100%;
+	height: 50px;
+	padding: 10px;
+	border: none;
+}
+
+// 新規データ追加ページ
+.plusBtn {
+	width: auto;
+	padding: 0 5px;
+	border-radius: 3px;
+}

@@ -34,7 +34,7 @@ export default async (req, res) => {
 		)
 
         // OK時のレスポンス
-        res.status(200).json(addData.data)
+        res.status(200).json({ok: "OK"})
 	}
 
 	// エラー時の処理

@@ -10,7 +10,7 @@ export default class MyDocument extends Document {
     return (
       <html style={{backgroundImage: "url(/bg-sky.jpg)", backgroundSize: "100% 100%"}}>
         <Head>
-			<meta charset="UTF-8"/>
+			<meta charSet="UTF-8"/>
 			<meta name="description" content="National Flags"/>
 			<meta property="og:url" content="https://national-flags.vercel.app//"/>
 			<meta property="og:title" content="National Flags"/>

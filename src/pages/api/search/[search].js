@@ -10,7 +10,7 @@ export default async (req, res) => {
     // URLクエリ文字を取得
 	const {query: {search}} = req
 
-	// クエリ文字列を「&」で分ける(クエリ文字：インデックス名&検索文字列)
+	// クエリ文字列を「-」で分ける(クエリ文字：インデックス名-検索文字列)
 	const terms = search.split('-')
 
 	// リクエストを実行

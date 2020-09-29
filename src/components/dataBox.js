@@ -13,7 +13,7 @@ export default function DataBox({d, data}) {
 
 					{/**** 1-1.国名（略式） ****/}
 					<h1 className={styles.titleBoxTitle}>
-						{data.indexOf(d) + 1}. {d.data.name.katakana}
+						{data && `${data.indexOf(d) + 1}. `}{d.data.name.katakana}
 					</h1>
 
 					{/**** 1-2.画像 ****/}

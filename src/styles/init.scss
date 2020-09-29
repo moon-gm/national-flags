@@ -22,3 +22,22 @@ a {
 		color: $blue;
 	}
 }
+
+tr {
+	border: 1px solid $black;
+	border-bottom: none;
+	&:last-child {
+		border-bottom: 1px solid $black;
+	}
+}
+th, td {
+	width: 300px;
+}
+th {
+	text-align: left;
+	background: $white-skelton;
+}
+td {
+	background: $white;
+}
+

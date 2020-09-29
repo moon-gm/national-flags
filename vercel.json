@@ -1,5 +1,6 @@
 {
     "env": {
-      "FAUNADB_SECRET_KEY_NATIONAL_FLAGS": "@faunadb_secret_key_national_flags"
+	  "FAUNADB_SECRET_KEY_NATIONAL_FLAGS": "@faunadb_secret_key_national_flags",
+	  "REGISTER_PAGE_ACCESS_PASS": "@register_page_access_pass"
     }
 }

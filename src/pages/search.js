@@ -174,6 +174,7 @@ export default function Home() {
 					data.map(item => (
 						<DataBox
 							d={item}
+							data={data}
 							key={`searchOf${item.data.id}`}
 						/>
 					))

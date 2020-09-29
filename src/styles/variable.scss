@@ -24,3 +24,29 @@ $blue-skelton: rgba(0, 112, 243, 0.5);
 		right: 0;
 	}
 }
+
+// 共通mixin設定
+@mixin commonBtn {
+	width: 120px;
+
+	padding: 10px;
+	margin: 10px;
+	border-radius: 10px;
+	border: 1px solid $black-skelton;
+
+	background: $white-skelton;
+
+	text-align: center;
+	text-decoration: none;
+
+	cursor: pointer;
+	transition: color 0.15s ease, border-color 0.15s linear;
+
+	&:hover,
+	&:focus,
+	&:active {
+		border-color: $blue;
+		color: $white;
+		background: $blue-skelton;
+	}
+}
