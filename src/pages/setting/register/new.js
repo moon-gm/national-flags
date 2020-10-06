@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react'
+import { useEffect } from 'react'
 import Link from 'next/link'
 import DataBox from '../../../components/dataBox'
 import styles from '../../../styles/pages/register.module.scss'
@@ -12,7 +12,7 @@ export default function New(state) {
 
 	// -------------------- 変数定義 --------------------
 
-	let isAccess = true // ページへのアクセス設定(要素をレンダリングするため初期値「true」、useEffectで「false」に設定)
+	let isAccess = true // ページへのアクセス設定(要素をレンダリングするため初期値「true」、useEffectで「false」に設定し、そこからアクセスの条件分岐)
 
 
 	// -------------------- Function定義 --------------------
