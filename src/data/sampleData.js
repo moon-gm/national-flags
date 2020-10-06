@@ -1,6 +1,6 @@
 export default {
 	data: {
-		id: "india", // 国家識別ID（画像名でも使用）
+		id: "uploadSample", // 国家識別ID（画像名でも使用）
 		group: {
 			id: "エリア識別ID", // 所在エリア識別ID
 			name: "エリア名" // 所在エリア名
