@@ -10,9 +10,12 @@
   "dependencies": {
     "@zeit/next-sass": "^1.0.1",
     "faunadb": "^3.0.1",
+    "formidable": "^1.2.2",
+    "fs": "0.0.1-security",
     "next": "9.5.2",
     "react": "16.13.1",
-    "react-dom": "16.13.1"
+    "react-dom": "16.13.1",
+    "util": "^0.12.3"
   },
   "devDependencies": {
     "node-sass": "^4.14.1"
