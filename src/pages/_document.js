@@ -8,7 +8,7 @@ export default class MyDocument extends Document {
 
   render() {
     return (
-      <html style={{backgroundImage: "url(/bg-sky.jpg)", backgroundSize: "100% 100%"}}>
+      <html style={{background: "linear-gradient(rgba(0, 112, 243, 0.5), rgba(0, 112, 243, 0.3))"}}>
         <Head>
 			<meta charSet="UTF-8"/>
 			<meta name="description" content="National Flags"/>
@@ -19,6 +19,12 @@ export default class MyDocument extends Document {
 			<link href="https://fonts.googleapis.com/css2?family=Lobster&display=swap" rel="stylesheet"/>
 			<link rel="apple-touch-icon" href="/apple-touch-icon.png"/>
 			<link rel="icon" href="/favicon.ico" />
+			{/* jQuery導入 */}
+			<script
+				src="https://code.jquery.com/jquery-3.5.1.js"
+				integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc="
+				crossOrigin="anonymous"
+			/>
         </Head>
         <body>
           <Main />
