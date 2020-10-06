@@ -9,11 +9,13 @@
 
 .title {
 	font-size: 20px;
-	margin-bottom: 10px;
-	&:before {
-		content: "○";
-		padding-right: 0.25em;
-	}
+	margin-top: 10px;
+	margin-bottom: 20px;
+	padding-top: 10px;
+	padding-bottom: 10px;
+	border-bottom: 3px solid $white;
+	background: $blue-skelton;
+	color: $white;
 }
 
 .commonBtn {
@@ -22,6 +24,13 @@
 
 // データ登録ページ共通
 .displayList {
+	font-size: 18px;
+	padding: 5px 10px;
+	background: $black-skelton;
+	color: $white;
+}
+
+.fontSize {
 	font-size: 18px;
 	padding: 5px 10px;
 }
@@ -39,4 +48,34 @@
 	width: auto;
 	padding: 0 5px;
 	border-radius: 3px;
+}
+
+// 画像アップロードページ
+.sampleImage {
+	width: 100%;
+	max-width: 300px;
+
+	&Title {
+		padding: 20px;
+		text-align: left;
+		width: 100%;
+		max-width: 600px;
+		margin: 0 auto;
+	}
+}
+
+.inputFile {
+	display: none;
+}
+
+.fileBtn {
+	@include commonBtn;
+	font-weight: normal;
+	position: relative;
+	right: -40%;
+	top: -15px;
+}
+
+.verticalAlign {
+	vertical-align: middle;
 }

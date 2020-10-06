@@ -55,10 +55,10 @@ export default function Confirm(state) {
 				body: JSON.stringify(data)
 			})
 
-			// レスポンスがOKなら完了画面に遷移
+			// レスポンスがOKなら画像登録画面に遷移
 			.then((res) => {
 				if (res.ok) {
-					router.push('/setting/register/complete')
+					router.push('/setting/register/upload')
 				}
 			})
 		}
@@ -78,10 +78,10 @@ export default function Confirm(state) {
 					router.push('/setting/register/complete')
 				}
 			})
-		}
 
-		// 5.セッションの全内容削除
-		sessionStorage.clear()
+			// セッションの全内容削除
+			sessionStorage.clear()
+		}
 	}
 
 
@@ -116,7 +116,7 @@ export default function Confirm(state) {
 					</th>
 					<td
 						id={idPlusNum}
-						className={styles.displayList}
+						className={styles.fontSize}
 					/>
 				</tr>
 			)
@@ -191,7 +191,7 @@ export default function Confirm(state) {
 										</th>
 										<td
 											id={`open_${list.id}`}
-											className={styles.displayList}
+											className={styles.fontSize}
 										/>
 									</tr>
 									{createDisplay(list.id, list.name)}
@@ -208,7 +208,7 @@ export default function Confirm(state) {
 									</th>
 									<td
 										id={`open_${list.id}`}
-										className={styles.displayList}
+										className={styles.fontSize}
 									/>
 								</tr>
 							)
