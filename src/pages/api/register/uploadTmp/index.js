@@ -14,7 +14,7 @@ export default async (req, res) => {
     try {
 
 		const form = new formidable.IncomingForm();
-		form.uploadDir = "./public/tmp";
+		form.uploadDir = "./../public/tmp";
 		form.keepExtensions = true;
 
 		form.parse(req, (err, fields, files) => {
