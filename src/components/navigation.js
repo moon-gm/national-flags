@@ -15,7 +15,6 @@ export default function Navigation() {
 		{name: '北アメリカ', path: '/northAmerica'},
 		{name: '中央アメリカ', path: '/centralAmerica'},
 		{name: '南アメリカ', path: '/southAmerica'},
-		{name: '全世界', path: '/all'},
 		{name: '各種検索', path: '/search'},
 		{name: 'データ編集', path: '/setting/register'},
 	]
