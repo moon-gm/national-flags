@@ -14,13 +14,13 @@ export default async (req, res) => {
     try {
 
 		const form = new formidable.IncomingForm();
-		form.uploadDir = "./tmp";
+		form.uploadDir = "./public/tmp";
 		form.keepExtensions = true;
 
 		form.parse(req, (err, fields, files) => {
 			res.end(util.inspect({fields: fields, files: files}));
 			let oldPath = files.file._writeStream.path
-			let newPath = `/tmp/${fields.fileName}.png`
+			let newPath = `public/tmp/${fields.fileName}.png`
 			fs.rename(oldPath, newPath, function(err) {
 				if (err) throw err;
 			  })
