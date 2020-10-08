@@ -13,6 +13,11 @@ export default function Confirm(state) {
 	const router = useRouter() // フォーム送信時のaction代わりに使用
 
 
+	// -------------------- state定義 --------------------
+
+	const [dataURL, setDataURL] = useState(false) // 一時ファイルの取得状況を設定
+
+
 	// -------------------- Function定義 --------------------
 
 	// ***** ■ データ送信時の処理 ■ *****
@@ -48,6 +53,23 @@ export default function Confirm(state) {
 
 		// 4.API実行 > 4-1.新規データ追加の場合
 		if (sessionStorage.getItem('registerType') === 'new') {
+			// APIを叩いてdataをPOSTでサーバに送信
+			await fetch('/api/register/new', {
+				method: 'POST',
+				headers: {'Content-Type': 'application/json'},
+				body: JSON.stringify(data)
+			})
+
+			// レスポンスがOKなら画像登録画面に遷移
+			.then((res) => {
+				if (res.ok) {
+					router.push('/setting/register/complete')
+				}
+			})
+		}
+
+		// 4.API実行 > 4-1.新規データ追加・画像アップロードの場合
+		if (sessionStorage.getItem('registerType') === 'newUpload') {
 			// APIを叩いてdataをPOSTでサーバに送信
 			await fetch('/api/register/new', {
 				method: 'POST',
@@ -140,7 +162,9 @@ export default function Confirm(state) {
 
 			// 表示用に反映
 			let openId = `open_${inputId}`
-			document.getElementById(openId).textContent = sessionData
+			if(id !== "dataURL") {
+				document.getElementById(openId).textContent = sessionData
+			}
 		}
 
 		// ***** 2.前ページのインプット内容を反映 *****
@@ -165,6 +189,9 @@ export default function Confirm(state) {
 			}
 
 		})
+
+		// dataURLをimgのsrcにセット
+		setDataURL(sessionStorage.getItem('dataURL'))
 
 	}, [])
 
@@ -201,17 +228,41 @@ export default function Confirm(state) {
 
 						// 追加項目がない場合
 						else {
-							return (
-								<tr key={list.id}>
-									<th className={styles.displayList}>
-										{list.name}
-									</th>
-									<td
-										id={`open_${list.id}`}
-										className={styles.fontSize}
-									/>
-								</tr>
-							)
+							if(list.id === "dataURL") {
+								return (
+									<tr key={list.id}>
+										<th className={styles.displayList}>
+											{list.name}
+										</th>
+										<td
+											id={`open_${list.id}`}
+											className={`${styles.fontSize} ${styles.verticalAlign}`}
+										>
+											{dataURL && (
+												<img
+													id="sampleFile"
+													alt="アップロード画像を表示"
+													src={dataURL}
+													className={styles.sampleImage}
+												/>
+											)}
+											{!dataURL && "次のページでアップロードします"}
+										</td>
+									</tr>
+								)
+							} else {
+								return (
+									<tr key={list.id}>
+										<th className={styles.displayList}>
+											{list.name}
+										</th>
+										<td
+											id={`open_${list.id}`}
+											className={styles.fontSize}
+										/>
+									</tr>
+								)
+							}
 						}
 					})}
 				</tbody>
@@ -251,7 +302,7 @@ export default function Confirm(state) {
 					}
 
 				})}
-				<Link href="/setting/register/new">
+				<Link href="/setting/register/newData">
 					<button className={styles.commonBtn}>修正する</button>
 				</Link>
 				<input

@@ -19,4 +19,5 @@ export default [
 	{name: "国旗の由来", id: "originFlag", type: "textArea", add: false},
 	{name: "豆知識タイトル", id: "knowledgeTitle", type: "text", add: false},
 	{name: "豆知識コンテンツ", id: "knowledgeContents", type: "textArea", add: false},
+	{name: "画像", id: "dataURL", type: "hidden", add: false},
 ]

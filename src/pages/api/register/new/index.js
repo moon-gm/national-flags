@@ -61,7 +61,8 @@ export default async (req, res) => {
 				knowledge: {
 					title: req.body['knowledgeTitle'], // 豆知識タイトル
 					contents: req.body['knowledgeContents'] // 豆知識コンテンツ
-				}
+				},
+				dataURL: req.body['dataURL'] // dataURL
 			}
 		}
 

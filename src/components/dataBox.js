@@ -2,6 +2,7 @@ import styles from '../styles/components/dataBox.module.scss'
 
 // 国のデータをまとめて表示するボックス
 export default function DataBox({d, data}) {
+
     return (
 		<div
 			id={d.data.id}
@@ -19,7 +20,7 @@ export default function DataBox({d, data}) {
 					{/**** 1-2.画像 ****/}
 					<div className={styles.titleBoxImage}>
 						<img
-							src={`/${d.data.id}.png`}
+							src={d.data.dataURL ? d.data.dataURL : `/${d.data.id}.png`}
 							alt={d.data.name.katakana}
 						/>
 					</div>
