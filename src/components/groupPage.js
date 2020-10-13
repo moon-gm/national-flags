@@ -14,20 +14,12 @@ export default function GroupPage({group}) {
 
 	// ----- 1-2.国名一覧の表示の処理 -----
 	function showList() {
-		if (list) {
-			setList(false)
-		} else {
-			setList(true)
-		}
+		if (list) { setList(false) } else { setList(true) }
 	}
 
 	// ----- 1-3.ランキングボックスの表示の処理 -----
 	function showRankBox() {
-		if (rank) {
-			setRank(false)
-		} else {
-			setRank(true)
-		}
+		if (rank) { setRank(false) } else { setRank(true) }
 	}
 
 	// ----- 2-1.取得したデータを管理する「state(data)」を作成 -----
@@ -39,7 +31,7 @@ export default function GroupPage({group}) {
 		const groupData = await res.json()
 
 		// groupDataを五十音順（昇順）に並び替え
-		var sortData = sortAscendByName(groupData)
+		let sortData = sortAscendByName(groupData)
 
 		setData(sortData)
 	}
@@ -50,209 +42,151 @@ export default function GroupPage({group}) {
 		const allData = await res.json()
 
 		// allDataを五十音順に並び替え
-		var sortData = sortAscendByName(allData)
+		let sortData = sortAscendByName(allData)
 
 		setData(sortData)
 	}
 
-	// ----- 2-5.DBデータ取得API実行 -----
+	// ----- 2-4.DBデータ取得API実行 -----
 	useEffect(()=>{
-		if(group === "all") {
-			getAll()
-		} else {
-			selectGroup(group)
-		}
+		if(group === "all") { getAll() } else { selectGroup(group) }
 	}, [])
 
-	// ----- 2-6.取得したdataを名前順（昇順）に並び替え -----
+	// ----- 2-5.取得したdataを名前順（昇順）に並び替え -----
 	function sortAscendByName(data) {
-		const sortData = data.sort(function(a, b) {
-			var nameA = a.data.name.katakana.toUpperCase(); // 大文字と小文字を無視する
-			var nameB = b.data.name.katakana.toUpperCase(); // 大文字と小文字を無視する
-			if (nameA < nameB) {
-			  return -1;
-			}
-			if (nameA > nameB) {
-			  return 1;
-			}
-
-			// names must be equal
-			return 0;
+		return data.sort(function(prev, next) {// 比較値：prevは前の値、nextは次の値
+			let prevWord = prev.data.name.katakana.toUpperCase(); // 大文字と小文字を無視する
+			let nextWord = next.data.name.katakana.toUpperCase(); // 大文字と小文字を無視する
+			if (prevWord < nextWord) { return -1 }
+			if (prevWord > nextWord) { return 1 }
+			return 0 // names must be equal
 		})
-		return sortData
 	}
 
-	// ----- 2-7.取得したdataを昇順に並び替え -----
+	// ----- 2-6.取得したdataを昇順に並び替え -----
 	function sortByNumber(data, type, sort) {
-		const sortData = data.sort(function(a, b) {
+		return data.sort(function(prev, next) {
 
-			// 時差でソートの場合
-			if (type === "timeLag") {
-				// 比較値：絶対値を取得
-				var nameA = Math.abs(a.data.timeLag);
-				var nameB = Math.abs(b.data.timeLag);
+			// 1.ソート種類条件分岐
+			switch(type) {
+
+				// A.時差でソートの場合
+				case "timeLag":
+
+					// 比較値：絶対値を取得
+					var prevData = Math.abs(prev.data.timeLag)
+					var nextData = Math.abs(next.data.timeLag)
+					break
+
+				// B.面積・人口でソートの場合
+				case "area":
+				case "population":
+
+					// オリジナル値を取得
+					if (type === "area") {
+						var originalPrev = prev.data.area
+						var originalNext = next.data.area
+					}
+					else if (type === "population") {
+						var originalPrev = prev.data.population
+						var originalNext = next.data.population
+					}
+
+					// 「万」で文字列を分ける
+					const splitManPrev = originalPrev.split("万")
+					const splitManNext = originalNext.split("万")
+
+					// 「万」以降の文字数を取得
+					if (!splitManPrev[1]) { var afterManLengthPrev = 0 } else { var afterManLengthPrev = splitManPrev[1].length }
+					if (!splitManNext[1]) { var afterManLengthNext = 0 } else { var afterManLengthNext = splitManNext[1].length }
+
+					// 「万」を数値に置き換える処理
+					function replaceMan(length, replace) {
+						switch(length){
+							case 0: return replace.replace("万", "0000")
+							case 1: return replace.replace("万", "000")
+							case 2: return replace.replace("万", "00")
+							case 3: return replace.replace("万", "0")
+							case 4: return replace.replace("万", "")
+						}
+					}
+
+					// 「万」で分けた文字列の整形値
+					let originalManPrev = replaceMan(afterManLengthPrev, originalPrev)
+					let originalManNext = replaceMan(afterManLengthNext, originalNext)
+
+					// 「億」で文字列を分ける
+					let splitOkuPrev = originalManPrev.split("億")
+					let splitOkuNext = originalManNext.split("億")
+
+					// 「億」以降の文字数を取得
+					if (!splitOkuPrev[1]) { var afterOkuLengthPrev = 0 } else { var afterOkuLengthPrev = splitOkuPrev[1].length }
+					if (!splitOkuNext[1]) { var afterOkuLengthNext = 0 } else { var afterOkuLengthNext = splitOkuNext[1].length }
+
+					// 「億」を数値に置き換える処理
+					function replaceOku(length, replace) {
+						switch(length){
+							case 0: return replace.replace("億", "00000000")
+							case 1: return replace.replace("億", "00000000")
+							case 2: return replace.replace("億", "000000")
+							case 3: return replace.replace("億", "00000")
+							case 4: return replace.replace("億", "0000")
+							case 5: return replace.replace("億", "000")
+							case 6: return replace.replace("億", "00")
+							case 7: return replace.replace("億", "0")
+							case 8: return replace.replace("億", "")
+						}
+					}
+
+					// 比較値：数値化
+					var prevData = replaceOku(afterOkuLengthPrev, originalManPrev)
+					var nextData = replaceOku(afterOkuLengthNext, originalManNext)
+					break
+
+				// C.建国年でソートの場合
+				case "since":
+
+					// 比較値：数値化
+					var prevData = Number(prev.data.since)
+					var nextData = Number(next.data.since)
+					break
+
 			}
 
-			// 面積・人口でソートの場合
-			else if (type === "area" || type === "population") {
-
-				// 「,」を削除
-				if (type === "area") {
-					var correctWordA = a.data.area;
-					var correctWordB = b.data.area;
-				}
-				else if (type === "population") {
-					var correctWordA = a.data.population;
-					var correctWordB = b.data.population;
-				}
-
-				// 「万」で文字列を分ける
-				const splitWordA = correctWordA.split("万");
-				const splitWordB = correctWordB.split("万");
-
-				// 「万」以降の文字数を取得
-				if (!splitWordA[1]) {
-					var lengthA = 0
-				} else {
-					var lengthA = splitWordA[1].length;
-				}
-
-				if (!splitWordB[1]) {
-					var lengthB = 0
-				} else {
-					var lengthB = splitWordB[1].length;
-				}
-
-				// 「万」を数値に置き換える処理
-				function replaceMan(length, replace) {
-					if (length === 0) {
-						return replace.replace("万", "0000")
-					}
-					else if (length === 1) {
-						return replace.replace("万", "000")
-					}
-					else if (length === 2) {
-						return replace.replace("万", "00")
-					}
-					else if (length === 3) {
-						return replace.replace("万", "0")
-					}
-					else if (length === 4) {
-						return replace.replace("万", "")
-					}
-				}
-
-				// 「万」で分けた文字列の整形値
-				var correctManA = replaceMan(lengthA, correctWordA)
-				var correctManB = replaceMan(lengthB, correctWordB)
-
-				// 「億」で文字列を分ける
-				var splitOkuA = correctManA.split("億");
-				var splitOkuB = correctManB.split("億");
-
-				// 「億」以降の文字数を取得
-				if (!splitOkuA[1]) {
-					var lengthA = 0
-				} else {
-					var lengthA = splitOkuA[1].length;
-				}
-
-				if (!splitOkuB[1]) {
-					var lengthB = 0
-				} else {
-					var lengthB = splitOkuB[1].length;
-				}
-
-				// 「億」を数値に置き換える処理
-				function replaceOku(length, replace) {
-					if (length === 0) {
-						return replace.replace("億", "00000000")
-					}
-					else if (length === 1) {
-						return replace.replace("億", "00000000")
-					}
-					else if (length === 2) {
-						return replace.replace("億", "000000")
-					}
-					else if (length === 3) {
-						return replace.replace("億", "00000")
-					}
-					else if (length === 4) {
-						return replace.replace("億", "0000")
-					}
-					else if (length === 5) {
-						return replace.replace("億", "000")
-					}
-					else if (length === 6) {
-						return replace.replace("億", "00")
-					}
-					else if (length === 7) {
-						return replace.replace("億", "0")
-					}
-					else if (length === 8) {
-						return replace.replace("億", "")
-					}
-				}
-
-				// 比較値：数値化
-				var nameA = replaceOku(lengthA, correctManA)
-				var nameB = replaceOku(lengthB, correctManB)
+			// 2.ソート方法条件分岐
+			switch(sort) {
+				case "descend": return nextData - prevData // 降順の場合
+				default: return prevData - nextData // 昇順の場合
 			}
 
-			// 建国年でソートの場合
-			else if (type === "since") {
-				// 比較値：数値化
-				var nameA = Number(a.data.since);
-				var nameB = Number(b.data.since);
-			}
-
-			// ソート方法指定
-			if (sort === "descend") {
-				// 降順の場合
-				return nameB - nameA
-			} else {
-				// 昇順の場合
-				return nameA - nameB
-			}
 		})
-		return sortData
 	}
 
-	// ----- 2-8.ランキングソート実行処理 -----
+	// ----- 2-7.ランキングソート実行処理 -----
 	async function rankingSort() {
 
 		// formのinputでname属性が[sortWay, sortType]の要素を取得
-		var sortWay = undefined
-		var sortType = undefined
-		if (document.formOfRanking.sortWay !== undefined) {
-			sortWay = document.formOfRanking.sortWay
-		}
-		if (document.formOfRanking.sortType !== undefined) {
-			sortType = document.formOfRanking.sortType
-		}
+		let element ={sortWay: undefined, sortType: undefined}
+		if (document.formOfRanking.sortWay !== undefined) { element.sortWay = document.formOfRanking.sortWay }
+		if (document.formOfRanking.sortType !== undefined) { element.sortType = document.formOfRanking.sortType }
 
 		// 選択されたラジオボタンのvalueをselectWay, selectTypeに代入
-		var selectWay = "descend" // デフォルトは大きい順に設定
-		var selectType = undefined
-		for (var i = 0; i < sortWay.length; i++) {
-			if (sortWay[i].checked){
-				selectWay = sortWay[i].value
-			}
+		let value ={selectWay: "descend", selectType: undefined}
+		for (let i = 0; i < element.sortWay.length; i++) {
+			if (element.sortWay[i].checked){ value.selectWay = element.sortWay[i].value }
 		}
-		for (var i = 0; i < sortType.length; i++) {
-			if (sortType[i].checked){
-				selectType = sortType[i].value
-			}
+		for (let j = 0; j < element.sortType.length; j++) {
+			if (element.sortType[j].checked){ value.selectType = element.sortType[j].value }
 		}
 
 		// 取得データを元にソート実行
-		var sortData = sortByNumber(data, selectType, selectWay)
+		let sortData = sortByNumber(data, value.selectType, value.selectWay)
 
 		// ソート方法セット（ソート方法のラジオボタンのみ選択時に再レンダリングを走らせるため）
-		setWay(selectWay)
+		setWay(value.selectWay)
 
 		// ソート種類セット（ランキングタイトル表示のため）
-		setType(selectType)
+		setType(value.selectType)
 
 		// 取得したデータをセット（表示データを書き換えるため）
 		setData(sortData)
@@ -282,11 +216,13 @@ export default function GroupPage({group}) {
 						{rank && (
 							<ul className={styles.navListArea}>
 								<form name="formOfRanking">
+
 									<li className={`${styles.card} ${styles.cardTitle}`}>
 										<span className={styles.cardWrap}>
 											- ソート方法 -
 										</span>
 									</li>
+
 									<li className={styles.card} onClick={rankingSort}>
 										<input type="radio" name="sortWay" value="ascend" id="ascend" hidden/>
 										<label htmlFor="ascend">小さい順</label>
@@ -295,11 +231,13 @@ export default function GroupPage({group}) {
 										<input type="radio" name="sortWay" value="descend" id="descend" hidden/>
 										<label htmlFor="descend">大きい順</label>
 									</li>
+
 									<li className={`${styles.card} ${styles.cardTitle}`}>
 										<span className={styles.cardWrap}>
 											- ソートの種類 -
 										</span>
 									</li>
+
 									<li className={styles.card} onClick={rankingSort}>
 										<input type="radio" name="sortType" value="area" id="area" hidden/>
 										<label htmlFor="area">面積</label>
@@ -316,6 +254,7 @@ export default function GroupPage({group}) {
 										<input type="radio" name="sortType" value="since" id="since" hidden/>
 										<label htmlFor="since">建国年</label>
 									</li>
+
 								</form>
 							</ul>
 						)}

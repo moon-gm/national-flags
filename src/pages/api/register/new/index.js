@@ -28,9 +28,7 @@ export default async (req, res) => {
 		}
 
 		// 複数項目のデータ処理実行
-		inputData.map(item => {
-			createItem(item.id)
-		})
+		inputData.map(item => { createItem(item.id) })
 
 		// 実際に挿入するデータ定義
 		const data = {

@@ -11,22 +11,17 @@ import sampleData from '../../../data/sampleData' // 国データのサンプル
 export default function New(state) {
 
 	// -------------------- 変数定義 --------------------
-
 	let isAccess = true // ページへのアクセス設定(要素をレンダリングするため初期値「true」、useEffectで「false」に設定し、そこからアクセスの条件分岐)
 
 
 	// -------------------- Function定義 --------------------
-
 	// ***** ■ 入力項目をsessionStorageに保存する処理 ■ *****
 	function changeData() {
 
 		// 1.地域名を選択で地域IDを自動入力
 		const inputValue = document.getElementById('group').value
-		groupData.map(group => {
-			if (group.name === inputValue) {
-				document.getElementById('groupID').value = group.id
-			}
-		})
+		let groupID = document.getElementById('groupID').value
+		groupData.map(group => { if (group.name === inputValue) { groupID = group.id } })
 
 		// 2.入力項目の値をsessionStorageに保存
 		const obj = {}
@@ -38,10 +33,11 @@ export default function New(state) {
 		}
 		inputData.map(list => {
 
-			// 2-1.追加の入力項目がある場合
-			if (list.add) {
-				// セッションにデータ保存の処理
+			// 2-1.通常入力項目のセッションにデータ保存の処理
 				setValueToSession(list.id)
+
+			// 2-2.追加の入力項目がある場合
+			if (list.add) {
 				// 追加した入力項目の値を保存
 				for (let i = 2; i < state.inputCount+1; i++) {
 					let id = `${list.id}${i}`
@@ -52,11 +48,6 @@ export default function New(state) {
 				}
 			}
 
-			// 2-2.追加の入力項目がない場合
-			else {
-				// セッションにデータ保存の処理
-				setValueToSession(list.id)
-			}
 		})
 
 		// 3.セッションに保存
@@ -95,9 +86,7 @@ export default function New(state) {
 			isAccess = true
 		} else {
 			let pass = window.prompt("パスワードを入力してください", "")
-			if (pass === process.env.REGISTER_PAGE_ACCESS_PASS) {
-				isAccess = true
-			}
+			if (pass === process.env.REGISTER_PAGE_ACCESS_PASS) { isAccess = true }
 		}
 
 		// ***** 2.アクセス許可時処理 *****
@@ -120,22 +109,16 @@ export default function New(state) {
 			// **** 2-2.先のページから戻った場合、前回のインプット内容を反映 ****
 			inputData.map(list => {
 
+				// データ反映処理
+				reflectValue(list.id)
+
 				// 追加の入力項目がある場合
 				if (list.add) {
-					// データ反映処理
-					reflectValue(list.id)
-
-					// 追加項目のインプット項目にデータを挿入
+					// インプット項目にデータを挿入
 					for (let i = 2; i <state.inputCount; i++) {
 						// データ反映処理
 						reflectValue(`${list.id}${i}`)
 					}
-				}
-
-				// 追加の入力項目がない場合
-				else {
-					// データ反映処理
-					reflectValue(list.id)
 				}
 
 			})

@@ -1,5 +1,5 @@
 import styles from '../../../styles/pages/register.module.scss'
-export default function Updatte() {
+export default function Update() {
 
 	return (
 		<div className={styles.grid}>

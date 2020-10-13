@@ -9,17 +9,14 @@ import inputData from '../../../data/inputData' // インプット項目の設�
 export default function Confirm(state) {
 
 	// -------------------- 変数定義 --------------------
-
 	const router = useRouter() // フォーム送信時のaction代わりに使用
 
 
 	// -------------------- state定義 --------------------
-
 	const [dataURL, setDataURL] = useState(false) // 一時ファイルの取得状況を設定
 
 
 	// -------------------- Function定義 --------------------
-
 	// ***** ■ データ送信時の処理 ■ *****
 	async function handleSubmit() {
 
@@ -30,80 +27,64 @@ export default function Confirm(state) {
 		const data = {}
 		inputData.map(item => {
 
-			// 2-1.追加入力項目がある場合
+			// 2-1.通常の入力項目
+			data[item.id] = form[item.id].value
+
+			// 2-2.追加入力項目がある場合
 			if (item.add) {
-				data[item.id] = form[item.id].value
 				for (let i = 2; i < 11; i++) {
 					let id = `${item.id}${i}`
-					if (form[id]) {
-						data[id] = form[id].value
-					}
+					if (form[id]) { data[id] = form[id].value }
 				}
-			}
-
-			// 2-2.追加入力項目がない場合
-			else {
-				data[item.id] = form[item.id].value
 			}
 
 		})
 
-		// 3.セッションに保存
+		// 3.セッションの「count」をdataに保存
 		data['count'] = sessionStorage.getItem('count') // 追加項目の個数
 
-		// 4.API実行 > 4-1.新規データ追加の場合
-		if (sessionStorage.getItem('registerType') === 'new') {
-			// APIを叩いてdataをPOSTでサーバに送信
-			await fetch('/api/register/new', {
-				method: 'POST',
-				headers: {'Content-Type': 'application/json'},
-				body: JSON.stringify(data)
-			})
+		// 4.API実行
+		const registerType = sessionStorage.getItem('registerType')
+		switch(registerType) {
 
-			// レスポンスがOKなら画像登録画面に遷移
-			.then((res) => {
-				if (res.ok) {
-					router.push('/setting/register/complete')
-				}
-			})
+			// 4-1.新規データ追加・データ変更の場合
+			case 'new':
+			case 'update':
+
+				// APIを叩いてdataをPOSTでサーバに送信
+				await fetch(`/api/register/${registerType}`, {
+					method: 'POST',
+					headers: {'Content-Type': 'application/json'},
+					body: JSON.stringify(data)
+				})
+
+				// レスポンスがOKなら画像登録画面に遷移
+				.then((res) => {
+					if (res.ok) { router.push('/setting/register/complete') }
+				})
+
+				// セッションの全内容削除
+				sessionStorage.clear()
+			break
+
+			// 4-2.新規データ追加・画像アップロードの場合
+			case 'newUpload':
+
+				// APIを叩いてdataをPOSTでサーバに送信
+				await fetch('/api/register/new', {
+					method: 'POST',
+					headers: {'Content-Type': 'application/json'},
+					body: JSON.stringify(data)
+				})
+
+				// レスポンスがOKなら画像登録画面に遷移
+				.then((res) => {
+					if (res.ok) { router.push('/setting/register/upload') }
+				})
+			break
+
 		}
 
-		// 4.API実行 > 4-1.新規データ追加・画像アップロードの場合
-		if (sessionStorage.getItem('registerType') === 'newUpload') {
-			// APIを叩いてdataをPOSTでサーバに送信
-			await fetch('/api/register/new', {
-				method: 'POST',
-				headers: {'Content-Type': 'application/json'},
-				body: JSON.stringify(data)
-			})
-
-			// レスポンスがOKなら画像登録画面に遷移
-			.then((res) => {
-				if (res.ok) {
-					router.push('/setting/register/upload')
-				}
-			})
-		}
-
-		// 4.API実行 > 4-2.データ変更の場合
-		else if (sessionStorage.getItem('registerType') === 'update') {
-			// APIを叩いてdataをPOSTでサーバに送信
-			await fetch('/api/register/update', {
-				method: 'POST',
-				headers: {'Content-Type': 'application/json'},
-				body: JSON.stringify(data)
-			})
-
-			// レスポンスがOKなら完了画面に遷移
-			.then((res) => {
-				if (res.ok) {
-					router.push('/setting/register/complete')
-				}
-			})
-
-			// セッションの全内容削除
-			sessionStorage.clear()
-		}
 	}
 
 

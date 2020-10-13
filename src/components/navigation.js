@@ -24,33 +24,21 @@ export default function Navigation() {
 
 	// ----- レンダー後の処理 -----
 	useEffect(()=>{
+		// ユーザーエージェント取得
+		let ua = navigator.userAgent.toLowerCase()
+
+		// 端末種別条件文設定
+		let isiPhone = (ua.indexOf('iphone') > -1) // iPhone
+		let isiPad = (ua.indexOf('ipad') > -1) // iPad
+		let isAndroid = (ua.indexOf('android') > -1) && (ua.indexOf('mobile') > -1) // Android
+		let isAndroidTablet = (ua.indexOf('android') > -1) && (ua.indexOf('mobile') == -1) // Android Tablet
+
 		// ユーザーエージェント判定
-		let ua = navigator.userAgent.toLowerCase();
-
-		// iPhone
-		let isiPhone = (ua.indexOf('iphone') > -1);
-		// iPad
-		let isiPad = (ua.indexOf('ipad') > -1);
-		// Android
-		let isAndroid = (ua.indexOf('android') > -1) && (ua.indexOf('mobile') > -1);
-		// Android Tablet
-		let isAndroidTablet = (ua.indexOf('android') > -1) && (ua.indexOf('mobile') == -1);
-
-		if(isiPhone) {
-			setUserAgent('iPhone');
-		}
-		if(isiPad) {
-			setUserAgent('iPad');
-		}
-		if(isAndroid) {
-			setUserAgent('Android');
-		}
-		if(isAndroidTablet) {
-			setUserAgent('Android Tablet');
-		}
-		if(!isiPhone && !isiPad && !isAndroid && !isAndroidTablet) {
-			setUserAgent('PC');
-		}
+		if(isiPhone) { setUserAgent('iPhone') }
+		else if(isiPad) { setUserAgent('iPad') }
+		else if(isAndroid) { setUserAgent('Android'); }
+		else if(isAndroidTablet) { setUserAgent('Android Tablet') }
+		else { setUserAgent('PC') }
 	}, [])
 
 
@@ -76,13 +64,13 @@ export default function Navigation() {
 
 							{// 「データ編集」項目、かつ、ユーザーエージェント判定が「PC」の時のみ表示
 								list.name === "データ編集" && userAgent === "PC" &&
-								(
-									<Link href={list.path}>
-										<h3 className={styles.card}>
-											{list.name}
-										</h3>
-									</Link>
-								)
+									(
+										<Link href={list.path}>
+											<h3 className={styles.card}>
+												{list.name}
+											</h3>
+										</Link>
+									)
 							}
 
 						</React.Fragment>

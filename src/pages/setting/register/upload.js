@@ -93,9 +93,7 @@ export default function Upload() {
 
 		// 1.セッションの「識別ID」からファイル名を取得
 		const id = sessionStorage.getItem('id')
-		if(id) {
-			setFileName(id)
-		}
+		if(id) { setFileName(id) }
 
 	}, [])
 
@@ -151,26 +149,22 @@ export default function Upload() {
 						画像タイトル：「{fileName ? fileName : '選択されていません'}.png」<br/>
 						※画像タイトルは前ページで入力の識別IDが適用されます。
 					</p>
-					{isTmpFile &&
-						(
-							<img
-								id="sampleFile"
-								alt="アップロード画像を表示"
-								src={`/tmp/${fileName}.png`}
-								className={styles.sampleImage}
-							/>
-						)
-					}
-					{!isTmpFile &&
-						(
-							<img
-								id="sampleFile"
-								alt="アップロード画像を表示"
-								src="/uploadSample.png"
-								className={styles.sampleImage}
-							/>
-						)
-					}
+					{isTmpFile && (
+						<img
+							id="sampleFile"
+							alt="アップロード画像を表示"
+							src={`/tmp/${fileName}.png`}
+							className={styles.sampleImage}
+						/>
+					)}
+					{!isTmpFile && (
+						<img
+							id="sampleFile"
+							alt="アップロード画像を表示"
+							src="/uploadSample.png"
+							className={styles.sampleImage}
+						/>
+					)}
 
 				</div>
 			{/***** 画像サンプル表示の設定 -- end -- ******/}

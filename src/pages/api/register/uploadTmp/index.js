@@ -13,12 +13,16 @@ export default async (req, res) => {
 	// リクエストを実行
     try {
 
+		// formidable設定
 		const form = new formidable.IncomingForm();
-		form.uploadDir = "./public/tmp";
+		form.uploadDir = "./public/tmp"; // アップロードするディレクトリ指定
 		form.keepExtensions = true;
 
-		await form.parse(req, (err, fields, files) => {
+		// ファイルアップロード処理
+		form.parse(req, (err, fields, files) => {
 			res.end(util.inspect({fields: fields, files: files}));
+
+			// ファイル名変更処理
 			let oldPath = files.file._writeStream.path
 			let newPath = `public/tmp/${fields.fileName}.png`
 			fs.rename(oldPath, newPath, function(err) {
