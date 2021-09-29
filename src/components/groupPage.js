@@ -29,7 +29,7 @@ export default function GroupPage({group}) {
 	async function selectGroup (groupName) {
 		const res = await fetch(`/api/search/national_data_search_by_group-${groupName}`)
 		const groupData = await res.json()
-
+		
 		// groupDataを五十音順（昇順）に並び替え
 		let sortData = sortAscendByName(groupData)
 
