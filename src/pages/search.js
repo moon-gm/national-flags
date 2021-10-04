@@ -1,9 +1,9 @@
-import {useState} from 'react'
+import { useState } from 'react'
 import styles from '../styles/pages/search.module.scss'
 import DataBox from '../components/dataBox'
 
 // 検索ボックスパーツ
-export default function Home() {
+const Search = () => {
 
 	// ----- 取得したデータを管理する「state(data)」を作成 -----
 	const [data, setData] = useState([])
@@ -15,45 +15,37 @@ export default function Home() {
 	const [alert, setAlert] = useState(false)
 
 	// ----- 検索ボックスの表示を管理する処理 -----
-	function showBox() {
+	const showBox = () => {
 		// 検索ボックスの表示処理
-		if (searchBox) {
-			setSearchBox(false)
-		} else {
-			setSearchBox(true)
-		}
+		searchBox ? setSearchBox(false) : setSearchBox(true)
 	}
 
 	// ----- 検索項目のデータを設定 -----
-	const searchList = [
-		{id: "nationalName", name: "国名", indexName: "national_data_search_by_name"},
-		{id: "capital", name: "首都名", indexName: "national_data_search_by_capital"},
-		{id: "currency", name: "通貨名", indexName: "national_data_search_by_currency"},
-		{id: "language", name: "言語名", indexName: "national_data_search_by_language"},
-		{id: "timeLag", name: "時差", indexName: "national_data_search_by_time_lag"},
-		{id: "since", name: "建国年", indexName: "national_data_search_by_since"},
+	const searchLists = [
+		{id: "nationalName", name: "国名", indexName: "name"},
+		{id: "capital", name: "首都名", indexName: "capital"},
+		{id: "currency", name: "通貨名", indexName: "currency"},
+		{id: "language", name: "言語名", indexName: "language"},
+		{id: "timeLag", name: "時差", indexName: "time_lag"},
+		{id: "since", name: "建国年", indexName: "since"},
 	]
 
 	// ----- DBデータをワード検索して取得する処理 -----
-	async function searchTerm() {
+	const searchTerm = async () => {
 
 		// formのinputでname属性が[serchWord]の要素を取得
 		const elements = document.formOfSearch.searchWord
 
 		// 選択されたラジオボタンのvalueをselectValueに代入
-		var selectValue = undefined
-		for (var i = 0; i < elements.length; i++) {
-			if (elements[i].checked){
-				selectValue = elements[i].value
-			}
+		let selectValue = undefined
+		for (let idx = 0; idx < elements.length; idx++) {
+			if (elements[idx].checked) selectValue = elements[idx].value
 		}
 
 		// 検索種別の設定
-		var searchType = undefined
-		searchList.map(item => {
-			if (item.id === selectValue) {
-				searchType = item.indexName
-			}
+		let searchType = undefined
+		searchLists.map(searchList => {
+			if (searchList.id === selectValue) searchType = `national_data_search_by_${searchList.indexName}`
 		})
 
 		// 入力値の取得
@@ -105,21 +97,21 @@ export default function Home() {
 								{/*** 2-2-1.検索種選択ラジオボタン -- start -- ***/}
 									<div className={styles.gridRadio}>
 										<div className={styles.gridRadioScroll}>
-											{searchList.map(item => {
+											{searchLists.map(searchList => {
 												return (
-													<React.Fragment key={`radioOf${item.id}`}>
+													<React.Fragment key={`radioOf${searchList.id}`}>
 														<input
 															type="radio"
 															name="searchWord"
-															id={item.id}
-															value={item.id}
+															id={searchList.id}
+															value={searchList.id}
 															className={styles.inputRadio}
 														/>
 														<label
-															htmlFor={item.id}
+															htmlFor={searchList.id}
 															className={styles.inputLabel}
 														>
-															{item.name}
+															{searchList.name}
 														</label>
 													</React.Fragment>
 												)
@@ -151,7 +143,7 @@ export default function Home() {
 										<input
 											type="button"
 											onClick={searchTerm}
-											value="検索 &rarr;"
+											value="検索 →"
 											className={styles.inputSearchBtn}
 										/>
 									</div>
@@ -188,3 +180,4 @@ export default function Home() {
 		</>
 	)
 }
+export default Search

@@ -1,8 +1,7 @@
 import styles from '../styles/pages/index.module.scss'
 import Navigation from '../components/navigation'
 
-export default function Home() {
-
+const Home = () => {
 	return (
 		<>
 			{/***** 1.操作メッセージ *****/}
@@ -17,3 +16,4 @@ export default function Home() {
 		</>
 	)
 }
+export default Home
