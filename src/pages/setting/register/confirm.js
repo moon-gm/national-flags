@@ -4,7 +4,7 @@ import Link from 'next/link'
 import styles from '../../../styles/pages/register.module.scss'
 
 // 各種データ
-import inputData from '../../../data/inputData' // インプット項目の設定値
+import inputData from '../../../config/inputData.json' // インプット項目の設定値
 
 export default function Confirm(state) {
 

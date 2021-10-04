@@ -6,7 +6,7 @@ const q = faunadb.query
 const client = new faunadb.Client({secret})
 
 // インプット項目データ
-import inputData from '../../../../data/inputData'
+import inputData from '../../../../config/inputData.json'
 
 export default async (req, res) => {
 

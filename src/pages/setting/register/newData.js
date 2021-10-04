@@ -4,9 +4,9 @@ import DataBox from '../../../components/dataBox'
 import styles from '../../../styles/pages/register.module.scss'
 
 // 各種データ
-import inputData from '../../../data/inputData' // インプット項目の設定値
-import groupData from '../../../data/groupData' // 地域データの設定値
-import sampleData from '../../../data/sampleData' // 国データのサンプル値
+import inputData from '../../../config/inputData.json' // インプット項目の設定値
+import groupData from '../../../config/groupData.json' // 地域データの設定値
+import sampleData from '../../../config/sampleData' // 国データのサンプル値
 
 export default function New(state) {
 
@@ -41,7 +41,7 @@ export default function New(state) {
 			setValueToSession(list.id)
 
 			// 2-2.追加の入力項目がある場合
-			if (list.add) {
+			if (list.addInput) {
 				// 追加した入力項目の値を保存
 				for (let i = 2; i < state.inputCount+1; i++) {
 					let id = `${list.id}${i}`
@@ -145,7 +145,7 @@ export default function New(state) {
 				reflectValue(list.id)
 
 				// 追加の入力項目がある場合
-				if (list.add) {
+				if (list.addInput) {
 					// 追加項目のインプット項目にデータを挿入
 					for (let i = 2; i <state.inputCount; i++) {
 						// データ反映処理
@@ -257,7 +257,7 @@ export default function New(state) {
 											<tr key={list.id} style={{display: "block"}}>
 												<th className={styles.displayList}>
 													{list.name}
-													{list.add && state.inputCount < 11 && (
+													{list.addInput && state.inputCount < 11 && (
 														<button
 															onClick={state.addInput}
 															className={`${styles.commonBtn} ${styles.plusBtn}`}
@@ -276,7 +276,7 @@ export default function New(state) {
 													/>
 
 													{/** 入力項目追加の場合 **/}
-													{list.add && state.inputCount > 1 && createInput(list.id, list.name)}
+													{list.addInput && state.inputCount > 1 && createInput(list.id, list.name)}
 												</td>
 											</tr>
 										)

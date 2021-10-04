@@ -1,7 +1,7 @@
 import styles from '../styles/components/dataBox.module.scss'
 
 // 国のデータをまとめて表示するボックス
-export default function DataBox({d, data}) {
+const DataBox = ({ d, data }) => {
 
     return (
 		<div
@@ -60,13 +60,9 @@ export default function DataBox({d, data}) {
 												言語：
 												{d.data.language.map(l => {
 													if (l === d.data.language.slice(-1)[0]) {
-														return (
-															l
-														)
+														return l
 													} else {
-														return(
-															`${l} / `
-														)
+														return `${l} / `
 													}
 												})}
 											</li>
@@ -92,13 +88,9 @@ export default function DataBox({d, data}) {
 												民族：
 												{d.data.tribe.map(t => {
 													if (t === d.data.tribe.slice(-1)[0]) {
-														return (
-															t
-														)
+														return t
 													} else {
-														return(
-															`${t} / `
-														)
+														return `${t} / `
 													}
 												})}
 											</li>
@@ -178,3 +170,4 @@ export default function DataBox({d, data}) {
 		</div>
     )
 }
+export default DataBox

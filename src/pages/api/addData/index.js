@@ -6,7 +6,7 @@ const q = faunadb.query
 const client = new faunadb.Client({secret})
 
 // 国データの設定
-import nationalDataAll from '../../../data/nationalData'
+import nationalDataAll from '../../../config/nationalData'
 
 export default async (req, res) => {
 
